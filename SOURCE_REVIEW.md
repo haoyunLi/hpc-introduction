@@ -13,13 +13,13 @@ Reviewed 27 October 2026 against the supplied ICC guide and Missing Semester, wi
 | GPU and named-node options | Slurm jobs, 29–30 | Decodes optional resource settings for projects that need them. |
 | Interactive compute allocation | Slurm jobs, 31 | Opens the compute shell that remains in use for Python software preparation. |
 | Prepare and verify the main Python environment | Software and packages, 32–36 | Loads Python, creates .venv, installs pandas, verifies the import, records versions, illustrates installation and activation lifetime, and returns to the login shell. |
-| Alternative R and Bioconductor route | Software and packages, 37–38 | Uses a separate allocated setup session, a writable R library, CRAN, and Bioconductor; identifies shell versus R prompts and the exit sequence. |
-| Alternative project-provided Conda environment | Software and packages, 39 | Recognizes another setup route, explains the environment file and name, and checks the import without nesting Conda in the main venv route. |
-| Prepare, submit, and follow the analysis job | Run and check, 40–42 | Reuses the tested setup, visibly submits analysis.sbatch, and reads the logs belonging to its new job ID. |
-| Verify and open the actual result | Run and check, 43–44 | Combines accounting, logs, and the expected CSV, then returns to VS Code to view or download it. |
-| Apply the routine to another project | Run and check, 45–46 | Shows the alternative R job body and what changes for bulk, single-cell, or spatial projects. |
-| Troubleshooting and the completed project | Run and check, 47–48 | Connects errors to checks and identifies how each final project file was created. |
-| References and support | Run and check, 49 | Gives a path to current system policy and account-specific assistance. |
+| Alternative R package setup | Software and packages, 37 | Uses a separate allocated setup session, a writable project library, one package installation and loading check, and the R-to-shell exit sequence. |
+| Alternative project-provided Conda environment | Software and packages, 38 | Recognizes another setup route, explains the environment file and name, and checks the import without nesting Conda in the main venv route. |
+| Prepare, submit, and follow the analysis job | Run and check, 39–41 | Reuses the tested setup, visibly submits analysis.sbatch, and reads the logs belonging to its new job ID. |
+| Verify and open the actual result | Run and check, 42–43 | Combines accounting, logs, and the expected CSV, then returns to VS Code to view or download it. |
+| Apply the routine to another project | Run and check, 44–45 | Shows the alternative R job body and what changes for bulk, single-cell, or spatial projects. |
+| Troubleshooting and the completed project | Run and check, 46–47 | Connects errors to checks and identifies how each final project file was created. |
+| References and support | Run and check, 48 | Gives a path to current system policy and account-specific assistance. |
 
 ## Findings from the supplied websites
 
@@ -42,7 +42,7 @@ Reviewed 27 October 2026 against the supplied ICC guide and Missing Semester, wi
 - Slurm directives belong before executable commands. `sbatch` interprets them; running the file directly with Bash does not submit a job.
 - A log subdirectory must exist before submission if it appears in an output filename. The introductory examples avoid that extra dependency by writing logs into the submission folder.
 - Package installation, environment activation, and importing/loading a package are separate actions. The job repeats setup, not installation.
-- R and Bioconductor versions must match. The current website’s newest version is not a reason to force an incompatible release onto a cluster R installation.
+- Use a compatible R version when returning to a project package library. Bioconductor installation and version matching are further-reading topics outside the simplified example.
 - VS Code file browsing, notebook viewing, and an allocated compute shell are different things. Starting an interactive Slurm shell does not move every VS Code execution feature to that node.
 
 ## Does the sequence work from zero?
@@ -79,7 +79,7 @@ The review asked whether a first-time listener could identify where to act, read
 
 The review preserves all original figures, the basic-command coverage, six horizontal topics with vertical slides, and the single demo calculation. Remaining uncertainties are account-specific values, available software versions, queue waiting, and installation behavior; the slides identify the values to confirm instead of presenting them as universal guarantees.
 
-The 49-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 23 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 25 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 35 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
+The 48-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 23 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 25 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 35 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
 
 ## Topics that need more teaching time
 
