@@ -1,0 +1,5 @@
+This is a small file for the lecturer to open in VS Code.
+The project folder is on the cluster.
+Editing and saving updates this remote file.
+The job script prints one short message.
+Its output can be opened in the same window.

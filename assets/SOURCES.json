@@ -1,0 +1,56 @@
+[
+  {
+    "file": "assets/icc-login.png",
+    "asset_url": "https://docs.ncsa.illinois.edu/systems/icc/en/latest/_images/icc-terminal-login.png",
+    "source_page": "https://docs.ncsa.illinois.edu/systems/icc/en/latest/user_guide/accessing.html",
+    "caption": "Official example login screenshot. Historical banner content.",
+    "accessed": "2026-10-27",
+    "credit": "NCSA / University of Illinois",
+    "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/cluster-photo.png",
+    "asset_url": "https://computes.illinois.edu/files/2024/07/resources_left.png",
+    "source_page": "https://computes.illinois.edu/",
+    "caption": "Official Illinois Computes resource photograph.",
+    "accessed": "2026-10-27",
+    "credit": "NCSA / University of Illinois",
+    "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/vscode-host.png",
+    "asset_url": "https://code.visualstudio.com/assets/docs/remote/ssh/ssh-user@box.png",
+    "source_page": "https://code.visualstudio.com/docs/remote/ssh",
+    "caption": "Microsoft example host selector.",
+    "accessed": "2026-10-27",
+    "credit": "Microsoft",
+    "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/vscode-folder.png",
+    "asset_url": "https://code.visualstudio.com/assets/docs/remote/ssh/ssh-open-folder.png",
+    "source_page": "https://code.visualstudio.com/docs/remote/ssh",
+    "caption": "Microsoft example remote folder selector.",
+    "accessed": "2026-10-27",
+    "credit": "Microsoft",
+    "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/icc-overview.png",
+    "asset_url": "https://docs.ncsa.illinois.edu/systems/icc/en/latest/_images/cc-diagram2.png",
+    "source_page": "https://docs.ncsa.illinois.edu/systems/icc/en/latest/getting_started.html",
+    "caption": "Campus Cluster usage overview. Official NCSA figure.",
+    "accessed": "2026-10-27",
+    "credit": "NCSA / University of Illinois",
+    "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/vscode-architecture.png",
+    "asset_url": "https://code.visualstudio.com/assets/docs/remote/ssh/architecture-ssh.png",
+    "source_page": "https://code.visualstudio.com/docs/remote/ssh",
+    "caption": "Microsoft Remote - SSH architecture.",
+    "accessed": "2026-10-27",
+    "credit": "Microsoft",
+    "rights": "Original owner retains rights; attributed educational use."
+  }
+]
