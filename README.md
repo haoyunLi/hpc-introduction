@@ -1,6 +1,6 @@
 # Getting started on the Illinois Campus Cluster
 
-An English lecture following one small data-analysis project from requesting access to checking its result. There are 50 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
+An English lecture following one small data-analysis project from requesting access to checking its result. There are 49 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
 
 ## Presentation and downloads
 
@@ -44,13 +44,13 @@ The main route follows `demo/data/samples.csv` through `analysis.py` to `demo/re
 
 The sequence chooses storage before uploading the supplied `demo/` folder through VS Code. It then uses everyday shell commands to inspect the same files, submits `hello.sbatch` to check scheduling, prepares Python and pandas in an interactive compute shell, verifies the import, records versions, explains why activation is specific to one shell, and returns to the login shell. The prepared project then continues with `analysis.sbatch`, its logs, and its result. Log-following commands are introduced when the analysis log exists. The illustrated hello and analysis job IDs are different.
 
-The shell material includes navigation, hidden files and listing options, folder creation, copying/moving/deleting, text previews, file and text search, line counts, disk usage, help, and shortcuts. GPU requests, email, output naming, node count, named nodes, and interactive compute sessions are retained.
+The shell material includes navigation, hidden files and listing options, folder creation, copying/moving/deleting, text previews, file and text search, line counts, disk usage, help, and shortcuts. GPU requests, node count, named nodes, and interactive compute sessions are retained. Output filenames are explained with the analysis job; email directives remain optional in the supplied templates.
 
 Use `demo/` for the continuous Python walkthrough. It starts with the input and saved scripts, without an environment or generated result. `examples/` contains the fuller set of templates, including R, Conda, and GPU alternatives. The R and Conda slides come after the Python setup has been verified and its compute shell has been closed. They explain choices for other projects, not commands to run in the returned login shell or extra steps for the Python walkthrough. Copy the relevant alternative files into a separate project and obtain a separate suitable compute allocation when demonstrating those routes.
 
 The beginner review makes local versus remote actions, command prompts, placeholders, option meanings, and expected results explicit. It also distinguishes commands to run in sequence from optional reference commands such as cancellation or leaving a shell.
 
-Four simple diagrams explain local versus remote work (slide 7), login versus compute nodes with shared project storage (slide 23), nodes, tasks, and CPUs per task (slide 25), and installation versus activation (slide 36). They use the same `demo/` project and retain all official diagrams and screenshots. The installation diagram shows persistent package files separately from the environment selected by each shell or job.
+Four simple diagrams explain local versus remote work (slide 7), login versus compute nodes with shared project storage (slide 23), nodes, tasks, and CPUs per task (slide 25), and installation versus activation (slide 35). They use the same `demo/` project and retain all official diagrams and screenshots. The installation diagram shows persistent package files separately from the environment selected by each shell or job.
 
 All data are synthetic. The programs are not research-analysis pipelines or resource recommendations. Replace allocation, queue, GPU, node, and email placeholders before an authorized live run. Use the actual returned job IDs instead of the illustrative IDs on the slides.
 

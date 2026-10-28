@@ -395,7 +395,7 @@
   {
     "title": "Check the first job\u2019s message",
     "body": "<div class=\"code-label\">-j selects the job; --format chooses the displayed columns</div><pre class=\"\"><code>sacct -j 123456 --format=JobID,State,ExitCode</code></pre><div class=\"code-label\">Illustrative successful record</div><pre class=\"\"><code>JobID    State       ExitCode\n123456   COMPLETED   0:0</code></pre><p class=\"small\"><code>0:0</code> means exit status 0 and no terminating signal. Use your actual job ID.</p><div class=\"code-label\">Expected text: My first HPC job</div><pre class=\"\"><code>cat slurm-123456.out</code></pre><p class=\"callout\">Continue when the job has completed and the expected message is present.</p>",
-    "notes": "sacct reads accounting information for the selected job. -j identifies the job ID, and --format lists the column names to display, separated by commas without spaces. JobID identifies the job, State says what happened, and ExitCode reports exit status followed by terminating signal. 0:0 means the process reported success and no terminating signal was recorded.\n\nThe table is an illustrative single row; real output may also show .batch and .extern step rows. Check the relevant job and batch step rather than assuming every extra row is another submission. Accounting information can take a short time to appear. If it has not appeared, check again after the job finishes.\n\nhello.sbatch has no custom output options, so ordinary output and error messages share slurm-JOBID.out in the submission folder. cat should display My first HPC job. The slide shows the expected result, not a live ICC record. If the state or message differs, inspect the error before proceeding. Next see the output settings that the supplied analysis job already uses.",
+    "notes": "sacct reads accounting information for the selected job. -j identifies the job ID, and --format lists the column names to display, separated by commas without spaces. JobID identifies the job, State says what happened, and ExitCode reports exit status followed by terminating signal. 0:0 means the process reported success and no terminating signal was recorded.\n\nThe table is an illustrative single row; real output may also show .batch and .extern step rows. Check the relevant job and batch step rather than assuming every extra row is another submission. Accounting information can take a short time to appear. If it has not appeared, check again after the job finishes.\n\nhello.sbatch has no custom output options, so ordinary output and error messages share slurm-JOBID.out in the submission folder. cat should display My first HPC job. The slide shows the expected result, not a live ICC record. If the state or message differs, inspect the error before proceeding. Next see two optional resource choices: GPUs and named nodes. The tiny demo keeps its existing CPU settings.",
     "sources": [
       "sbatch",
       "sacct",
@@ -409,20 +409,6 @@
     "anchor": "3/5"
   },
   {
-    "title": "Output files and email notifications",
-    "body": "<div class=\"code-label\">In analysis.sbatch, before executable commands</div><pre class=\"\"><code>#SBATCH --output=analysis-%j.out\n#SBATCH --error=analysis-%j.err\n#SBATCH --mail-type=END,FAIL\n#SBATCH --mail-user=YOUR_NETID@illinois.edu</code></pre><table class=\"\"><thead><tr><th>Setting</th><th>Meaning</th></tr></thead><tbody><tr><td>--output / --error</td><td>Files for ordinary output / diagnostic and error output</td></tr><tr><td>%j</td><td>Replace with the job ID: analysis-123457.out</td></tr><tr><td>--mail-type=END,FAIL</td><td>Ask for notification at job end or failure</td></tr><tr><td>--mail-user</td><td>The recipient; use your address or remove both mail lines</td></tr></tbody></table>",
-    "notes": "These lines are already present in the supplied analysis.sbatch template. Explain them before that job is submitted; do not edit the completed hello job or duplicate the directives. --output and --error select filenames. Programs may send normal diagnostic messages to the error stream, so a nonempty .err file alone does not prove failure. %j is a Slurm filename token, not a shell variable.\n\nEND and FAIL are comma-separated event types. --mail-user gives the recipient address. Replace the placeholder or remove both mail directives. Email depends on site configuration, and an end notification is not proof that the output is scientifically correct. Plain filenames place the logs in the submission folder; if a log subfolder is used, create it before sbatch because Slurm opens the log before the script runs. Next are two optional resource choices for projects that need them; the tiny demo stays with its existing CPU settings.",
-    "sources": [
-      "sbatch"
-    ],
-    "section": "Slurm jobs",
-    "cls": "compact",
-    "index": 28,
-    "h": 3,
-    "v": 6,
-    "anchor": "3/6"
-  },
-  {
     "title": "When the analysis needs a GPU",
     "body": "<div class=\"code-label\">Optional GPU job: use a valid partition and configured GPU type</div><pre class=\"\"><code>#SBATCH --partition=YOUR_GPU_PARTITION\n#SBATCH --gres=gpu:GPU_TYPE:1</code></pre><div class=\"code-label\">Inside an allocated NVIDIA GPU job</div><pre class=\"\"><code>nvidia-smi</code></pre><div class=\"rows\"><div class=\"row\"><strong>--gres</strong><span>Request a generic resource; here gpu:TYPE:COUNT.</span></div><div class=\"row\"><strong>GPU_TYPE / final 1</strong><span>The configured GPU type / one GPU per allocated node.</span></div></div><p class=\"callout\">The tiny demo needs no GPU. Add this only for software that supports and uses one.</p>",
     "notes": "A GPU allocation requires an eligible partition and account. ICC documents typed requests such as gpu:V100:1; that example is not a guarantee of availability in a particular allocation. Use the type and count your group can access. Requesting a GPU does not move an ordinary CPU-only program onto it.\n\nnvidia-smi can confirm the NVIDIA GPU visible inside an allocated job. GPU device memory is different from the CPU RAM requested with --mem. Software may also need a compatible CUDA or framework installation; use its documented environment. Do not add a GPU just because the data are single-cell or spatial.",
@@ -432,10 +418,10 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 29,
+    "index": 28,
     "h": 3,
-    "v": 7,
-    "anchor": "3/7"
+    "v": 6,
+    "anchor": "3/6"
   },
   {
     "title": "When a particular node is required",
@@ -447,10 +433,10 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 30,
+    "index": 29,
     "h": 3,
-    "v": 8,
-    "anchor": "3/8"
+    "v": 7,
+    "anchor": "3/7"
   },
   {
     "title": "Get a compute shell for software setup",
@@ -462,10 +448,10 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 31,
+    "index": 30,
     "h": 3,
-    "v": 9,
-    "anchor": "3/9"
+    "v": 8,
+    "anchor": "3/8"
   },
   {
     "title": "Make Python available in the compute shell",
@@ -476,7 +462,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 32,
+    "index": 31,
     "h": 4,
     "v": 0,
     "anchor": "4/0"
@@ -492,7 +478,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 33,
+    "index": 32,
     "h": 4,
     "v": 1,
     "anchor": "4/1"
@@ -508,7 +494,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 34,
+    "index": 33,
     "h": 4,
     "v": 2,
     "anchor": "4/2"
@@ -523,7 +509,7 @@
     ],
     "section": "Software and packages",
     "cls": "concept-slide",
-    "index": 35,
+    "index": 34,
     "h": 4,
     "v": 3,
     "anchor": "4/3"
@@ -538,7 +524,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 36,
+    "index": 35,
     "h": 4,
     "v": 4,
     "anchor": "4/4"
@@ -553,7 +539,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 37,
+    "index": 36,
     "h": 4,
     "v": 5,
     "anchor": "4/5"
@@ -569,7 +555,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 38,
+    "index": 37,
     "h": 4,
     "v": 6,
     "anchor": "4/6"
@@ -584,7 +570,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 39,
+    "index": 38,
     "h": 4,
     "v": 7,
     "anchor": "4/7"
@@ -592,7 +578,7 @@
   {
     "title": "Prepare analysis.sbatch for the same project",
     "body": "<div class=\"cols \"><div><div class=\"code-label\">1 \u00b7 Beginning of analysis.sbatch</div><pre class=\"\"><code>#!/bin/bash\n#SBATCH --job-name=analysis\n#SBATCH --account=YOUR_ACCOUNT\n#SBATCH --partition=YOUR_PARTITION\n#SBATCH --nodes=1\n#SBATCH --ntasks=1\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=1G\n#SBATCH --time=00:05:00</code></pre></div><div><div class=\"code-label\">2 \u00b7 Continue in the same file, after the left column</div><pre class=\"\"><code>#SBATCH --output=analysis-%j.out\n#SBATCH --error=analysis-%j.err\n\nset -e\nmodule load python/3.11.11\nsource .venv/bin/activate\npython analysis.py</code></pre></div></div><p class=\"callout\">set -e stops this script if setup fails. Replace placeholders and save the file before submitting.</p>",
-    "notes": "Read the two columns as one file: the left column first, followed by the right column. All #SBATCH directives precede executable commands. This is the same one-node, one-task, one-CPU, one-GiB tiny demonstration as the supplied file. Larger research workflows need their own resource estimates. The supplied template also contains optional email directives; replace the address or remove those two lines.\n\nThe lower part repeats the module and activation that passed the import check. set -e stops the shell script if setup fails. python analysis.py reads the same data/samples.csv and will write results/summary.csv. Package installation is not repeated. Save the file in VS Code. The next slide submits this analysis job, which is different from the earlier hello job.",
+    "notes": "Read the two columns as one file: the left column first, followed by the right column. All #SBATCH directives precede executable commands. This is the same one-node, one-task, one-CPU, one-GiB tiny demonstration as the supplied file. Larger research workflows need their own resource estimates. The output and error directives select the two log filenames; Slurm replaces %j with the job ID. These plain filenames put logs in the submission folder. The supplied template also contains optional email directives: --mail-type=END,FAIL requests messages when the job ends or fails, and --mail-user sets the recipient. Replace the address or remove both mail lines.\n\nThe lower part repeats the module and activation that passed the import check. set -e stops the shell script if setup fails. python analysis.py reads the same data/samples.csv and will write results/summary.csv. Package installation is not repeated. Save the file in VS Code. The next slide submits this analysis job, which is different from the earlier hello job.",
     "sources": [
       "software",
       "sbatch",
@@ -600,7 +586,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 40,
+    "index": 39,
     "h": 5,
     "v": 0,
     "anchor": "5/0"
@@ -615,7 +601,7 @@
     ],
     "section": "Run and check",
     "cls": "",
-    "index": 41,
+    "index": 40,
     "h": 5,
     "v": 1,
     "anchor": "5/1"
@@ -631,7 +617,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 42,
+    "index": 41,
     "h": 5,
     "v": 2,
     "anchor": "5/2"
@@ -646,7 +632,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 43,
+    "index": 42,
     "h": 5,
     "v": 3,
     "anchor": "5/3"
@@ -664,7 +650,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 44,
+    "index": 43,
     "h": 5,
     "v": 4,
     "anchor": "5/4"
@@ -679,7 +665,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 45,
+    "index": 44,
     "h": 5,
     "v": 5,
     "anchor": "5/5"
@@ -691,7 +677,7 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 46,
+    "index": 45,
     "h": 5,
     "v": 6,
     "anchor": "5/6"
@@ -707,7 +693,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 47,
+    "index": 46,
     "h": 5,
     "v": 7,
     "anchor": "5/7"
@@ -719,7 +705,7 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 48,
+    "index": 47,
     "h": 5,
     "v": 8,
     "anchor": "5/8"
@@ -731,7 +717,7 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 49,
+    "index": 48,
     "h": 5,
     "v": 9,
     "anchor": "5/9"

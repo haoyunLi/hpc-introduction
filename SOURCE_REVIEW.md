@@ -10,16 +10,16 @@ Reviewed 27 October 2026 against the supplied ICC guide and Missing Semester, wi
 | Local VS Code setup, storage choice, connection, and upload | Files in VS Code, 6–13 | Installs the interface, illustrates local versus remote work, selects the destination before uploading demo, and identifies the files that now exist remotely. |
 | Everyday Unix commands for the uploaded project | Shell essentials, 14–22 | Command structure, paths, ls options, mkdir/cp/mv/rm, text previews, find/grep/wc/du, help and shortcuts. |
 | A first batch job, including its result | Slurm jobs, 23–28 | Illustrates login and compute roles with shared storage, explains resources, submits hello.sbatch, checks the queue, and opens the expected message before adding analysis software. |
-| Log naming, email, GPU, and named-node options | Slurm jobs, 29–31 | Decodes useful settings while distinguishing optional requests from the tiny CPU example. |
-| Interactive compute allocation | Slurm jobs, 32 | Opens the compute shell that remains in use for Python software preparation. |
-| Prepare and verify the main Python environment | Software and packages, 33–37 | Loads Python, creates .venv, installs pandas, verifies the import, records versions, illustrates installation and activation lifetime, and returns to the login shell. |
-| Alternative R and Bioconductor route | Software and packages, 38–39 | Uses a separate allocated setup session, a writable R library, CRAN, and Bioconductor; identifies shell versus R prompts and the exit sequence. |
-| Alternative project-provided Conda environment | Software and packages, 40 | Recognizes another setup route, explains the environment file and name, and checks the import without nesting Conda in the main venv route. |
-| Prepare, submit, and follow the analysis job | Run and check, 41–43 | Reuses the tested setup, visibly submits analysis.sbatch, and reads the logs belonging to its new job ID. |
-| Verify and open the actual result | Run and check, 44–45 | Combines accounting, logs, and the expected CSV, then returns to VS Code to view or download it. |
-| Apply the routine to another project | Run and check, 46–47 | Shows the alternative R job body and what changes for bulk, single-cell, or spatial projects. |
-| Troubleshooting and the completed project | Run and check, 48–49 | Connects errors to checks and identifies how each final project file was created. |
-| References and support | Run and check, 50 | Gives a path to current system policy and account-specific assistance. |
+| GPU and named-node options | Slurm jobs, 29–30 | Decodes optional resource settings for projects that need them. |
+| Interactive compute allocation | Slurm jobs, 31 | Opens the compute shell that remains in use for Python software preparation. |
+| Prepare and verify the main Python environment | Software and packages, 32–36 | Loads Python, creates .venv, installs pandas, verifies the import, records versions, illustrates installation and activation lifetime, and returns to the login shell. |
+| Alternative R and Bioconductor route | Software and packages, 37–38 | Uses a separate allocated setup session, a writable R library, CRAN, and Bioconductor; identifies shell versus R prompts and the exit sequence. |
+| Alternative project-provided Conda environment | Software and packages, 39 | Recognizes another setup route, explains the environment file and name, and checks the import without nesting Conda in the main venv route. |
+| Prepare, submit, and follow the analysis job | Run and check, 40–42 | Reuses the tested setup, visibly submits analysis.sbatch, and reads the logs belonging to its new job ID. |
+| Verify and open the actual result | Run and check, 43–44 | Combines accounting, logs, and the expected CSV, then returns to VS Code to view or download it. |
+| Apply the routine to another project | Run and check, 45–46 | Shows the alternative R job body and what changes for bulk, single-cell, or spatial projects. |
+| Troubleshooting and the completed project | Run and check, 47–48 | Connects errors to checks and identifies how each final project file was created. |
+| References and support | Run and check, 49 | Gives a path to current system policy and account-specific assistance. |
 
 ## Findings from the supplied websites
 
@@ -79,7 +79,7 @@ The review asked whether a first-time listener could identify where to act, read
 
 The review preserves all original figures, the basic-command coverage, six horizontal topics with vertical slides, and the single demo calculation. Remaining uncertainties are account-specific values, available software versions, queue waiting, and installation behavior; the slides identify the values to confirm instead of presenting them as universal guarantees.
 
-The 50-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 23 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 25 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 36 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
+The 49-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 23 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 25 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 35 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
 
 ## Topics that need more teaching time
 
