@@ -19,7 +19,7 @@ samples,total_reads
 4. Replace the account and partition placeholders in `hello.sbatch`, save, and submit `sbatch hello.sbatch`. Use the returned ID with `squeue`/`sacct` and read `slurm-JOBID.out`. Expect `My first HPC job`.
 5. Obtain an interactive compute shell with the valid allocation and suitable resources. Stay in the remote `demo` folder. Check the available Python module, load it, create `.venv`, activate it, and install pandas. Wait for installation to finish and the shell prompt to return.
 6. In that same shell, check that importing pandas prints its version without an error, then record installed versions. Type `exit` once to return from the allocated shell to the login shell, and confirm `hostname` and `pwd`. No summary result should exist yet. The environment files remain; activation belongs only to the shell that activated them.
-7. Configure `analysis.sbatch` with the allocation and the same Python module. Save and submit `sbatch analysis.sbatch` from `demo`.
+7. Configure `analysis.sbatch` with the allocation and the same Python module. Replace the email address or remove both mail directives. Save and submit `sbatch analysis.sbatch` from `demo`.
 8. Use this new job ID for `analysis-JOBID.out`, `analysis-JOBID.err`, and `sacct`. After successful completion, check `results/summary.csv` against the expected contents above.
 9. Open the result in VS Code. Download it through Explorer only if a local copy is useful.
 
@@ -45,7 +45,7 @@ hostname
 pwd
 ```
 
-The lecture completes this Python install → verify → exit sequence without switching environments. After the Python result is verified, the lecture presents a separate R alternative. Conda instructions remain in `examples/README.md` for projects that require them. These alternatives are not needed for this minimal demo. In the R alternative, `q(save = "no")` leaves the R console before `exit` releases its allocated shell.
+The lecture completes this Python install → verify → exit sequence without switching environments. Its later R and Conda pages are alternatives for other projects. Their extra files are in `examples/`; they are not needed for this minimal demo. In the R alternative, `q(save = "no")` leaves the R console before `exit` releases its allocated shell.
 
 The shown module is the lecture example. Verify its availability and keep the chosen compatible version consistent between setup and `analysis.sbatch`. Do not copy a laptop virtual environment onto the cluster.
 

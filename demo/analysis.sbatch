@@ -9,6 +9,8 @@
 #SBATCH --time=00:05:00
 #SBATCH --output=analysis-%j.out
 #SBATCH --error=analysis-%j.err
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=YOUR_NETID@illinois.edu
 
 # Stop if a setup command fails. Submit from this project folder.
 set -e

@@ -251,5 +251,3 @@ dialog::backdrop{background:#0c1b2dcc}
 .listing-examples td{padding-left:10px;padding-right:10px}
 .listing-examples td:first-child{white-space:nowrap}
 #tools #github-profile-link{border:1px solid #68839b;border-radius:4px}
-
-.reveal .upload-workflow .folder-image img{max-width:100%;height:auto}
