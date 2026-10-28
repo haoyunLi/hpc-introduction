@@ -241,3 +241,13 @@ dialog::backdrop{background:#0c1b2dcc}
 .resource-demo>strong{display:block;font-size:23px;color:var(--navy);margin-bottom:13px}
 .resource-demo>div{display:grid;grid-template-columns:auto 1fr auto 1.45fr;gap:14px;align-items:baseline;font-size:19px;color:#3a5066}
 .resource-demo code{font:19px "SFMono-Regular",Consolas,monospace;color:var(--teal);font-weight:650;white-space:nowrap}
+
+.terminal-command{color:#ffbd99;font-weight:650}
+.navigation-examples .cols{align-items:center}
+.navigation-examples pre{font-size:22px;line-height:1.25;padding:18px 22px}
+.listing-examples .cols{grid-template-columns:350px minmax(0,1fr);gap:38px}
+.listing-examples pre{font-size:22px;line-height:1.4;padding:18px 22px}
+.listing-examples table{font-size:23px}
+.listing-examples td{padding-left:10px;padding-right:10px}
+.listing-examples td:first-child{white-space:nowrap}
+#tools #github-profile-link{border:1px solid #68839b;border-radius:4px}

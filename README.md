@@ -24,6 +24,7 @@ Open `index.html` in a desktop browser. The presentation, official diagrams and 
 - L / Laser: toggle a red laser pointer that follows the mouse, including in full screen
 - Esc: view the topic stacks
 - Click a line of the small batch script: read its explanation
+- GitHub button in the bottom toolbar: open [Haoyun Li’s profile](https://github.com/haoyunLi)
 
 The six topics are Access, Files in VS Code, Shell essentials, Slurm jobs, Software and packages, and Run and check. Use Contents to navigate directly; there is no course-map slide. The PDF follows the same order, flattening each vertical topic into consecutive pages. The ten line explanations for `hello.sbatch` are printed in the PDF as well as available interactively in the browser.
 
