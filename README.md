@@ -1,6 +1,6 @@
 # Getting started on the Illinois Campus Cluster
 
-An English lecture following one small data-analysis project from requesting access to checking its result. There are 46 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
+An English beginner lecture covering account access, remote file management, everyday shell commands, software setup, job submission, and reading outputs. There are 41 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
 
 ## Presentation and downloads
 
@@ -40,17 +40,17 @@ Then open `http://127.0.0.1:8765/`. Double-click presentation and in-window note
 
 ## Scope
 
-The main route follows `demo/data/samples.csv` through `analysis.py` to `demo/results/summary.csv`. The input has three sample rows containing 1000, 1500, and 1200 reads. The expected result is 3 samples and 3700 total reads. That goal appears near the beginning and is checked again after the analysis job.
+The slides focus on practical HPC operations. Small files in `demo/` supply concrete paths and commands; the separate example-goal, file-inventory, numerical-result, and completed-project pages have been removed. The complete runnable example and its expected output remain documented in `demo/README.md`.
 
-The sequence chooses storage before uploading the supplied `demo/` folder through VS Code. It then uses everyday shell commands to inspect the same files, submits `hello.sbatch` to check scheduling, prepares Python and pandas in an interactive compute shell, verifies the import, records versions, explains why activation is specific to one shell, and returns to the login shell. The prepared project then continues with `analysis.sbatch`, its logs, and its result. Log-following commands are introduced when the analysis log exists. The illustrated hello and analysis job IDs are different.
+The sequence chooses storage before uploading a folder through VS Code, then introduces everyday shell commands, a small batch script, resource options, and software setup. A brief reminder beside the environment diagram explains how to leave the compute shell. Job preparation and submission lead directly to following logs and opening outputs in VS Code. Log-following commands are introduced when the log exists; the illustrated hello and analysis job IDs are different.
 
 The shell material includes navigation, hidden files and listing options, folder creation, copying/moving/deleting, text previews, file and text search, line counts, disk usage, help, and shortcuts. GPU requests, node count, named nodes, and interactive compute sessions are retained. Output filenames and optional email directives have their own explanation page and remain in the supplied templates.
 
-Use `demo/` for the continuous Python walkthrough. It starts with the input and saved scripts, without an environment or generated result. `examples/` contains the fuller set of templates, including R, Conda, and GPU alternatives. The Conda alternative follows the completed Python setup and uses its own allocated setup session. The R job example appears after the main result check and uses base R without additional package installation. Copy the relevant alternative files into their intended remote project; neither route is an extra step for the Python walkthrough.
+Use `demo/` for the continuous Python walkthrough. It starts with the input and saved scripts, without an environment or generated result. `examples/` contains the fuller set of templates, including R, Conda, and GPU alternatives. The Conda alternative follows the completed Python setup and uses its own allocated setup session. The R job example appears after opening outputs in VS Code and uses base R without additional package installation. Copy the relevant alternative files into their intended remote project; neither route is an extra step for the Python walkthrough.
 
 The beginner review makes local versus remote actions, command prompts, placeholders, option meanings, and expected results explicit. It also distinguishes commands to run in sequence from optional reference commands such as cancellation or leaving a shell.
 
-Four simple diagrams explain local versus remote work (slide 7), login versus compute nodes with shared project storage (slide 23), nodes, tasks, and CPUs per task (slide 25), and installation versus activation (slide 35). They use the same `demo/` project and retain all official diagrams and screenshots. The installation diagram shows persistent package files separately from the environment selected by each shell or job.
+Four simple diagrams explain local versus remote work (slide 6), login versus compute nodes with shared project storage (slide 21), nodes, tasks, and CPUs per task (slide 23), and installation versus activation (slide 33). They use the same `demo/` project and retain all official diagrams and screenshots. The installation diagram shows persistent package files separately from the environment selected by each shell or job.
 
 All data are synthetic. The programs are not research-analysis pipelines or resource recommendations. Replace allocation, queue, GPU, node, and email placeholders before an authorized live run. Use the actual returned job IDs instead of the illustrative IDs on the slides.
 

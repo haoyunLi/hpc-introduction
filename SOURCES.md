@@ -23,7 +23,6 @@ Reviewed 27 October 2026. Independent educational adaptation.
 - [Microsoft · Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 - [SchedMD · sbatch](https://slurm.schedmd.com/sbatch.html)
 - [SchedMD · srun](https://slurm.schedmd.com/srun.html)
-- [SchedMD · sacct](https://slurm.schedmd.com/sacct.html)
 - [SchedMD · Job states](https://slurm.schedmd.com/job_state_codes.html)
 - [Illinois Computes · Official photograph](https://computes.illinois.edu/)
 - [Python Packaging · pip and venv](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)

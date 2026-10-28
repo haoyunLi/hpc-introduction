@@ -14,18 +14,6 @@
     "anchor": "0/0"
   },
   {
-    "title": "One small analysis from input to result",
-    "body": "<div class=\"cols \"><div><div class=\"code-label\">Input: data/samples.csv</div><pre class=\"\"><code>sample_id,reads\nsample_A,1000\nsample_B,1500\nsample_C,1200</code></pre></div><div><div class=\"code-label\">Expected result: results/summary.csv</div><pre class=\"\"><code>samples,total_reads\n3,3700</code></pre></div></div><div class=\"rows\"><div class=\"row\"><strong>The program</strong><span>analysis.py reads the table and adds the reads.</span></div><div class=\"row\"><strong>The job file</strong><span>analysis.sbatch asks Slurm, the job scheduler, to run it.</span></div></div><p class=\"callout\">We will move this project onto the cluster and produce this result.</p>",
-    "notes": "The lecture follows one small project all the way through. Start with the input on the left. There are three sample rows. Adding 1000, 1500, and 1200 gives 3700. The desired output on the right contains the sample count and total reads. These are synthetic values, not research results.\n\nThe Python file contains the calculation; the Slurm file arranges its execution on the cluster. Neither file has run yet. Keep these filenames throughout the lecture. The next figure explains where the files and program will live when we move the project off the laptop.",
-    "sources": [],
-    "section": "Access",
-    "cls": "",
-    "index": 1,
-    "h": 0,
-    "v": 1,
-    "anchor": "0/1"
-  },
-  {
     "title": "Your laptop, the login node, and the compute node",
     "body": "<figure class=\"overview-image\"><img src=\"assets/icc-overview.png\" alt=\"Official NCSA Campus Cluster usage overview\"><figcaption>HPC = high-performance computing. A node is one computer. Login: prepare files. Compute: run scheduled analysis.</figcaption></figure>",
     "notes": "HPC means high-performance computing. Follow the official figure from the researcher\u2019s laptop to the head node, also called a login node. The job arrow leads to the compute nodes. Shared storage lets both stages reach the project files. A node is one computer.\n\nWalkthrough: point to the laptop, login/head node, job arrow, compute nodes, and storage in that order. The detailed labels are references; focus the explanation on connect, submit, and read the result. Opening VS Code does not itself allocate a compute node. Use the login connection for file work and short lightweight checks, and scheduled resources for substantial analysis.",
@@ -35,10 +23,10 @@
     ],
     "section": "Access",
     "cls": "image-slide",
-    "index": 2,
+    "index": 1,
     "h": 0,
-    "v": 2,
-    "anchor": "0/2"
+    "v": 1,
+    "anchor": "0/1"
   },
   {
     "title": "Account access and the details you need",
@@ -52,10 +40,10 @@
     ],
     "section": "Access",
     "cls": "",
-    "index": 3,
+    "index": 2,
     "h": 0,
-    "v": 3,
-    "anchor": "0/3"
+    "v": 2,
+    "anchor": "0/2"
   },
   {
     "title": "The first SSH login",
@@ -66,10 +54,10 @@
     ],
     "section": "Access",
     "cls": "compact",
-    "index": 4,
+    "index": 3,
     "h": 0,
-    "v": 4,
-    "anchor": "0/4"
+    "v": 3,
+    "anchor": "0/3"
   },
   {
     "title": "The local editor and the remote project",
@@ -80,7 +68,7 @@
     ],
     "section": "Files in VS Code",
     "cls": "",
-    "index": 5,
+    "index": 4,
     "h": 1,
     "v": 0,
     "anchor": "1/0"
@@ -95,7 +83,7 @@
     ],
     "section": "Files in VS Code",
     "cls": "concept-slide",
-    "index": 6,
+    "index": 5,
     "h": 1,
     "v": 1,
     "anchor": "1/1"
@@ -110,7 +98,7 @@
     ],
     "section": "Files in VS Code",
     "cls": "",
-    "index": 7,
+    "index": 6,
     "h": 1,
     "v": 2,
     "anchor": "1/2"
@@ -125,7 +113,7 @@
     ],
     "section": "Files in VS Code",
     "cls": "compact",
-    "index": 8,
+    "index": 7,
     "h": 1,
     "v": 3,
     "anchor": "1/3"
@@ -139,7 +127,7 @@
     ],
     "section": "Files in VS Code",
     "cls": "",
-    "index": 9,
+    "index": 8,
     "h": 1,
     "v": 4,
     "anchor": "1/4"
@@ -153,7 +141,7 @@
     ],
     "section": "Files in VS Code",
     "cls": "compact",
-    "index": 10,
+    "index": 9,
     "h": 1,
     "v": 5,
     "anchor": "1/5"
@@ -161,7 +149,7 @@
   {
     "title": "Upload the demo folder with VS Code",
     "body": "<div class=\"rows\"><div class=\"row\"><strong>On the laptop</strong><span>Unzip the offline package; find HPC_Introduction/demo.</span></div><div class=\"row\"><strong>Upload</strong><span>Drag demo into the remote Explorer destination.</span></div><div class=\"row\"><strong>Open the project</strong><span>File \u2192 Open Folder \u2192 /projects/YOUR_GROUP/demo</span></div><div class=\"row\"><strong>Check a file</strong><span>Open data/samples.csv and look for the three sample rows.</span></div></div><p class=\"callout\">Wait for the transfer to finish. The input and scripts now live on the cluster.</p>",
-    "notes": "First unzip HPC_Introduction_Offline.zip on the laptop. Inside the extracted HPC_Introduction folder, find demo. Its input and scripts are already supplied; listeners do not need to write or invent them. The offline package includes a small demo folder containing only the files for the main Python route. Drag that folder into the remote Explorer directory, not onto an editor tab. When the upload is complete, use Open Folder again to select the new demo directory. Expand data and open samples.csv. It should match the input introduced at the start.\n\nFor an edit, save with Cmd+S or Ctrl+S; that updates the remote file directly. No download-edit-upload cycle is needed. This small GUI transfer is suitable for the lecture\u2019s scripts and tiny input. For a large dataset use the group\u2019s recommended service, commonly Globus, and check transfer completion before starting analysis. We can now identify each project file before using the terminal.",
+    "notes": "First unzip HPC_Introduction_Offline.zip on the laptop. Inside the extracted HPC_Introduction folder, find demo. Its input and scripts are already supplied; listeners do not need to write or invent them. The offline package includes a small demo folder containing only the files for the main Python route. Drag that folder into the remote Explorer directory, not onto an editor tab. When the upload is complete, use Open Folder again to select the new demo directory. Expand data and open samples.csv. Confirm that the uploaded file opens in the remote editor.\n\nFor an edit, save with Cmd+S or Ctrl+S; that updates the remote file directly. No download-edit-upload cycle is needed. This small GUI transfer is suitable for the lecture\u2019s scripts and tiny input. For a large dataset use the group\u2019s recommended service, commonly Globus, and check transfer completion before starting analysis. Next open a new remote terminal in this same project folder.",
     "sources": [
       "vscode",
       "transfer",
@@ -169,22 +157,10 @@
     ],
     "section": "Files in VS Code",
     "cls": "compact",
-    "index": 11,
+    "index": 10,
     "h": 1,
     "v": 6,
     "anchor": "1/6"
-  },
-  {
-    "title": "The files now in the remote demo folder",
-    "body": "<div class=\"cols \"><div><div class=\"code-label\">Uploaded files</div><pre class=\"\"><code>demo/\n  data/samples.csv\n  analysis.py\n  analysis.sbatch\n  hello.sbatch\n  notes.txt\n  README.md</code></pre></div><div><div class=\"rows\"><div class=\"row\"><strong>data/samples.csv</strong><span>The same three-row input table</span></div><div class=\"row\"><strong>analysis.py</strong><span>The calculation we want to run</span></div><div class=\"row\"><strong>hello.sbatch</strong><span>A first job that checks submission</span></div><div class=\"row\"><strong>analysis.sbatch</strong><span>The job that will run the calculation</span></div></div></div></div><p class=\"callout\">The results folder and Python environment will be created in later steps.</p>",
-    "notes": "Point to these exact files in Explorer. The supplied demo directory contains all of them; no program or job has been run yet. notes.txt is a disposable file for learning file operations. README.md explains the example. The two job files have different purposes: hello tests the submission mechanism, and analysis runs the actual tiny calculation.\n\nThere is no results folder or .venv environment in a fresh copy. We will create these as the lecture progresses. The terminal and Explorer must refer to this same directory. Next open VS Code\u2019s Terminal menu and choose New Terminal.",
-    "sources": [],
-    "section": "Files in VS Code",
-    "cls": "",
-    "index": 12,
-    "h": 1,
-    "v": 7,
-    "anchor": "1/7"
   },
   {
     "title": "Open a terminal in the same project",
@@ -195,7 +171,7 @@
     ],
     "section": "Shell essentials",
     "cls": "",
-    "index": 13,
+    "index": 11,
     "h": 2,
     "v": 0,
     "anchor": "2/0"
@@ -210,7 +186,7 @@
     ],
     "section": "Shell essentials",
     "cls": "",
-    "index": 14,
+    "index": 12,
     "h": 2,
     "v": 1,
     "anchor": "2/1"
@@ -224,7 +200,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact navigation-examples",
-    "index": 15,
+    "index": 13,
     "h": 2,
     "v": 2,
     "anchor": "2/2"
@@ -239,7 +215,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact listing-examples",
-    "index": 16,
+    "index": 14,
     "h": 2,
     "v": 3,
     "anchor": "2/3"
@@ -254,7 +230,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 17,
+    "index": 15,
     "h": 2,
     "v": 4,
     "anchor": "2/4"
@@ -269,7 +245,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 18,
+    "index": 16,
     "h": 2,
     "v": 5,
     "anchor": "2/5"
@@ -284,7 +260,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 19,
+    "index": 17,
     "h": 2,
     "v": 6,
     "anchor": "2/6"
@@ -299,7 +275,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 20,
+    "index": 18,
     "h": 2,
     "v": 7,
     "anchor": "2/7"
@@ -314,7 +290,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 21,
+    "index": 19,
     "h": 2,
     "v": 8,
     "anchor": "2/8"
@@ -330,7 +306,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "concept-slide",
-    "index": 22,
+    "index": 20,
     "h": 3,
     "v": 0,
     "anchor": "3/0"
@@ -344,7 +320,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "beginner-script",
-    "index": 23,
+    "index": 21,
     "h": 3,
     "v": 1,
     "anchor": "3/1"
@@ -358,7 +334,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "concept-slide resource-slide",
-    "index": 24,
+    "index": 22,
     "h": 3,
     "v": 2,
     "anchor": "3/2"
@@ -372,7 +348,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 25,
+    "index": 23,
     "h": 3,
     "v": 3,
     "anchor": "3/3"
@@ -387,7 +363,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 26,
+    "index": 24,
     "h": 3,
     "v": 4,
     "anchor": "3/4"
@@ -401,7 +377,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 27,
+    "index": 25,
     "h": 3,
     "v": 5,
     "anchor": "3/5"
@@ -416,7 +392,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 28,
+    "index": 26,
     "h": 3,
     "v": 6,
     "anchor": "3/6"
@@ -431,7 +407,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 29,
+    "index": 27,
     "h": 3,
     "v": 7,
     "anchor": "3/7"
@@ -446,7 +422,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 30,
+    "index": 28,
     "h": 3,
     "v": 8,
     "anchor": "3/8"
@@ -460,7 +436,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 31,
+    "index": 29,
     "h": 4,
     "v": 0,
     "anchor": "4/0"
@@ -476,7 +452,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 32,
+    "index": 30,
     "h": 4,
     "v": 1,
     "anchor": "4/1"
@@ -492,40 +468,25 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 33,
+    "index": 31,
     "h": 4,
     "v": 2,
     "anchor": "4/2"
   },
   {
     "title": "The environment stays; activation is per shell",
-    "body": "\n<div class=\"concept-figure environment-figure\" role=\"img\" aria-label=\"With the environment active, pip install writes pandas into the shared demo/.venv folder. Activation selects that existing environment for one shell. A later job activates the same folder again; closing a shell does not delete the package files.\">\n  <div class=\"install-flow\">\n    <div class=\"environment-action\"><strong>Install packages</strong><code>python -m pip install pandas</code><span>After creating and activating .venv</span></div>\n    <div class=\"flow-link\"><span>Write files</span><b aria-hidden=\"true\">\u2192</b></div>\n    <div class=\"environment-folder\"><div class=\"folder-tab\">Shared project storage</div><code>demo/.venv/</code><span>Python + installed packages</span><strong>These files remain.</strong></div>\n  </div>\n  <div class=\"activation-heading\"><strong>Activate in each new shell or job</strong><code>source .venv/bin/activate</code></div>\n  <div class=\"activation-flow\">\n    <div class=\"shell-choice\"><strong>Current compute shell</strong><div><code>python</code><b aria-hidden=\"true\">\u2192</b><code>.venv/bin/python</code></div></div>\n    <div class=\"same-environment\"><span>Same existing</span><strong>.venv</strong><span>No reinstall</span></div>\n    <div class=\"shell-choice\"><strong>A later batch job</strong><div><code>python</code><b aria-hidden=\"true\">\u2192</b><code>.venv/bin/python</code></div></div>\n  </div>\n</div><p class=\"callout\">Closing a shell keeps .venv. A new shell or job selects the environment again.</p>",
-    "notes": "Start at the upper arrow. In the previous steps we created .venv and activated it before installing pandas. The pip command writes package files into that selected environment. The folder lives in shared project storage and persists when the interactive compute allocation ends. This diagram summarizes the distinction; it is not a new command sequence to repeat now.\n\nNow trace the lower two examples. source .venv/bin/activate adjusts the current shell so its python command selects .venv/bin/python. It neither downloads the packages again nor starts a compute allocation. A later batch job selects the same existing environment by repeating the activation command. The two boxes depict separate shells, not a transfer of activation from one shell to the other. In both cases load the compatible Python module first, as already demonstrated. A child process inherits its parent shell environment, but a separately started terminal or job should not be assumed to have this setup.\n\nFinally, importing is a third action inside the running program: import pandas loads installed package code so the calculation can use it. For R, library loads a package after its library location is configured. requirements.txt records Python package versions; R sessionInfo() records R session details. These records do not capture every system dependency. Next leave the interactive allocation once and confirm the original login shell.",
+    "body": "\n<div class=\"concept-figure environment-figure\" role=\"img\" aria-label=\"With the environment active, pip install writes pandas into the shared demo/.venv folder. Activation selects that existing environment for one shell. A later job activates the same folder again; closing a shell does not delete the package files.\">\n  <div class=\"install-flow\">\n    <div class=\"environment-action\"><strong>Install packages</strong><code>python -m pip install pandas</code><span>After creating and activating .venv</span></div>\n    <div class=\"flow-link\"><span>Write files</span><b aria-hidden=\"true\">\u2192</b></div>\n    <div class=\"environment-folder\"><div class=\"folder-tab\">Shared project storage</div><code>demo/.venv/</code><span>Python + installed packages</span><strong>These files remain.</strong></div>\n  </div>\n  <div class=\"activation-heading\"><strong>Activate in each new shell or job</strong><code>source .venv/bin/activate</code></div>\n  <div class=\"activation-flow\">\n    <div class=\"shell-choice\"><strong>Current compute shell</strong><div><code>python</code><b aria-hidden=\"true\">\u2192</b><code>.venv/bin/python</code></div></div>\n    <div class=\"same-environment\"><span>Same existing</span><strong>.venv</strong><span>No reinstall</span></div>\n    <div class=\"shell-choice\"><strong>A later batch job</strong><div><code>python</code><b aria-hidden=\"true\">\u2192</b><code>.venv/bin/python</code></div></div>\n  </div>\n</div><p class=\"callout\">After setup, <code>exit</code> leaves the compute shell; the .venv files remain.</p>",
+    "notes": "Start at the upper arrow. In the previous steps we created .venv and activated it before installing pandas. The pip command writes package files into that selected environment. The folder lives in shared project storage and persists when the interactive compute allocation ends. This diagram summarizes the distinction; it is not a new command sequence to repeat now.\n\nNow trace the lower two examples. source .venv/bin/activate adjusts the current shell so its python command selects .venv/bin/python. It neither downloads the packages again nor starts a compute allocation. A later batch job selects the same existing environment by repeating the activation command. The two boxes depict separate shells, not a transfer of activation from one shell to the other. In both cases load the compatible Python module first, as already demonstrated. A child process inherits its parent shell environment, but a separately started terminal or job should not be assumed to have this setup.\n\nFinally, importing is a third action inside the running program: import pandas loads installed package code so the calculation can use it. For R, library loads a package after its library location is configured. requirements.txt records Python package versions; R sessionInfo() records R session details. These records do not capture every system dependency. When setup is complete, type exit once to leave the interactive compute shell and release its allocation. Run hostname and pwd to confirm the original login host and project folder; if the allocation has already ended, check the host before typing exit. The original login shell does not inherit activation from the ended compute shell. The next slide is an optional Conda route using a separate allocated setup session, not another step for the prepared Python environment.",
     "sources": [
       "python",
       "radmin"
     ],
     "section": "Software and packages",
     "cls": "concept-slide",
-    "index": 34,
+    "index": 32,
     "h": 4,
     "v": 3,
     "anchor": "4/3"
-  },
-  {
-    "title": "Return to the login shell",
-    "body": "<div class=\"code-label\">Exit the allocated shell once, then check where you are</div><pre class=\"\"><code>exit\nhostname\npwd</code></pre><div class=\"rows\"><div class=\"row\"><strong>hostname</strong><span>Should identify the original login host again.</span></div><div class=\"row\"><strong>pwd</strong><span>Should still identify /projects/YOUR_GROUP/demo.</span></div><div class=\"row\"><strong>If the folder differs</strong><span>cd back to your approved demo path.</span></div></div><p class=\"callout\">The Python project is ready for submission. Conda is an alternative setup route.</p>",
-    "notes": "Type exit once at the shell prompt to end the interactive compute shell and release the allocation. The original login shell remains underneath. Check hostname and pwd rather than assuming the change happened. If the allocation ended unexpectedly, check the host first so another exit does not disconnect the login shell.\n\nThe shared files remain, but software activation from the ended shell does not carry back into the original shell. That is expected. We have not run analysis.py or generated summary.csv yet. The next slide explains Conda as an alternative setup route, not commands to run in this login shell or an extra requirement for the Python example. After that, the Run and check topic resumes the prepared Python project.",
-    "sources": [
-      "jobs",
-      "srun"
-    ],
-    "section": "Software and packages",
-    "cls": "",
-    "index": 35,
-    "h": 4,
-    "v": 4,
-    "anchor": "4/4"
   },
   {
     "title": "Alternative: use a supplied Conda environment",
@@ -537,10 +498,10 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 36,
+    "index": 33,
     "h": 4,
-    "v": 5,
-    "anchor": "4/5"
+    "v": 4,
+    "anchor": "4/4"
   },
   {
     "title": "Prepare analysis.sbatch for the same project",
@@ -553,7 +514,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 37,
+    "index": 34,
     "h": 5,
     "v": 0,
     "anchor": "5/0"
@@ -561,14 +522,14 @@
   {
     "title": "Submit the analysis job",
     "body": "<div class=\"code-label\">In the login shell, from the demo folder</div><pre class=\"\"><code>pwd\nls data/samples.csv analysis.py analysis.sbatch\nsbatch analysis.sbatch</code></pre><div class=\"code-label\">Illustrative analysis job ID; hello used 123456</div><pre class=\"\"><code>Submitted batch job 123457</code></pre><div class=\"code-label\">Check whether this new job is pending or running</div><pre class=\"\"><code>squeue -u YOUR_NETID</code></pre><p class=\"callout\">Use this new job ID for the analysis logs and completion checks.</p>",
-    "notes": "The project is now ready: input, script, job file, and package environment are in place. Confirm the working directory and filenames. Submit the saved analysis.sbatch. The illustrative new ID is 123457, deliberately different from the earlier hello job. In a real session, always use the returned ID.\n\nThe scheduler may report PD while waiting and R once it runs. The configured log filenames become analysis-123457.out and analysis-123457.err. They may not exist until the job begins. Wait for the job to start before trying to read them. Next follow the output, then check the final state and the actual result file.",
+    "notes": "The project is now ready: input, script, job file, and package environment are in place. Confirm the working directory and filenames. Submit the saved analysis.sbatch. The illustrative new ID is 123457, deliberately different from the earlier hello job. In a real session, always use the returned ID.\n\nThe scheduler may report PD while waiting and R once it runs. The configured log filenames become analysis-123457.out and analysis-123457.err. They may not exist until the job begins. Wait for the job to start before trying to read them. Next follow the job log, then open the generated output in VS Code.",
     "sources": [
       "sbatch",
       "jobs"
     ],
     "section": "Run and check",
     "cls": "",
-    "index": 38,
+    "index": 35,
     "h": 5,
     "v": 1,
     "anchor": "5/1"
@@ -576,7 +537,7 @@
   {
     "title": "Follow the analysis log",
     "body": "<div class=\"code-label\">After the analysis job starts and the log exists</div><pre class=\"\"><code>tail -n 20 analysis-123457.out\ntail -f analysis-123457.out</code></pre><div class=\"code-label\">First press Ctrl+C to stop tail; then search the error log</div><pre class=\"\"><code>grep -in &quot;error&quot; analysis-123457.err</code></pre><div class=\"rows\"><div class=\"row\"><strong>Ctrl+C</strong><span>Stop tail; the submitted job keeps running.</span></div><div class=\"row\"><strong>Need to cancel?</strong><span>scancel 123457 cancels this analysis job.</span></div></div><p class=\"callout\">tail: -n 20 = last 20 lines, -f = follow new output \u00b7 grep: -i = ignore case, -n = line numbers</p>",
-    "notes": "Use the analysis job\u2019s ID, not the earlier hello ID. tail -n 20 reads the last twenty lines and returns. tail -f initially reads the last ten lines and then follows new output. Ctrl+C stops this foreground viewer; it does not cancel the submitted batch job. scancel would cancel the specified job.\n\nWhile tail -f is running, the shell is not ready for another command. Press Ctrl+C, wait for the prompt, and only then run grep. The -n 20 option of tail selects the last twenty lines, while -f keeps following new output. grep -in searches error text case-insensitively and adds line numbers. A match is a clue to inspect, and no match is not proof of success. Some messages are buffered or sent to a different stream. Both logs can also be opened in VS Code. Next combine accounting, log contents, and the expected output rather than relying on one signal.",
+    "notes": "Use the analysis job\u2019s ID, not the earlier hello ID. tail -n 20 reads the last twenty lines and returns. tail -f initially reads the last ten lines and then follows new output. Ctrl+C stops this foreground viewer; it does not cancel the submitted batch job. scancel would cancel the specified job.\n\nWhile tail -f is running, the shell is not ready for another command. Press Ctrl+C, wait for the prompt, and only then run grep. The -n 20 option of tail selects the last twenty lines, while -f keeps following new output. grep -in searches error text case-insensitively and adds line numbers. A match is a clue to inspect, and no match is not proof of success. Some messages are buffered or sent to a different stream. Both logs can also be opened in VS Code. Next open the output in VS Code. Inspect the logs and the actual output contents; leaving the queue or finding no error text alone does not establish success.",
     "sources": [
       "shell",
       "cli",
@@ -584,30 +545,15 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 39,
+    "index": 36,
     "h": 5,
     "v": 2,
     "anchor": "5/2"
   },
   {
-    "title": "Check the state and the result file",
-    "body": "<div class=\"code-label\">After analysis finishes: -j selects the job; --format selects the displayed columns</div><pre class=\"\"><code>sacct -j 123457 --format=JobID,State,ExitCode\ncat results/summary.csv</code></pre><div class=\"cols \"><div><div class=\"code-label\">Expected file contents</div><pre class=\"\"><code>samples,total_reads\n3,3700</code></pre></div><div><div class=\"rows\"><div class=\"row\"><strong>Job record</strong><span>COMPLETED; 0:0 = exit 0, no terminating signal</span></div><div class=\"row\"><strong>Output log</strong><span>Saved results/summary.csv</span></div><div class=\"row\"><strong>Input comparison</strong><span>3 rows; 1000 + 1500 + 1200 = 3700</span></div></div></div></div><p class=\"callout\">The result should match the goal shown at the start of the lecture.</p>",
-    "notes": "sacct reads accounting information after the job disappears from squeue. -j selects the actual job ID, and --format lists the displayed column names separated by commas without spaces. JobID identifies the job, State says what happened, and ExitCode gives the exit status followed by a terminating signal. 0:0 means exit status zero and no terminating signal. Look at the job and any .batch/.extern steps for COMPLETED and successful exit codes. Accounting records may take a short time to appear. Open the .out and .err files; some tools print normal information to stderr, so a nonempty error file alone does not establish failure.\n\nNow open results/summary.csv. The expected contents are shown on the slide. Compare them with the input introduced at the start: three rows and 3700 total reads. The analysis log should also say Saved results/summary.csv. The displayed values are expected toy results, not a claim that a real ICC job was submitted during deck preparation. We have completed the main workflow. Next inspect or download the output directly through VS Code.",
-    "sources": [
-      "sacct",
-      "states"
-    ],
-    "section": "Run and check",
-    "cls": "compact",
-    "index": 40,
-    "h": 5,
-    "v": 3,
-    "anchor": "5/3"
-  },
-  {
     "title": "Open the result in VS Code",
-    "body": "<div class=\"rows\"><div class=\"row\"><strong>Explorer \u2192 results</strong><span>Open summary.csv and check 3 samples and 3700 total_reads.</span></div><div class=\"row\"><strong>Keep it remote</strong><span>Read or edit the file without downloading it first.</span></div><div class=\"row\"><strong>Need a local copy?</strong><span>Right-click summary.csv and choose Download\u2026</span></div></div><table class=\"\"><thead><tr><th>Other output types</th><th>Viewer</th></tr></thead><tbody><tr><td>Logs / PNG / JPEG</td><td>Built-in text or image viewer</td></tr><tr><td>CSV / TSV</td><td>Text editor; Rainbow CSV adds column colors</td></tr><tr><td>PDF / notebooks</td><td>A PDF viewer extension / Microsoft Jupyter viewer</td></tr></tbody></table>",
-    "notes": "Return to the same Explorer folder used to upload the project. Refresh Explorer if necessary, expand results, and open summary.csv. This closes the loop in the interface the audience already knows. Download only when a local copy is useful; reading a remote result does not require copying it back first.\n\nReal analyses may also produce plots, reports, tables, and notebooks. Use the appropriate viewer extension and follow VS Code\u2019s local-versus-SSH installation prompt. A viewer does not allocate compute resources; opening a notebook is different from running cells. We have now completed the example. The remaining slides transfer the routine to other projects and cover troubleshooting.",
+    "body": "<div class=\"rows\"><div class=\"row\"><strong>Explorer \u2192 results</strong><span>Open your output file, such as summary.csv, and inspect its contents.</span></div><div class=\"row\"><strong>Keep it remote</strong><span>Read or edit the file without downloading it first.</span></div><div class=\"row\"><strong>Need a local copy?</strong><span>Right-click summary.csv and choose Download\u2026</span></div></div><table class=\"\"><thead><tr><th>Other output types</th><th>Viewer</th></tr></thead><tbody><tr><td>Logs / PNG / JPEG</td><td>Built-in text or image viewer</td></tr><tr><td>CSV / TSV</td><td>Text editor; Rainbow CSV adds column colors</td></tr><tr><td>PDF / notebooks</td><td>A PDF viewer extension / Microsoft Jupyter viewer</td></tr></tbody></table>",
+    "notes": "Return to the same Explorer folder used to upload the project. Refresh Explorer if necessary, expand results, and open summary.csv. Check that the output exists, is readable, and contains the result expected for your input; an empty or incomplete file needs investigation. Download only when a local copy is useful; reading a remote result does not require copying it back first.\n\nReal analyses may also produce plots, reports, tables, and notebooks. Use the appropriate viewer extension and follow VS Code\u2019s local-versus-SSH installation prompt. A viewer does not allocate compute resources; opening a notebook is different from running cells. We have now completed the example. The remaining slides transfer the routine to other projects and cover troubleshooting.",
     "sources": [
       "vscode",
       "csv",
@@ -617,14 +563,14 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 41,
+    "index": 37,
     "h": 5,
-    "v": 4,
-    "anchor": "5/4"
+    "v": 3,
+    "anchor": "5/3"
   },
   {
     "title": "For an R project: change the job body",
-    "body": "<div class=\"code-label\">R commands below the #SBATCH resource settings</div><pre class=\"\"><code>module load R\nRscript analysis.R</code></pre><div class=\"code-label\">After copying and configuring the R templates from examples/</div><pre class=\"\"><code>sbatch analysis_R.sbatch</code></pre><div class=\"rows\"><div class=\"row\"><strong>Same input</strong><span>data/samples.csv</span></div><div class=\"row\"><strong>R output</strong><span>results/summary_R.csv: 3 samples and 3700 total_reads</span></div></div><p class=\"callout\">This example uses base R; no additional package installation is needed.</p>",
+    "body": "<div class=\"code-label\">R commands below the #SBATCH resource settings</div><pre class=\"\"><code>module load R\nRscript analysis.R</code></pre><div class=\"code-label\">After copying and configuring the R templates from examples/</div><pre class=\"\"><code>sbatch analysis_R.sbatch</code></pre><div class=\"rows\"><div class=\"row\"><strong>Same input</strong><span>data/samples.csv</span></div><div class=\"row\"><strong>R output</strong><span>results/summary_R.csv</span></div></div><p class=\"callout\">This example uses base R; no additional package installation is needed.</p>",
     "notes": "The main Python example is complete. For an R project, replace the program and software setup with the R route. The full examples directory contains analysis.R and analysis_R.sbatch; these are not extra steps required by the minimal Python demo. Copy both into the intended remote project, configure the job, and submit from that folder.\n\nmodule load R makes the cluster R interpreter available in the job; use a module name available on your cluster. Rscript runs an R file without opening the interactive R console. The supplied calculation uses base R and needs no add-on package or custom package library. Its output is summary_R.csv, not summary.csv. Repeat the same job-state, log, and result checks using the new returned ID. Real workflows need resource settings based on their own tools and inputs.",
     "sources": [
       "software",
@@ -632,10 +578,10 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 42,
+    "index": 38,
     "h": 5,
-    "v": 5,
-    "anchor": "5/5"
+    "v": 4,
+    "anchor": "5/4"
   },
   {
     "title": "Common errors and the first useful check",
@@ -648,22 +594,10 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 43,
+    "index": 39,
     "h": 5,
-    "v": 6,
-    "anchor": "5/6"
-  },
-  {
-    "title": "The completed project",
-    "body": "<div class=\"cols \"><div><div class=\"code-label\">Key files after the successful example run</div><pre class=\"\"><code>demo/\n  data/samples.csv\n  analysis.py\n  analysis.sbatch\n  .venv/\n  requirements.txt\n  analysis-123457.out\n  analysis-123457.err\n  results/summary.csv</code></pre></div><div><div class=\"rows\"><div class=\"row\"><strong>Started with</strong><span>A small input table and saved scripts</span></div><div class=\"row\"><strong>Prepared</strong><span>The remote folder and pandas environment</span></div><div class=\"row\"><strong>Submitted</strong><span>analysis.sbatch through Slurm</span></div><div class=\"row\"><strong>Verified</strong><span>3 samples and 3700 total reads</span></div></div></div></div><p class=\"callout\">Keep the inputs, script, environment record, job file, and checked outputs together.</p>",
-    "notes": "Return to the concrete folder, not a new agenda. The input and scripts were uploaded. .venv and requirements.txt were created during software setup. Slurm created the output and error logs. analysis.py created summary.csv. Other lecture files such as hello.sbatch and notes.txt remain too; this view shows the key analysis files.\n\nThe shell commands now have a purpose in that sequence: navigate and inspect the input, select software, submit a job, and read the output. VS Code provides the graphical view throughout. The example is complete only after the final state and result values agree with the expected calculation.",
-    "sources": [],
-    "section": "Run and check",
-    "cls": "",
-    "index": 44,
-    "h": 5,
-    "v": 7,
-    "anchor": "5/7"
+    "v": 5,
+    "anchor": "5/5"
   },
   {
     "title": "Documentation and help",
@@ -672,9 +606,9 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 45,
+    "index": 40,
     "h": 5,
-    "v": 8,
-    "anchor": "5/8"
+    "v": 6,
+    "anchor": "5/6"
   }
 ]

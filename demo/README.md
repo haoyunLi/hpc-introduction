@@ -1,6 +1,6 @@
-# The project used throughout the lecture
+# Supplementary project for the lecture
 
-This is a tiny synthetic Python project for the lecturer to explain. It is not an audience exercise or a research pipeline. The complete R, Conda, and GPU alternatives are in the separate `examples/` folder.
+This is a tiny synthetic Python project supplying the filenames and commands used in the lecture. The complete walkthrough below is optional reference material; it does not correspond to a separate slide for every step. It is not an audience exercise or a research pipeline. The complete R, Conda, and GPU alternatives are in the separate `examples/` folder.
 
 Input: `data/samples.csv`, with three samples and read counts 1000, 1500, and 1200.
 
