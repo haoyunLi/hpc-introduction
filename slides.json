@@ -292,7 +292,7 @@
   {
     "title": "Count lines and check disk usage",
     "body": "<div class=\"cols \"><div><div class=\"code-label\">Run this command</div><pre class=\"\"><code>wc -l data/samples.csv</code></pre><div class=\"code-label\">Expected output; do not type this line</div><pre class=\"\"><code>4 data/samples.csv</code></pre></div><div><div class=\"rows\"><div class=\"row\"><strong>wc -l</strong><span>Count lines in this text file.</span></div><div class=\"row\"><strong>4 lines</strong><span>One header plus three sample rows.</span></div></div></div></div><div class=\"code-label\">Check space used by the input folder</div><pre class=\"\"><code>du -sh data</code></pre><p class=\"small\"><code>-s</code> gives one summary total \u00b7 <code>-h</code> uses readable units such as K or M</p><p class=\"callout\">Line count is not automatically sample count. Disk usage is not your remaining quota.</p>",
-    "notes": "Run wc -l first. The shown output is four because the supplied CSV ends each of its four lines with a newline. Explain one header plus three samples. Real files may have extra headers, comments, or multiline records, so the interpretation depends on the format.\n\ndu reports disk usage. -s summarizes the folder into one total, and -h chooses human-readable units. du -sh combines those two options. The exact disk-usage value varies with the filesystem, so we do not promise a particular value. The input is now located and checked. Next save a short preview while leaving the original CSV unchanged.",
+    "notes": "Run wc -l first. The shown output is four because the supplied CSV ends each of its four lines with a newline. Explain one header plus three samples. Real files may have extra headers, comments, or multiline records, so the interpretation depends on the format.\n\ndu reports disk usage. -s summarizes the folder into one total, and -h chooses human-readable units. du -sh combines those two options. The exact disk-usage value varies with the filesystem, so we do not promise a particular value. The input is now located and checked. Next see how to look up a command and use common terminal shortcuts.",
     "sources": [
       "cli",
       "storage"
@@ -305,9 +305,9 @@
     "anchor": "2/7"
   },
   {
-    "title": "Wildcards, pipes, and saving output",
-    "body": "<table class=\"\"><thead><tr><th>Example</th><th>Read it as</th></tr></thead><tbody><tr><td><code>ls data/*.csv</code></td><td>List names matching *.csv in this folder</td></tr><tr><td><code>grep \"sample_B\" data/samples.csv | wc -l</code></td><td>Count matching lines; this example returns 1</td></tr><tr><td><code>head -n 2 data/samples.csv > preview.csv</code></td><td>Write the first two lines into a file</td></tr><tr><td><code>echo \"Checked input\" >> run-notes.txt</code></td><td>Append a short message to a file</td></tr></tbody></table><p class=\"callout\"><code>|</code> connects commands \u00b7 <code>&gt;</code> creates or overwrites \u00b7 <code>&gt;&gt;</code> creates or appends</p>",
-    "notes": "The shell expands data/*.csv into matching names in that one directory. This is different from find, which searches down the directory tree. Preview matches with ls. Do not combine a new wildcard with deletion. If there are no matches, the resulting behavior depends on the shell and command.\n\nThe pipe passes standard output from the left command to standard input on the right. grep finds the sample_B row, then wc -l counts that one matching line and prints 1. This is a text match rather than a general sample-counting method. The greater-than sign writes output to a file and overwrites an existing file of that name. Never redirect into the same file being read. Double greater-than appends. echo prints a short message. The separate error stream can be redirected with 2>, but Slurm output/error settings will handle job logs in the next section.",
+    "title": "Help and everyday terminal shortcuts",
+    "body": "<table class=\"\"><thead><tr><th>Command / key</th><th>Use when needed</th></tr></thead><tbody><tr><td><code>man ls</code></td><td>Open the manual; press q to leave</td></tr><tr><td><code>head --help</code></td><td>Show the Linux command\u2019s built-in help</td></tr><tr><td>Tab</td><td>Complete a file or folder name</td></tr><tr><td>\u2191 / <code>history</code></td><td>Recall previous commands / list shell history</td></tr><tr><td>Ctrl+C</td><td>Interrupt the current foreground command</td></tr><tr><td><code>clear</code> / <code>exit</code></td><td>Clear the display / leave the current shell</td></tr></tbody></table><p class=\"small\">Keep this shell open for the next step. Use exit only when you intend to leave it.</p>",
+    "notes": "Options are command-specific; check the manual or built-in help when uncertain. Not every program supports --help, and a Mac\u2019s built-in utility may differ from the Linux version on ICC. The examples in the lecture target the remote Linux shell. Tab completion reduces typing and capitalization errors; the up arrow retrieves an earlier command for inspection and editing.\n\nhistory lists previously entered commands; it can include sensitive arguments, so do not put passwords or tokens in commands. Ctrl+C affects the command currently running in the foreground. clear only clears the visible terminal display, not files or job logs. exit leaves the current shell: it can end an interactive allocation or disconnect SSH depending on where you are. Use hostname and pwd whenever the context is uncertain. The next section turns these commands into a scheduled job.",
     "sources": [
       "shell",
       "cli"
@@ -320,21 +320,6 @@
     "anchor": "2/8"
   },
   {
-    "title": "Help and everyday terminal shortcuts",
-    "body": "<table class=\"\"><thead><tr><th>Command / key</th><th>Use when needed</th></tr></thead><tbody><tr><td><code>man ls</code></td><td>Open the manual; press q to leave</td></tr><tr><td><code>head --help</code></td><td>Show the Linux command\u2019s built-in help</td></tr><tr><td>Tab</td><td>Complete a file or folder name</td></tr><tr><td>\u2191 / <code>history</code></td><td>Recall previous commands / list shell history</td></tr><tr><td>Ctrl+C</td><td>Interrupt the current foreground command</td></tr><tr><td><code>clear</code> / <code>exit</code></td><td>Clear the display / leave the current shell</td></tr></tbody></table><p class=\"small\">Keep this shell open for the next step. Use exit only when you intend to leave it.</p>",
-    "notes": "Options are command-specific; check the manual or built-in help when uncertain. Not every program supports --help, and a Mac\u2019s built-in utility may differ from the Linux version on ICC. The examples in the lecture target the remote Linux shell. Tab completion reduces typing and capitalization errors; the up arrow retrieves an earlier command for inspection and editing.\n\nhistory lists previously entered commands; it can include sensitive arguments, so do not put passwords or tokens in commands. Ctrl+C affects the command currently running in the foreground. clear only clears the visible terminal display, not files or job logs. exit leaves the current shell: it can end an interactive allocation or disconnect SSH depending on where you are. Use hostname and pwd whenever the context is uncertain. The next section turns these commands into a scheduled job.",
-    "sources": [
-      "shell",
-      "cli"
-    ],
-    "section": "Shell essentials",
-    "cls": "compact",
-    "index": 22,
-    "h": 2,
-    "v": 9,
-    "anchor": "2/9"
-  },
-  {
     "title": "Slurm runs work on allocated resources",
     "body": "\n<div class=\"concept-figure nodes-figure\" role=\"img\" aria-label=\"On the login node, prepare and submit hello.sbatch. Slurm waits for resources and allocates a compute node, where the job runs. Both nodes access the same demo folder. Submitting a batch job leaves the terminal on the login node.\">\n  <div class=\"node-flow\">\n    <div class=\"node login-node\"><div class=\"place-heading\">LOGIN NODE</div><strong>Prepare and submit</strong><code>hello.sbatch</code><span>Your terminal stays here.</span></div>\n    <div class=\"flow-link\"><code>sbatch</code><b aria-hidden=\"true\">\u2192</b></div>\n    <div class=\"scheduler\"><strong>Slurm</strong><span>Wait for resources</span><small>The scheduler</small></div>\n    <div class=\"flow-link\"><span>Allocate</span><b aria-hidden=\"true\">\u2192</b></div>\n    <div class=\"node compute-node\"><div class=\"place-heading\">COMPUTE NODE</div><strong>Run the job</strong><code>hello.sbatch</code><span>The program runs here.</span></div>\n  </div>\n  <div class=\"shared-connectors\" aria-hidden=\"true\"><span>\u2195</span><span>\u2195</span></div>\n  <div class=\"shared-project\"><strong>Same shared <code>demo/</code> folder</strong><span>Input \u00b7 scripts \u00b7 output</span></div>\n</div><p class=\"small\"><strong>Batch:</strong> submit a script. <strong>Interactive:</strong> request a compute shell with <code>srun</code>.</p><p class=\"callout\">Submit on the login node; the job runs on an allocated compute node.</p>",
     "notes": "Follow the upper arrows as a logical sequence, not a literal network diagram. On the login node, edit and save hello.sbatch, then submit it with sbatch. Slurm is scheduling software: it can hold the request pending until suitable resources are available. Once allocated, a compute node runs the job. Slurm is not an intermediate computer where the project files must be copied.\n\nPoint to the two vertical connections and the single shared demo folder. Both nodes can reach that same approved project location. Slurm runs the submitted script; the job reads inputs and writes output there. We do not copy the whole project to another computer for every submission.\n\nSubmitting a batch job leaves the current terminal on the login node. The batch job can continue after the laptop disconnects. An interactive job, introduced later with srun, instead starts a shell on an allocated compute node. It does not automatically move all VS Code execution features to that node. Both routes need allocated resources. Next inspect the tiny hello.sbatch file before submitting it.",
@@ -345,7 +330,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "concept-slide",
-    "index": 23,
+    "index": 22,
     "h": 3,
     "v": 0,
     "anchor": "3/0"
@@ -359,7 +344,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "beginner-script",
-    "index": 24,
+    "index": 23,
     "h": 3,
     "v": 1,
     "anchor": "3/1"
@@ -373,7 +358,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "concept-slide resource-slide",
-    "index": 25,
+    "index": 24,
     "h": 3,
     "v": 2,
     "anchor": "3/2"
@@ -387,7 +372,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 26,
+    "index": 25,
     "h": 3,
     "v": 3,
     "anchor": "3/3"
@@ -402,7 +387,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 27,
+    "index": 26,
     "h": 3,
     "v": 4,
     "anchor": "3/4"
@@ -418,7 +403,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 28,
+    "index": 27,
     "h": 3,
     "v": 5,
     "anchor": "3/5"
@@ -432,7 +417,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 29,
+    "index": 28,
     "h": 3,
     "v": 6,
     "anchor": "3/6"
@@ -447,7 +432,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 30,
+    "index": 29,
     "h": 3,
     "v": 7,
     "anchor": "3/7"
@@ -462,7 +447,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 31,
+    "index": 30,
     "h": 3,
     "v": 8,
     "anchor": "3/8"
@@ -477,7 +462,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 32,
+    "index": 31,
     "h": 3,
     "v": 9,
     "anchor": "3/9"
@@ -491,7 +476,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 33,
+    "index": 32,
     "h": 4,
     "v": 0,
     "anchor": "4/0"
@@ -507,7 +492,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 34,
+    "index": 33,
     "h": 4,
     "v": 1,
     "anchor": "4/1"
@@ -523,7 +508,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 35,
+    "index": 34,
     "h": 4,
     "v": 2,
     "anchor": "4/2"
@@ -538,7 +523,7 @@
     ],
     "section": "Software and packages",
     "cls": "concept-slide",
-    "index": 36,
+    "index": 35,
     "h": 4,
     "v": 3,
     "anchor": "4/3"
@@ -553,7 +538,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 37,
+    "index": 36,
     "h": 4,
     "v": 4,
     "anchor": "4/4"
@@ -568,7 +553,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 38,
+    "index": 37,
     "h": 4,
     "v": 5,
     "anchor": "4/5"
@@ -584,7 +569,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 39,
+    "index": 38,
     "h": 4,
     "v": 6,
     "anchor": "4/6"
@@ -599,7 +584,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 40,
+    "index": 39,
     "h": 4,
     "v": 7,
     "anchor": "4/7"
@@ -615,7 +600,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 41,
+    "index": 40,
     "h": 5,
     "v": 0,
     "anchor": "5/0"
@@ -630,7 +615,7 @@
     ],
     "section": "Run and check",
     "cls": "",
-    "index": 42,
+    "index": 41,
     "h": 5,
     "v": 1,
     "anchor": "5/1"
@@ -646,7 +631,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 43,
+    "index": 42,
     "h": 5,
     "v": 2,
     "anchor": "5/2"
@@ -661,7 +646,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 44,
+    "index": 43,
     "h": 5,
     "v": 3,
     "anchor": "5/3"
@@ -679,7 +664,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 45,
+    "index": 44,
     "h": 5,
     "v": 4,
     "anchor": "5/4"
@@ -694,7 +679,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 46,
+    "index": 45,
     "h": 5,
     "v": 5,
     "anchor": "5/5"
@@ -706,7 +691,7 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 47,
+    "index": 46,
     "h": 5,
     "v": 6,
     "anchor": "5/6"
@@ -722,7 +707,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 48,
+    "index": 47,
     "h": 5,
     "v": 7,
     "anchor": "5/7"
@@ -734,7 +719,7 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 49,
+    "index": 48,
     "h": 5,
     "v": 8,
     "anchor": "5/8"
@@ -746,7 +731,7 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 50,
+    "index": 49,
     "h": 5,
     "v": 9,
     "anchor": "5/9"
