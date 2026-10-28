@@ -1,6 +1,6 @@
 # Getting started on the Illinois Campus Cluster
 
-An English lecture following one small data-analysis project from requesting access to checking its result. There are 48 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
+An English lecture following one small data-analysis project from requesting access to checking its result. There are 47 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
 
 ## Presentation and downloads
 

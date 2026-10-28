@@ -17,9 +17,9 @@ Reviewed 27 October 2026 against the supplied ICC guide and Missing Semester, wi
 | Alternative project-provided Conda environment | Software and packages, 38 | Recognizes another setup route, explains the environment file and name, and checks the import without nesting Conda in the main venv route. |
 | Prepare, submit, and follow the analysis job | Run and check, 39–41 | Reuses the tested setup, visibly submits analysis.sbatch, and reads the logs belonging to its new job ID. |
 | Verify and open the actual result | Run and check, 42–43 | Combines accounting, logs, and the expected CSV, then returns to VS Code to view or download it. |
-| Apply the routine to another project | Run and check, 44–45 | Shows the alternative R job body and what changes for bulk, single-cell, or spatial projects. |
-| Troubleshooting and the completed project | Run and check, 46–47 | Connects errors to checks and identifies how each final project file was created. |
-| References and support | Run and check, 48 | Gives a path to current system policy and account-specific assistance. |
+| Run an R project | Run and check, 44 | Shows the alternative R job body with the same submission and result checks. |
+| Troubleshooting and the completed project | Run and check, 45–46 | Connects errors to checks and identifies how each final project file was created. |
+| References and support | Run and check, 47 | Gives a path to current system policy and account-specific assistance. |
 
 ## Findings from the supplied websites
 
@@ -79,7 +79,7 @@ The review asked whether a first-time listener could identify where to act, read
 
 The review preserves all original figures, the basic-command coverage, six horizontal topics with vertical slides, and the single demo calculation. Remaining uncertainties are account-specific values, available software versions, queue waiting, and installation behavior; the slides identify the values to confirm instead of presenting them as universal guarantees.
 
-The 48-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 23 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 25 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 35 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
+The 47-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 23 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 25 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 35 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
 
 ## Topics that need more teaching time
 

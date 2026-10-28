@@ -655,18 +655,6 @@
     "anchor": "5/5"
   },
   {
-    "title": "The same HPC routine for different analyses",
-    "body": "<table class=\"\"><thead><tr><th>Project</th><th>What changes</th><th>What stays the same</th></tr></thead><tbody><tr><td>Bulk analysis</td><td>Inputs, analysis script, packages</td><td>Storage \u2192 environment \u2192 job \u2192 outputs</td></tr><tr><td>Single-cell analysis</td><td>Matrices, metadata, tool-specific settings</td><td>Storage \u2192 environment \u2192 job \u2192 outputs</td></tr><tr><td>Spatial analysis</td><td>Matrices, images, coordinates, tool-specific settings</td><td>Storage \u2192 environment \u2192 job \u2192 outputs</td></tr></tbody></table><p class=\"callout\">Start with the project\u2019s working script and a small test input. Scale after checking the result.</p>",
-    "notes": "The workflow is transferable, while the analysis method remains specific to the project. Some pipelines begin with raw reads, and others begin with processed matrices. Spatial workflows may also need images and coordinates. Confirm the expected input type before requesting resources.\n\nDo not infer RAM or GPU needs from the data category alone. Different tools and dataset sizes behave differently. A successful small test should show that paths, packages, and outputs are correct. Then choose a realistic allocation based on tool guidance and prior runs. This lecture covers the HPC mechanics rather than teaching differential expression, clustering, or spatial statistics.",
-    "sources": [],
-    "section": "Run and check",
-    "cls": "",
-    "index": 44,
-    "h": 5,
-    "v": 6,
-    "anchor": "5/6"
-  },
-  {
     "title": "Common errors and the first useful check",
     "body": "<table class=\"\"><thead><tr><th>What you see</th><th>Check first</th></tr></thead><tbody><tr><td>No such file or directory</td><td>pwd, the path, and the filename\u2019s capitalization</td></tr><tr><td>Command not found</td><td>The required module or environment</td></tr><tr><td>No module named\u2026 / no package called\u2026</td><td>The active Python or R library, then installation</td></tr><tr><td>OUT_OF_MEMORY / TIMEOUT</td><td>Requested RAM or runtime and the tool\u2019s actual needs</td></tr><tr><td>Invalid account / partition</td><td>The allocation and queue pair assigned to you</td></tr><tr><td>Permission denied / quota exceeded</td><td>The target folder\u2019s access and available quota</td></tr></tbody></table>",
     "notes": "Work from the specific error instead of resubmitting unchanged. A path error usually starts with the working directory and exact name. An import error starts with the selected interpreter or library. A resource failure needs the tool\u2019s usage and a sensible revised request, not arbitrary large numbers.\n\nShare the job number, job file, exact error, and software version with the lab contact or ICC support. Avoid sending large datasets or credentials as part of a help request. If the input is still uploading or the environment is incomplete, fix that before another job submission.",
@@ -677,10 +665,10 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 45,
+    "index": 44,
     "h": 5,
-    "v": 7,
-    "anchor": "5/7"
+    "v": 6,
+    "anchor": "5/6"
   },
   {
     "title": "The completed project",
@@ -689,10 +677,10 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 46,
+    "index": 45,
     "h": 5,
-    "v": 8,
-    "anchor": "5/8"
+    "v": 7,
+    "anchor": "5/7"
   },
   {
     "title": "Documentation and help",
@@ -701,9 +689,9 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 47,
+    "index": 46,
     "h": 5,
-    "v": 9,
-    "anchor": "5/9"
+    "v": 8,
+    "anchor": "5/8"
   }
 ]
