@@ -34,7 +34,9 @@ The scripts use `set -e` so a failing setup command stops the shell script. The 
 
 ## R route
 
-Use the same R module version for package preparation and for the job. For this separate route, copy `analysis.R` and `analysis_R.sbatch` from this folder into the remote R project alongside `data/samples.csv`. Obtain an appropriate interactive compute shell and work from that project folder:
+For this separate route, copy `analysis.R` and `analysis_R.sbatch` into the remote R project alongside `data/samples.csv`. The small base-R analysis requires no add-on packages. Configure and submit `analysis_R.sbatch` from that project folder in the login shell. Read the returned job's logs and state, then check `results/summary_R.csv`: the expected result is 3 samples and 3700 total_reads.
+
+Optional reference for a different R project that needs packages: use the same R module version for package preparation and the job. Obtain an appropriate interactive compute shell and work from that project folder:
 
 ```bash
 module load R
@@ -43,9 +45,9 @@ mkdir -p "$R_LIBS_USER"
 R
 ```
 
-The `R` command changes from the shell to the R console, whose prompt is `>`. Inside R, use the package installation commands in the lecture or `install_R_packages.R`. Check the required package with `library(...)`, then return to the shell with `q(save = "no")`. This skips the R-workspace save question; it does not remove installed packages. Type `exit` at the shell prompt when setup is complete to release that interactive allocation.
+The `R` command changes from the shell to the R console, whose prompt is `>`. Inside R, use `install_R_packages.R` as an installation example. Check the required package with `library(...)`, then return to the shell with `q(save = "no")`. This skips the R-workspace save question; it does not remove installed packages. Type `exit` at the shell prompt when setup is complete to release that interactive allocation.
 
-The small base-R analysis itself requires no add-on packages. Configure and submit `analysis_R.sbatch` from the project folder in the login shell. Read the returned job's logs and state, then check `results/summary_R.csv`. The expected result is again 3 samples and 3700 total_reads.
+For a job that uses this optional package library, add the same `export R_LIBS_USER="$PWD/R-library"` setting before `Rscript` in its batch file.
 
 Use a separate R library when changing R versions. Install in a writable location. Large builds can need more resources, system libraries, and network access than the tiny job example.
 

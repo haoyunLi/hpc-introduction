@@ -1,6 +1,6 @@
 # Getting started on the Illinois Campus Cluster
 
-An English lecture following one small data-analysis project from requesting access to checking its result. There are 47 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
+An English lecture following one small data-analysis project from requesting access to checking its result. There are 46 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
 
 ## Presentation and downloads
 
@@ -46,7 +46,7 @@ The sequence chooses storage before uploading the supplied `demo/` folder throug
 
 The shell material includes navigation, hidden files and listing options, folder creation, copying/moving/deleting, text previews, file and text search, line counts, disk usage, help, and shortcuts. GPU requests, node count, named nodes, and interactive compute sessions are retained. Output filenames and optional email directives have their own explanation page and remain in the supplied templates.
 
-Use `demo/` for the continuous Python walkthrough. It starts with the input and saved scripts, without an environment or generated result. `examples/` contains the fuller set of templates, including R, Conda, and GPU alternatives. The R and Conda slides come after the Python setup has been verified and its compute shell has been closed. They explain choices for other projects, not commands to run in the returned login shell or extra steps for the Python walkthrough. Copy the relevant alternative files into a separate project and obtain a separate suitable compute allocation when demonstrating those routes.
+Use `demo/` for the continuous Python walkthrough. It starts with the input and saved scripts, without an environment or generated result. `examples/` contains the fuller set of templates, including R, Conda, and GPU alternatives. The Conda alternative follows the completed Python setup and uses its own allocated setup session. The R job example appears after the main result check and uses base R without additional package installation. Copy the relevant alternative files into their intended remote project; neither route is an extra step for the Python walkthrough.
 
 The beginner review makes local versus remote actions, command prompts, placeholders, option meanings, and expected results explicit. It also distinguishes commands to run in sequence from optional reference commands such as cancellation or leaving a shell.
 

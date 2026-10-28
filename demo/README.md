@@ -45,7 +45,7 @@ hostname
 pwd
 ```
 
-The lecture completes this Python install → verify → exit sequence without switching environments. Its later R and Conda pages are alternatives for other projects. Their extra files are in `examples/`; they are not needed for this minimal demo. In the R alternative, `q(save = "no")` leaves the R console before `exit` releases its allocated shell.
+The lecture completes this Python install → verify → exit sequence without switching environments. Its later R and Conda pages are alternatives for other projects. Their extra files are in `examples/`; they are not needed for this minimal demo. The R job example uses base R without an additional package-installation step.
 
 The shown module is the lecture example. Verify its availability and keep the chosen compatible version consistent between setup and `analysis.sbatch`. Do not copy a laptop virtual environment onto the cluster.
 

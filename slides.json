@@ -514,8 +514,8 @@
   },
   {
     "title": "Return to the login shell",
-    "body": "<div class=\"code-label\">Exit the allocated shell once, then check where you are</div><pre class=\"\"><code>exit\nhostname\npwd</code></pre><div class=\"rows\"><div class=\"row\"><strong>hostname</strong><span>Should identify the original login host again.</span></div><div class=\"row\"><strong>pwd</strong><span>Should still identify /projects/YOUR_GROUP/demo.</span></div><div class=\"row\"><strong>If the folder differs</strong><span>cd back to your approved demo path.</span></div></div><p class=\"callout\">The Python project is ready for submission. R and Conda are alternative routes for other projects.</p>",
-    "notes": "Type exit once at the shell prompt to end the interactive compute shell and release the allocation. The original login shell remains underneath. Check hostname and pwd rather than assuming the change happened. If the allocation ended unexpectedly, check the host first so another exit does not disconnect the login shell.\n\nThe shared files remain, but software activation from the ended shell does not carry back into the original shell. That is expected. We have not run analysis.py or generated summary.csv yet. The next few slides explain alternative setup choices for R and Conda; they are reference branches, not commands to run in this login shell or extra requirements for the Python example. After them, the Run and check topic resumes the prepared Python project.",
+    "body": "<div class=\"code-label\">Exit the allocated shell once, then check where you are</div><pre class=\"\"><code>exit\nhostname\npwd</code></pre><div class=\"rows\"><div class=\"row\"><strong>hostname</strong><span>Should identify the original login host again.</span></div><div class=\"row\"><strong>pwd</strong><span>Should still identify /projects/YOUR_GROUP/demo.</span></div><div class=\"row\"><strong>If the folder differs</strong><span>cd back to your approved demo path.</span></div></div><p class=\"callout\">The Python project is ready for submission. Conda is an alternative setup route.</p>",
+    "notes": "Type exit once at the shell prompt to end the interactive compute shell and release the allocation. The original login shell remains underneath. Check hostname and pwd rather than assuming the change happened. If the allocation ended unexpectedly, check the host first so another exit does not disconnect the login shell.\n\nThe shared files remain, but software activation from the ended shell does not carry back into the original shell. That is expected. We have not run analysis.py or generated summary.csv yet. The next slide explains Conda as an alternative setup route, not commands to run in this login shell or an extra requirement for the Python example. After that, the Run and check topic resumes the prepared Python project.",
     "sources": [
       "jobs",
       "srun"
@@ -528,21 +528,6 @@
     "anchor": "4/4"
   },
   {
-    "title": "For an R project: install and load a package",
-    "body": "<div class=\"cols \"><div><div class=\"code-label\">1 \u00b7 In a separate allocated shell, start R</div><pre class=\"\"><code>module load R\nexport R_LIBS_USER=&quot;$PWD/R-library&quot;\nmkdir -p &quot;$R_LIBS_USER&quot;\nR</code></pre></div><div><div class=\"code-label\">2 \u00b7 In the R console, install, check, and quit</div><pre class=\"\"><code>install.packages(&quot;ggplot2&quot;,\n  repos = &quot;https://cloud.r-project.org&quot;)\nlibrary(ggplot2)\nq(save = &quot;no&quot;)</code></pre></div></div><p class=\"small\"><code>install.packages()</code> installs package files. <code>library()</code> loads the package in each R session.</p><p class=\"small\"><code>R_LIBS_USER</code>: project package folder \u00b7 <code>repos</code>: download site</p><p class=\"callout\">3 \u00b7 After R closes, type <code>exit</code> at the shell prompt to release the allocation.</p>",
-    "notes": "This is an optional package example for an R project, not an extra step for the Python demo. Obtain a separate appropriate interactive allocation using the srun step already introduced, then work in that R project\u2019s directory. Follow the left column before the right. The supplied R calculation uses base R and does not require ggplot2; this example shows how to prepare a project that needs an added package.\n\nmodule load R selects the cluster interpreter. export makes the library setting available to R; NAME=value has no spaces around the equals sign. $PWD supplies the current directory, so R-library is inside this project. $R_LIBS_USER reads the path just set. mkdir -p creates that folder before R starts; the quotes preserve paths containing spaces. Use a compatible R version when returning to the same library. R starts the console, whose prompt is >. Enter the right-column commands there, without typing a prompt symbol.\n\ninstall.packages downloads and installs ggplot2 and its dependencies into the prepared user library. repos selects the CRAN download site and avoids a mirror-selection question. Wait for installation to finish before library(ggplot2), which loads the package and checks that it can be used. A successful library call may print nothing. Installation is normally performed once for this library and R version; library belongs in each new R session or script that uses the package. The lecture explains this step without waiting for a large installation live.\n\nq(save = \"no\") closes R without saving an R workspace; it keeps the installed package files. Only after the shell prompt returns, type exit to release this separate compute allocation. Do not type exit inside R. The next slide is a separate Conda alternative; the main Python project remains ready for submission.",
-    "sources": [
-      "software",
-      "radmin"
-    ],
-    "section": "Software and packages",
-    "cls": "compact",
-    "index": 36,
-    "h": 4,
-    "v": 5,
-    "anchor": "4/5"
-  },
-  {
     "title": "Alternative: use a supplied Conda environment",
     "body": "<div class=\"code-label\">Alternative route when the project supplies environment.yml</div><pre class=\"\"><code>module avail miniconda3\nmodule load YOUR_CONDA_MODULE\nconda env create -f environment.yml\nconda run -n analysis python -c &quot;import pandas; print(pandas.__version__)&quot;</code></pre><div class=\"rows\"><div class=\"row\"><strong>environment.yml</strong><span>Records the environment name and requested packages</span></div><div class=\"row\"><strong>-f environment.yml</strong><span>Read the environment specification from this file.</span></div><div class=\"row\"><strong>-n analysis</strong><span>Use the environment named analysis (from name: analysis in the file).</span></div></div><p class=\"small\">Use a separate allocated setup session. Expect a pandas version; this replaces the .venv route.</p>",
     "notes": "Use this route when the project already provides a Conda environment file. The teaching environment.yml is in the separate examples directory, not the minimal demo folder. Upload it to the remote project only if using this alternative. Replace the module placeholder with a name available on ICC. The -f option names the input YAML file. Its name: analysis line gives the environment name, which -n selects in conda run. The final Python command checks the import and prints the version; no version means the check has not succeeded. Exit the allocated shell when this alternative setup is complete. conda run avoids requiring an interactive activation setup in the batch shell.\n\nThis is an alternative to the venv route, not an instruction to nest both. Follow the project\u2019s supported package channels and versions. Check where Conda stores environments and caches so they fit the quota; project storage may be preferable. The included YAML is a small teaching example, not a pinned environment for a scientific pipeline.",
@@ -552,10 +537,10 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 37,
+    "index": 36,
     "h": 4,
-    "v": 6,
-    "anchor": "4/6"
+    "v": 5,
+    "anchor": "4/5"
   },
   {
     "title": "Prepare analysis.sbatch for the same project",
@@ -568,7 +553,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 38,
+    "index": 37,
     "h": 5,
     "v": 0,
     "anchor": "5/0"
@@ -583,7 +568,7 @@
     ],
     "section": "Run and check",
     "cls": "",
-    "index": 39,
+    "index": 38,
     "h": 5,
     "v": 1,
     "anchor": "5/1"
@@ -599,7 +584,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 40,
+    "index": 39,
     "h": 5,
     "v": 2,
     "anchor": "5/2"
@@ -614,7 +599,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 41,
+    "index": 40,
     "h": 5,
     "v": 3,
     "anchor": "5/3"
@@ -632,22 +617,22 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 42,
+    "index": 41,
     "h": 5,
     "v": 4,
     "anchor": "5/4"
   },
   {
     "title": "For an R project: change the job body",
-    "body": "<div class=\"code-label\">R commands below the #SBATCH resource settings</div><pre class=\"\"><code>module load R\nexport R_LIBS_USER=&quot;$PWD/R-library&quot;\nRscript analysis.R</code></pre><div class=\"code-label\">After copying and configuring the R templates from examples/</div><pre class=\"\"><code>sbatch analysis_R.sbatch</code></pre><div class=\"rows\"><div class=\"row\"><strong>Same input</strong><span>data/samples.csv</span></div><div class=\"row\"><strong>R output</strong><span>results/summary_R.csv: 3 samples and 3700 total_reads</span></div></div><p class=\"callout\">Use the same R version and library location used during package setup.</p>",
-    "notes": "The main Python example is complete. For an R project, replace the program and software setup with the R route. The full examples directory contains analysis.R and analysis_R.sbatch; these are not extra steps required by the minimal Python demo. Copy both into the intended remote project, configure the job, and submit from that folder.\n\nRscript runs an R file without opening the interactive R console. The supplied calculation uses base R and needs no add-on package, while the earlier installation slides explain what to do when the actual analysis requires packages. Its output is summary_R.csv, not summary.csv. Repeat the same job-state, log, and result checks using the new returned ID. Real workflows need resource settings based on their own tools and inputs.",
+    "body": "<div class=\"code-label\">R commands below the #SBATCH resource settings</div><pre class=\"\"><code>module load R\nRscript analysis.R</code></pre><div class=\"code-label\">After copying and configuring the R templates from examples/</div><pre class=\"\"><code>sbatch analysis_R.sbatch</code></pre><div class=\"rows\"><div class=\"row\"><strong>Same input</strong><span>data/samples.csv</span></div><div class=\"row\"><strong>R output</strong><span>results/summary_R.csv: 3 samples and 3700 total_reads</span></div></div><p class=\"callout\">This example uses base R; no additional package installation is needed.</p>",
+    "notes": "The main Python example is complete. For an R project, replace the program and software setup with the R route. The full examples directory contains analysis.R and analysis_R.sbatch; these are not extra steps required by the minimal Python demo. Copy both into the intended remote project, configure the job, and submit from that folder.\n\nmodule load R makes the cluster R interpreter available in the job; use a module name available on your cluster. Rscript runs an R file without opening the interactive R console. The supplied calculation uses base R and needs no add-on package or custom package library. Its output is summary_R.csv, not summary.csv. Repeat the same job-state, log, and result checks using the new returned ID. Real workflows need resource settings based on their own tools and inputs.",
     "sources": [
       "software",
       "sbatch"
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 43,
+    "index": 42,
     "h": 5,
     "v": 5,
     "anchor": "5/5"
@@ -663,7 +648,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 44,
+    "index": 43,
     "h": 5,
     "v": 6,
     "anchor": "5/6"
@@ -675,7 +660,7 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 45,
+    "index": 44,
     "h": 5,
     "v": 7,
     "anchor": "5/7"
@@ -687,7 +672,7 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 46,
+    "index": 45,
     "h": 5,
     "v": 8,
     "anchor": "5/8"

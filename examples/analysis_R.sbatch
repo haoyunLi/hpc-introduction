@@ -12,8 +12,7 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=YOUR_NETID@illinois.edu
 
-# Stop if setup fails. Use the same R module version as package installation.
+# Stop if setup fails. This example uses base R without add-on packages.
 set -e
 module load R
-export R_LIBS_USER="$PWD/R-library"
 Rscript analysis.R
