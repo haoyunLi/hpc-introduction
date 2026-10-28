@@ -29,9 +29,7 @@ Reviewed 27 October 2026. Independent educational adaptation.
 - [Python Packaging · pip and venv](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
 - [Python · Command-line options](https://docs.python.org/3/using/cmdline.html)
 - [R · Installing packages and libraries](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Add_002don-packages)
-- [Bioconductor · Installation](https://bioconductor.org/install/)
 - [Conda · Managing environments](https://docs.conda.io/projects/conda/en/stable/user-guide/tasks/manage-environments.html)
-- [Seurat · Installation](https://satijalab.org/seurat/articles/install_v5.html)
 - [Reveal.js · Vertical slides](https://revealjs.com/vertical-slides/)
 
 ## Images and examples
