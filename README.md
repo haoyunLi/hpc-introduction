@@ -1,6 +1,6 @@
 # Getting started on the Illinois Campus Cluster
 
-An English lecture following one small data-analysis project from requesting access to checking its result. There are 48 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
+An English lecture following one small data-analysis project from requesting access to checking its result. There are 47 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
 
 ## Presentation and downloads
 
@@ -50,7 +50,7 @@ Use `demo/` for the continuous Python walkthrough. It starts with the input and 
 
 The beginner review makes local versus remote actions, command prompts, placeholders, option meanings, and expected results explicit. It also distinguishes commands to run in sequence from optional reference commands such as cancellation or leaving a shell.
 
-Four simple diagrams explain local versus remote work (slide 7), login versus compute nodes with shared project storage (slide 23), nodes, tasks, and CPUs per task (slide 25), and installation versus activation (slide 36). They use the same `demo/` project and retain all official diagrams and screenshots. The installation diagram shows persistent package files separately from the environment selected by each shell or job.
+Four simple diagrams explain local versus remote work (slide 7), login versus compute nodes with shared project storage (slide 23), nodes, tasks, and CPUs per task (slide 25), and installation versus activation (slide 35). They use the same `demo/` project and retain all official diagrams and screenshots. The installation diagram shows persistent package files separately from the environment selected by each shell or job.
 
 All data are synthetic. The programs are not research-analysis pipelines or resource recommendations. Replace allocation, queue, GPU, node, and email placeholders before an authorized live run. Use the actual returned job IDs instead of the illustrative IDs on the slides.
 

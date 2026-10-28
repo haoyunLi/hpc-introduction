@@ -379,8 +379,8 @@
   },
   {
     "title": "Checking the queue and stopping a job",
-    "body": "<div class=\"code-label\">-u selects your user; run squeue again to refresh the snapshot</div><pre class=\"\"><code>squeue -u YOUR_NETID</code></pre><table class=\"\"><thead><tr><th>State</th><th>Meaning</th></tr></thead><tbody><tr><td>PD</td><td>Pending: waiting for resources or another scheduling condition</td></tr><tr><td>R</td><td>Running: the allocation has started</td></tr></tbody></table><div class=\"code-label\">Only for an unwanted job; let hello finish in this example</div><pre class=\"\"><code>scancel 123456</code></pre><p class=\"small\">When hello leaves the queue, continue to its output and accounting record.</p>",
-    "notes": "squeue shows queued and running work. The -u option filters the list to the supplied NetID. It produces one snapshot, not a continuously refreshing screen. Run it again when you want an updated view. A small job can finish before the command is entered. Pending is a scheduling state, not automatically an error. The queue listing can also show a reason. Avoid cancelling and resubmitting repeatedly without understanding that reason.\n\nscancel stops the specified job. It is shown here as an option for an unwanted or incorrect submission, not as the next command to execute. Let the hello job complete so its message can be checked on the next slide. Ctrl+C in a log viewer does not cancel a batch job. We will use sacct and the output files to check the finished hello job.",
+    "body": "<div class=\"code-label\">-u selects your user; run squeue again to refresh the snapshot</div><pre class=\"\"><code>squeue -u YOUR_NETID</code></pre><table class=\"\"><thead><tr><th>State</th><th>Meaning</th></tr></thead><tbody><tr><td>PD</td><td>Pending: waiting for resources or another scheduling condition</td></tr><tr><td>R</td><td>Running: the allocation has started</td></tr></tbody></table><div class=\"code-label\">Only for an unwanted job; let hello finish in this example</div><pre class=\"\"><code>scancel 123456</code></pre><p class=\"small\">After hello leaves the queue: <code>cat slurm-123456.out</code> \u2192 <strong>My first HPC job</strong>. Use your job ID.</p>",
+    "notes": "squeue shows queued and running work. The -u option filters the list to the supplied NetID. It produces one snapshot, not a continuously refreshing screen. Run it again when you want an updated view. A small job can finish before the command is entered. Pending is a scheduling state, not automatically an error. The queue listing can also show a reason. Avoid cancelling and resubmitting repeatedly without understanding that reason.\n\nscancel stops the specified job. It is shown here as an option for an unwanted or incorrect submission, not as the next command to execute. Let hello finish, then run cat slurm-123456.out with the actual returned job ID. The default output file is in the submission folder and should contain My first HPC job. Disappearing from the queue alone does not prove success; inspect the log if the message is missing or an error appears. Ctrl+C in a log viewer does not cancel a batch job. The next slide explains output filenames and email settings for the analysis job.",
     "sources": [
       "jobs",
       "states"
@@ -393,22 +393,6 @@
     "anchor": "3/4"
   },
   {
-    "title": "Check the first job\u2019s message",
-    "body": "<div class=\"code-label\">-j selects the job; --format chooses the displayed columns</div><pre class=\"\"><code>sacct -j 123456 --format=JobID,State,ExitCode</code></pre><div class=\"code-label\">Illustrative successful record</div><pre class=\"\"><code>JobID    State       ExitCode\n123456   COMPLETED   0:0</code></pre><p class=\"small\"><code>0:0</code> means exit status 0 and no terminating signal. Use your actual job ID.</p><div class=\"code-label\">Expected text: My first HPC job</div><pre class=\"\"><code>cat slurm-123456.out</code></pre><p class=\"callout\">Continue when the job has completed and the expected message is present.</p>",
-    "notes": "sacct reads accounting information for the selected job. -j identifies the job ID, and --format lists the column names to display, separated by commas without spaces. JobID identifies the job, State says what happened, and ExitCode reports exit status followed by terminating signal. 0:0 means the process reported success and no terminating signal was recorded.\n\nThe table is an illustrative single row; real output may also show .batch and .extern step rows. Check the relevant job and batch step rather than assuming every extra row is another submission. Accounting information can take a short time to appear. If it has not appeared, check again after the job finishes.\n\nhello.sbatch has no custom output options, so ordinary output and error messages share slurm-JOBID.out in the submission folder. cat should display My first HPC job. The slide shows the expected result, not a live ICC record. If the state or message differs, inspect the error before proceeding. Next see the output and email settings in the supplied analysis job, followed by optional GPU and named-node settings.",
-    "sources": [
-      "sbatch",
-      "sacct",
-      "states"
-    ],
-    "section": "Slurm jobs",
-    "cls": "compact",
-    "index": 27,
-    "h": 3,
-    "v": 5,
-    "anchor": "3/5"
-  },
-  {
     "title": "Output files and email notifications",
     "body": "<div class=\"code-label\">In analysis.sbatch, before executable commands</div><pre class=\"\"><code>#SBATCH --output=analysis-%j.out\n#SBATCH --error=analysis-%j.err\n#SBATCH --mail-type=END,FAIL\n#SBATCH --mail-user=YOUR_NETID@illinois.edu</code></pre><table class=\"\"><thead><tr><th>Setting</th><th>Meaning</th></tr></thead><tbody><tr><td>--output / --error</td><td>Files for ordinary output / diagnostic and error output</td></tr><tr><td>%j</td><td>Replace with the job ID: analysis-123457.out</td></tr><tr><td>--mail-type=END,FAIL</td><td>Ask for notification at job end or failure</td></tr><tr><td>--mail-user</td><td>The recipient; use your address or remove both mail lines</td></tr></tbody></table>",
     "notes": "These lines are already present in the supplied analysis.sbatch template. Explain them before that job is submitted; do not edit the completed hello job or duplicate the directives. --output and --error select filenames. Programs may send normal diagnostic messages to the error stream, so a nonempty .err file alone does not prove failure. %j is a Slurm filename token, not a shell variable.\n\nEND and FAIL are comma-separated event types. --mail-user gives the recipient address. Replace the placeholder or remove both mail directives. Email depends on site configuration, and an end notification is not proof that the output is scientifically correct. Plain filenames place the logs in the submission folder; if a log subfolder is used, create it before sbatch because Slurm opens the log before the script runs. Next are two optional resource choices for projects that need them; the tiny demo stays with its existing CPU settings.",
@@ -417,10 +401,10 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 28,
+    "index": 27,
     "h": 3,
-    "v": 6,
-    "anchor": "3/6"
+    "v": 5,
+    "anchor": "3/5"
   },
   {
     "title": "When the analysis needs a GPU",
@@ -432,10 +416,10 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 29,
+    "index": 28,
     "h": 3,
-    "v": 7,
-    "anchor": "3/7"
+    "v": 6,
+    "anchor": "3/6"
   },
   {
     "title": "When a particular node is required",
@@ -447,10 +431,10 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 30,
+    "index": 29,
     "h": 3,
-    "v": 8,
-    "anchor": "3/8"
+    "v": 7,
+    "anchor": "3/7"
   },
   {
     "title": "Get a compute shell for software setup",
@@ -462,10 +446,10 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 31,
+    "index": 30,
     "h": 3,
-    "v": 9,
-    "anchor": "3/9"
+    "v": 8,
+    "anchor": "3/8"
   },
   {
     "title": "Make Python available in the compute shell",
@@ -476,7 +460,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 32,
+    "index": 31,
     "h": 4,
     "v": 0,
     "anchor": "4/0"
@@ -492,7 +476,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 33,
+    "index": 32,
     "h": 4,
     "v": 1,
     "anchor": "4/1"
@@ -508,7 +492,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 34,
+    "index": 33,
     "h": 4,
     "v": 2,
     "anchor": "4/2"
@@ -523,7 +507,7 @@
     ],
     "section": "Software and packages",
     "cls": "concept-slide",
-    "index": 35,
+    "index": 34,
     "h": 4,
     "v": 3,
     "anchor": "4/3"
@@ -538,7 +522,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 36,
+    "index": 35,
     "h": 4,
     "v": 4,
     "anchor": "4/4"
@@ -553,7 +537,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 37,
+    "index": 36,
     "h": 4,
     "v": 5,
     "anchor": "4/5"
@@ -568,7 +552,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 38,
+    "index": 37,
     "h": 4,
     "v": 6,
     "anchor": "4/6"
@@ -584,7 +568,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 39,
+    "index": 38,
     "h": 5,
     "v": 0,
     "anchor": "5/0"
@@ -599,7 +583,7 @@
     ],
     "section": "Run and check",
     "cls": "",
-    "index": 40,
+    "index": 39,
     "h": 5,
     "v": 1,
     "anchor": "5/1"
@@ -615,22 +599,22 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 41,
+    "index": 40,
     "h": 5,
     "v": 2,
     "anchor": "5/2"
   },
   {
     "title": "Check the state and the result file",
-    "body": "<div class=\"code-label\">After the analysis job finishes</div><pre class=\"\"><code>sacct -j 123457 --format=JobID,State,ExitCode\ncat results/summary.csv</code></pre><div class=\"cols \"><div><div class=\"code-label\">Expected file contents</div><pre class=\"\"><code>samples,total_reads\n3,3700</code></pre></div><div><div class=\"rows\"><div class=\"row\"><strong>Job record</strong><span>COMPLETED and ExitCode 0:0</span></div><div class=\"row\"><strong>Output log</strong><span>Saved results/summary.csv</span></div><div class=\"row\"><strong>Input comparison</strong><span>3 rows; 1000 + 1500 + 1200 = 3700</span></div></div></div></div><p class=\"callout\">The result should match the goal shown at the start of the lecture.</p>",
-    "notes": "sacct can show the final state after the job disappears from squeue. Look at the job and its steps for COMPLETED and a successful exit code. Open the .out and .err files; some tools print normal information to stderr, so a nonempty error file alone does not establish failure.\n\nNow open results/summary.csv. The expected contents are shown on the slide. Compare them with the input introduced at the start: three rows and 3700 total reads. The analysis log should also say Saved results/summary.csv. The displayed values are expected toy results, not a claim that a real ICC job was submitted during deck preparation. We have completed the main workflow. Next inspect or download the output directly through VS Code.",
+    "body": "<div class=\"code-label\">After analysis finishes: -j selects the job; --format selects the displayed columns</div><pre class=\"\"><code>sacct -j 123457 --format=JobID,State,ExitCode\ncat results/summary.csv</code></pre><div class=\"cols \"><div><div class=\"code-label\">Expected file contents</div><pre class=\"\"><code>samples,total_reads\n3,3700</code></pre></div><div><div class=\"rows\"><div class=\"row\"><strong>Job record</strong><span>COMPLETED; 0:0 = exit 0, no terminating signal</span></div><div class=\"row\"><strong>Output log</strong><span>Saved results/summary.csv</span></div><div class=\"row\"><strong>Input comparison</strong><span>3 rows; 1000 + 1500 + 1200 = 3700</span></div></div></div></div><p class=\"callout\">The result should match the goal shown at the start of the lecture.</p>",
+    "notes": "sacct reads accounting information after the job disappears from squeue. -j selects the actual job ID, and --format lists the displayed column names separated by commas without spaces. JobID identifies the job, State says what happened, and ExitCode gives the exit status followed by a terminating signal. 0:0 means exit status zero and no terminating signal. Look at the job and any .batch/.extern steps for COMPLETED and successful exit codes. Accounting records may take a short time to appear. Open the .out and .err files; some tools print normal information to stderr, so a nonempty error file alone does not establish failure.\n\nNow open results/summary.csv. The expected contents are shown on the slide. Compare them with the input introduced at the start: three rows and 3700 total reads. The analysis log should also say Saved results/summary.csv. The displayed values are expected toy results, not a claim that a real ICC job was submitted during deck preparation. We have completed the main workflow. Next inspect or download the output directly through VS Code.",
     "sources": [
       "sacct",
       "states"
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 42,
+    "index": 41,
     "h": 5,
     "v": 3,
     "anchor": "5/3"
@@ -648,7 +632,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 43,
+    "index": 42,
     "h": 5,
     "v": 4,
     "anchor": "5/4"
@@ -663,7 +647,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 44,
+    "index": 43,
     "h": 5,
     "v": 5,
     "anchor": "5/5"
@@ -679,7 +663,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 45,
+    "index": 44,
     "h": 5,
     "v": 6,
     "anchor": "5/6"
@@ -691,7 +675,7 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 46,
+    "index": 45,
     "h": 5,
     "v": 7,
     "anchor": "5/7"
@@ -703,7 +687,7 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 47,
+    "index": 46,
     "h": 5,
     "v": 8,
     "anchor": "5/8"

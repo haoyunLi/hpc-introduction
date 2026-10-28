@@ -9,18 +9,18 @@ Reviewed 27 October 2026 against the supplied ICC guide and Missing Semester, wi
 | A concrete result, account access, and login | Access, 1–5 | Establishes the expected calculation, cluster roles, approval prerequisites, login identity, and allocation details. |
 | Local VS Code setup, storage choice, connection, and upload | Files in VS Code, 6–13 | Installs the interface, illustrates local versus remote work, selects the destination before uploading demo, and identifies the files that now exist remotely. |
 | Everyday Unix commands for the uploaded project | Shell essentials, 14–22 | Command structure, paths, ls options, mkdir/cp/mv/rm, text previews, find/grep/wc/du, help and shortcuts. |
-| A first batch job, including its result | Slurm jobs, 23–28 | Illustrates login and compute roles with shared storage, explains resources, submits hello.sbatch, checks the queue, and opens the expected message before adding analysis software. |
-| Output files and email | Slurm jobs, 29 | Explains output/error filenames, the job ID token, email events and recipient settings. |
-| GPU and named-node options | Slurm jobs, 30–31 | Decodes optional resource settings for projects that need them. |
-| Interactive compute allocation | Slurm jobs, 32 | Opens the compute shell that remains in use for Python software preparation. |
-| Prepare and verify the main Python environment | Software and packages, 33–37 | Loads Python, creates .venv, installs pandas, verifies the import, records versions, illustrates installation and activation lifetime, and returns to the login shell. |
-| Alternative R package setup | Software and packages, 38 | Uses a separate allocated setup session, a writable project library, one package installation and loading check, and the R-to-shell exit sequence. |
-| Alternative project-provided Conda environment | Software and packages, 39 | Recognizes another setup route, explains the environment file and name, and checks the import without nesting Conda in the main venv route. |
-| Prepare, submit, and follow the analysis job | Run and check, 40–42 | Reuses the tested setup, visibly submits analysis.sbatch, and reads the logs belonging to its new job ID. |
-| Verify and open the actual result | Run and check, 43–44 | Combines accounting, logs, and the expected CSV, then returns to VS Code to view or download it. |
-| Run an R project | Run and check, 45 | Shows the alternative R job body with the same submission and result checks. |
-| Troubleshooting and the completed project | Run and check, 46–47 | Connects errors to checks and identifies how each final project file was created. |
-| References and support | Run and check, 48 | Gives a path to current system policy and account-specific assistance. |
+| A first batch job, including its result | Slurm jobs, 23–27 | Illustrates login and compute roles with shared storage, explains resources, submits hello.sbatch, checks the queue, and opens the expected message before adding analysis software. |
+| Output files and email | Slurm jobs, 28 | Explains output/error filenames, the job ID token, email events and recipient settings. |
+| GPU and named-node options | Slurm jobs, 29–30 | Decodes optional resource settings for projects that need them. |
+| Interactive compute allocation | Slurm jobs, 31 | Opens the compute shell that remains in use for Python software preparation. |
+| Prepare and verify the main Python environment | Software and packages, 32–36 | Loads Python, creates .venv, installs pandas, verifies the import, records versions, illustrates installation and activation lifetime, and returns to the login shell. |
+| Alternative R package setup | Software and packages, 37 | Uses a separate allocated setup session, a writable project library, one package installation and loading check, and the R-to-shell exit sequence. |
+| Alternative project-provided Conda environment | Software and packages, 38 | Recognizes another setup route, explains the environment file and name, and checks the import without nesting Conda in the main venv route. |
+| Prepare, submit, and follow the analysis job | Run and check, 39–41 | Reuses the tested setup, visibly submits analysis.sbatch, and reads the logs belonging to its new job ID. |
+| Verify and open the actual result | Run and check, 42–43 | Combines accounting, logs, and the expected CSV, then returns to VS Code to view or download it. |
+| Run an R project | Run and check, 44 | Shows the alternative R job body with the same submission and result checks. |
+| Troubleshooting and the completed project | Run and check, 45–46 | Connects errors to checks and identifies how each final project file was created. |
+| References and support | Run and check, 47 | Gives a path to current system policy and account-specific assistance. |
 
 ## Findings from the supplied websites
 
@@ -75,12 +75,12 @@ The review asked whether a first-time listener could identify where to act, read
 | Command outcomes were shown without all relevant option meanings | The search and disk-usage material is split into two slides. The displayed shell, Slurm, Python, R, and Conda options and symbols receive explicit explanations on slides or in their accompanying notes. |
 | The compute-shell transition and software lifetime were easy to miss | srun, --pty bash, and line continuation are decoded. Python installation is immediately followed by import verification, version recording, an explanation of persistent files versus per-shell activation, and an explicit return to the login shell. |
 | Alternative language routes could interrupt or accidentally reuse the main setup session | R and Conda appear after the verified Python route has exited. Each alternative calls for its own allocated setup session; the R prompt and its return to the shell are identified. |
-| A job identifier or quiet log could be mistaken for success | The first and analysis jobs use distinct illustrative IDs. Queue state, final accounting, log messages, and the expected CSV are checked together. Optional cancellation is not presented as a step to perform on the successful example. |
+| A job identifier or quiet log could be mistaken for success | The first and analysis jobs use distinct illustrative IDs. The first job is followed by its expected message. For the analysis job, queue state, final accounting, log messages, and the expected CSV are checked together. Optional cancellation is not presented as a step to perform on the successful example. |
 | The interactive batch explanation was incomplete in the static handout | All ten hello.sbatch line explanations are included in the printed PDF, while the browser retains clickable lines. |
 
 The review preserves all original figures, the basic-command coverage, six horizontal topics with vertical slides, and the single demo calculation. Remaining uncertainties are account-specific values, available software versions, queue waiting, and installation behavior; the slides identify the values to confirm instead of presenting them as universal guarantees.
 
-The 48-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 23 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 25 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 36 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
+The 47-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 23 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 25 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 35 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
 
 ## Topics that need more teaching time
 
