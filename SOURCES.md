@@ -13,6 +13,7 @@ Reviewed 27 October 2026. Independent educational adaptation.
 - [ICC · Software and Modules](https://docs.ncsa.illinois.edu/systems/icc/en/latest/user_guide/software.html)
 - [ICC · VS Code setup](https://docs.ncsa.illinois.edu/systems/icc/en/latest/user_guide/prog_env.html#visual-studio-code)
 - [Missing Semester · Introduction to the Shell (2026)](https://missing.csail.mit.edu/2026/course-shell/)
+- [GNU Coreutils · ls size formats](https://www.gnu.org/software/coreutils/manual/html_node/What-information-is-listed.html)
 - [Missing Semester · Command-line Environment (2026)](https://missing.csail.mit.edu/2026/command-line-environment/)
 - [Missing Semester · Shell Tools and Scripting (2020)](https://missing.csail.mit.edu/2020/shell-tools/)
 - [Microsoft · Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)

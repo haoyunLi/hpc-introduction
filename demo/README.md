@@ -4,6 +4,8 @@ This is a tiny synthetic Python project supplying the filenames and commands use
 
 Input: `data/samples.csv`, with three samples and read counts 1000, 1500, and 1200.
 
+The lecture’s `ls` slide also shows an illustrative 24 MiB `counts.tsv` to compare raw byte counts with human-readable sizes. That extra file is not included or needed for this demo.
+
 Expected output: `results/summary.csv` containing:
 
 ```csv

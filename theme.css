@@ -246,7 +246,7 @@ dialog::backdrop{background:#0c1b2dcc}
 .navigation-examples .cols{align-items:center}
 .navigation-examples pre{font-size:22px;line-height:1.25;padding:18px 22px}
 .listing-examples .cols{grid-template-columns:350px minmax(0,1fr);gap:38px}
-.listing-examples pre{font-size:22px;line-height:1.4;padding:18px 22px}
+.listing-examples pre{font-size:22px;line-height:1.25;padding:18px 22px}
 .listing-examples table{font-size:23px}
 .listing-examples td{padding-left:10px;padding-right:10px}
 .listing-examples td:first-child{white-space:nowrap}
