@@ -60,6 +60,20 @@
     "anchor": "0/3"
   },
   {
+    "title": "VS Code is an editor for code and project files",
+    "body": "<div class=\"vscode-intro-grid\"><figure class=\"vscode-interface-image\"><img src=\"assets/vscode-interface.png\" alt=\"Official Microsoft VS Code screenshot showing the Explorer, code editors, and terminal\"><figcaption>Microsoft example interface. Focus on B, C, and D.</figcaption></figure><div class=\"vscode-intro-copy\"><p class=\"\">Visual Studio Code (VS Code) is Microsoft\u2019s code editor for working with scripts and project files.</p><div class=\"rows\"><div class=\"row\"><strong>B \u00b7 Explorer</strong><span>Browse files and folders in the left sidebar.</span></div><div class=\"row\"><strong>C \u00b7 Editor</strong><span>Read and edit scripts in the main area.</span></div><div class=\"row\"><strong>D \u00b7 Terminal</strong><span>Enter commands in the bottom panel.</span></div></div></div></div>",
+    "notes": "Introduce the full name, Visual Studio Code, before using the abbreviation VS Code. It is a desktop application that puts file browsing, editing, and a terminal in one window. The screenshot is an official Microsoft example, not an ICC session. Its code and file names are not commands to copy.\n\nPoint to B on the left: this sidebar currently shows the Explorer and its file tree. Point to C: the open editor areas show file contents. Point to D: the bottom panel currently contains the terminal, where commands can be entered. The panel can also show other views. These are the three areas we will use; the other labels can wait.\n\nNext, we will connect this editor to files on the cluster. The following diagram explains how the local VS Code window reaches the remote project.",
+    "sources": [
+      "vscode_ui"
+    ],
+    "section": "Files in VS Code",
+    "cls": "vscode-intro",
+    "index": 4,
+    "h": 1,
+    "v": 0,
+    "anchor": "1/0"
+  },
+  {
     "title": "Use local VS Code to edit files on the cluster",
     "body": "<figure class=\"wide-image\"><img src=\"assets/vscode-architecture.png\" alt=\"Microsoft Remote - SSH architecture showing the local editor and remote files\"><figcaption>Original Microsoft figure. Focus on the local editor, SSH connection, and remote project.</figcaption></figure><div class=\"rows\"><div class=\"row\"><strong>On your laptop</strong><span>The VS Code window and its controls</span></div><div class=\"row\"><strong>On the cluster</strong><span>The project files and remote terminal processes</span></div></div><p class=\"callout\">Remote editing gives you a familiar interface to the files on the cluster.</p>",
     "notes": "Use Microsoft\u2019s diagram to explain where things live. The editor window is local. The SSH connection reaches the remote environment and project files. The diagram includes extension and debugging details, but they are not needed for the first workflow.\n\nWalkthrough: point to the local VS Code box, the connection, and the source-code box on the right. Explain that a save writes to the remote file. Resource allocation is a separate step handled by Slurm; the diagram does not mean every program started from the editor already has a compute allocation.",
@@ -68,10 +82,10 @@
     ],
     "section": "Files in VS Code",
     "cls": "",
-    "index": 4,
+    "index": 5,
     "h": 1,
-    "v": 0,
-    "anchor": "1/0"
+    "v": 1,
+    "anchor": "1/1"
   },
   {
     "title": "Files stay on the cluster; terminal commands run there",
@@ -83,10 +97,10 @@
     ],
     "section": "Files in VS Code",
     "cls": "concept-slide",
-    "index": 5,
+    "index": 6,
     "h": 1,
-    "v": 1,
-    "anchor": "1/1"
+    "v": 2,
+    "anchor": "1/2"
   },
   {
     "title": "Install VS Code and the Remote - SSH extension",
@@ -98,10 +112,10 @@
     ],
     "section": "Files in VS Code",
     "cls": "",
-    "index": 6,
+    "index": 7,
     "h": 1,
-    "v": 2,
-    "anchor": "1/2"
+    "v": 3,
+    "anchor": "1/3"
   },
   {
     "title": "Connecting VS Code with Remote - SSH",
@@ -113,24 +127,24 @@
     ],
     "section": "Files in VS Code",
     "cls": "compact",
-    "index": 7,
-    "h": 1,
-    "v": 3,
-    "anchor": "1/3"
-  },
-  {
-    "title": "Choose home, project, or scratch storage",
-    "body": "<table class=\"\"><thead><tr><th>Location</th><th>Use it for</th><th>Remember</th></tr></thead><tbody><tr><td>/u/YOUR_NETID</td><td>Settings and small personal files</td><td>Home has a quota.</td></tr><tr><td>/projects/YOUR_GROUP</td><td>Group data, software, and retained outputs</td><td>Use your assigned writable location.</td></tr><tr><td>/scratch/YOUR_NETID</td><td>Temporary working data</td><td>Files can be purged.</td></tr></tbody></table><p class=\"callout\">For this example: <code>/projects/YOUR_GROUP/demo</code></p>",
-    "notes": "Before uploading, identify the authorized writable location supplied by the group. Throughout the worked example, /projects/YOUR_GROUP/demo stands for that project folder. It is a placeholder, not a directory that every user can access. Replace the group path with the actual approved path.\n\nHome is limited. Project storage is a place for shared work but is not automatically a backup. Scratch is temporary: older files can be purged and space pressure can change retention. Keep the only copy of important data elsewhere. We will put the input, scripts, environment, and final result in the same durable project directory. Now open its parent location in VS Code.",
-    "sources": [
-      "storage"
-    ],
-    "section": "Files in VS Code",
-    "cls": "",
     "index": 8,
     "h": 1,
     "v": 4,
     "anchor": "1/4"
+  },
+  {
+    "title": "Choose home, project, or scratch storage",
+    "body": "<table class=\"\"><thead><tr><th>Location</th><th>Use it for</th><th>Remember</th></tr></thead><tbody><tr><td>/u/YOUR_NETID</td><td>Settings and small personal files</td><td>Very limited quota: 100 GiB (soft limit). Keep large datasets elsewhere.</td></tr><tr><td>/projects/YOUR_GROUP</td><td>Group data, software, and retained outputs</td><td>Shared group quota; no snapshots. Keep a separate backup of important files.</td></tr><tr><td>/scratch/YOUR_NETID</td><td>Temporary working data</td><td>Temporary only: files typically deleted after 30 days without access, sometimes sooner.</td></tr></tbody></table><p class=\"callout\">For this example: <code>/projects/YOUR_GROUP/demo</code></p>",
+    "notes": "Before uploading, identify the authorized writable location supplied by the group. Throughout the worked example, /projects/YOUR_GROUP/demo stands for that project folder. It is a placeholder, not a directory that every user can access. Replace the group path with the actual approved path.\n\nQuota means your storage allowance. ICC lists home at 100 GiB soft / 103 GiB hard; the quota cannot be expanded. Over the soft limit for seven days, new writes stop until usage is reduced. Project capacity is shared and depends on the group\u2019s allocation; no snapshots are provided. Keep separate backups. Scratch cleanup typically uses 30 days since last access, but can happen sooner when space runs low. Purged files are unrecoverable. Move important outputs out of scratch. Policies checked on 28 October 2026. We will put the input, scripts, environment, and final result in the same durable project directory. Now open its parent location in VS Code.",
+    "sources": [
+      "storage"
+    ],
+    "section": "Files in VS Code",
+    "cls": "storage-slide",
+    "index": 9,
+    "h": 1,
+    "v": 5,
+    "anchor": "1/5"
   },
   {
     "title": "Open the remote project location",
@@ -141,10 +155,10 @@
     ],
     "section": "Files in VS Code",
     "cls": "compact",
-    "index": 9,
+    "index": 10,
     "h": 1,
-    "v": 5,
-    "anchor": "1/5"
+    "v": 6,
+    "anchor": "1/6"
   },
   {
     "title": "Upload the demo folder with VS Code",
@@ -157,10 +171,10 @@
     ],
     "section": "Files in VS Code",
     "cls": "compact",
-    "index": 10,
+    "index": 11,
     "h": 1,
-    "v": 6,
-    "anchor": "1/6"
+    "v": 7,
+    "anchor": "1/7"
   },
   {
     "title": "Open a terminal in the same project",
@@ -171,7 +185,7 @@
     ],
     "section": "Shell essentials",
     "cls": "",
-    "index": 11,
+    "index": 12,
     "h": 2,
     "v": 0,
     "anchor": "2/0"
@@ -186,7 +200,7 @@
     ],
     "section": "Shell essentials",
     "cls": "",
-    "index": 12,
+    "index": 13,
     "h": 2,
     "v": 1,
     "anchor": "2/1"
@@ -200,7 +214,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact navigation-examples",
-    "index": 13,
+    "index": 14,
     "h": 2,
     "v": 2,
     "anchor": "2/2"
@@ -215,7 +229,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact listing-examples",
-    "index": 14,
+    "index": 15,
     "h": 2,
     "v": 3,
     "anchor": "2/3"
@@ -230,7 +244,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 15,
+    "index": 16,
     "h": 2,
     "v": 4,
     "anchor": "2/4"
@@ -245,7 +259,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 16,
+    "index": 17,
     "h": 2,
     "v": 5,
     "anchor": "2/5"
@@ -260,7 +274,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 17,
+    "index": 18,
     "h": 2,
     "v": 6,
     "anchor": "2/6"
@@ -275,7 +289,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 18,
+    "index": 19,
     "h": 2,
     "v": 7,
     "anchor": "2/7"
@@ -290,7 +304,7 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 19,
+    "index": 20,
     "h": 2,
     "v": 8,
     "anchor": "2/8"
@@ -306,7 +320,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "concept-slide",
-    "index": 20,
+    "index": 21,
     "h": 3,
     "v": 0,
     "anchor": "3/0"
@@ -320,7 +334,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "beginner-script",
-    "index": 21,
+    "index": 22,
     "h": 3,
     "v": 1,
     "anchor": "3/1"
@@ -334,7 +348,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "concept-slide resource-slide",
-    "index": 22,
+    "index": 23,
     "h": 3,
     "v": 2,
     "anchor": "3/2"
@@ -348,7 +362,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 23,
+    "index": 24,
     "h": 3,
     "v": 3,
     "anchor": "3/3"
@@ -363,7 +377,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 24,
+    "index": 25,
     "h": 3,
     "v": 4,
     "anchor": "3/4"
@@ -377,7 +391,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 25,
+    "index": 26,
     "h": 3,
     "v": 5,
     "anchor": "3/5"
@@ -392,7 +406,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 26,
+    "index": 27,
     "h": 3,
     "v": 6,
     "anchor": "3/6"
@@ -407,7 +421,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 27,
+    "index": 28,
     "h": 3,
     "v": 7,
     "anchor": "3/7"
@@ -422,7 +436,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 28,
+    "index": 29,
     "h": 3,
     "v": 8,
     "anchor": "3/8"
@@ -436,7 +450,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 29,
+    "index": 30,
     "h": 4,
     "v": 0,
     "anchor": "4/0"
@@ -452,7 +466,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 30,
+    "index": 31,
     "h": 4,
     "v": 1,
     "anchor": "4/1"
@@ -468,7 +482,7 @@
     ],
     "section": "Software and packages",
     "cls": "compact",
-    "index": 31,
+    "index": 32,
     "h": 4,
     "v": 2,
     "anchor": "4/2"
@@ -483,7 +497,7 @@
     ],
     "section": "Software and packages",
     "cls": "concept-slide",
-    "index": 32,
+    "index": 33,
     "h": 4,
     "v": 3,
     "anchor": "4/3"
@@ -498,7 +512,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 33,
+    "index": 34,
     "h": 4,
     "v": 4,
     "anchor": "4/4"
@@ -514,7 +528,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 34,
+    "index": 35,
     "h": 5,
     "v": 0,
     "anchor": "5/0"
@@ -529,7 +543,7 @@
     ],
     "section": "Run and check",
     "cls": "",
-    "index": 35,
+    "index": 36,
     "h": 5,
     "v": 1,
     "anchor": "5/1"
@@ -545,7 +559,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 36,
+    "index": 37,
     "h": 5,
     "v": 2,
     "anchor": "5/2"
@@ -563,7 +577,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 37,
+    "index": 38,
     "h": 5,
     "v": 3,
     "anchor": "5/3"
@@ -578,7 +592,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 38,
+    "index": 39,
     "h": 5,
     "v": 4,
     "anchor": "5/4"
@@ -594,7 +608,7 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 39,
+    "index": 40,
     "h": 5,
     "v": 5,
     "anchor": "5/5"
@@ -606,7 +620,7 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 40,
+    "index": 41,
     "h": 5,
     "v": 6,
     "anchor": "5/6"

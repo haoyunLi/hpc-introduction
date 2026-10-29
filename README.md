@@ -1,6 +1,6 @@
 # Getting started on the Illinois Campus Cluster
 
-An English beginner lecture covering account access, remote file management, everyday shell commands, software setup, job submission, and reading outputs. There are 41 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
+An English beginner lecture covering account access, remote file management, everyday shell commands, software setup, job submission, and reading outputs. There are 42 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
 
 ## Presentation and downloads
 
@@ -42,7 +42,7 @@ Then open `http://127.0.0.1:8765/`. Double-click presentation and in-window note
 
 The slides focus on practical HPC operations. Small files in `demo/` supply concrete paths and commands; the separate example-goal, file-inventory, numerical-result, and completed-project pages have been removed. The complete runnable example and its expected output remain documented in `demo/README.md`.
 
-The sequence chooses storage before uploading a folder through VS Code, then introduces everyday shell commands, a small batch script, resource options, and software setup. A brief reminder beside the environment diagram explains how to leave the compute shell. Job preparation and submission lead directly to following logs and opening outputs in VS Code. Log-following commands are introduced when the log exists; the illustrated hello and analysis job IDs are different.
+Chapter 2 starts by defining VS Code and introducing Explorer, the editor, and the terminal in an official interface screenshot. The sequence then chooses storage before uploading a folder through VS Code, then introduces everyday shell commands, a small batch script, resource options, and software setup. A brief reminder beside the environment diagram explains how to leave the compute shell. Job preparation and submission lead directly to following logs and opening outputs in VS Code. Log-following commands are introduced when the log exists; the illustrated hello and analysis job IDs are different.
 
 The shell material includes navigation, hidden files and listing options, folder creation, copying/moving/deleting, text previews, file and text search, line counts, disk usage, help, and shortcuts. GPU requests, node count, named nodes, and interactive compute sessions are retained. Output filenames and optional email directives have their own explanation page and remain in the supplied templates.
 
@@ -50,7 +50,7 @@ Use `demo/` for the continuous Python walkthrough. It starts with the input and 
 
 The beginner review makes local versus remote actions, command prompts, placeholders, option meanings, and expected results explicit. It also distinguishes commands to run in sequence from optional reference commands such as cancellation or leaving a shell.
 
-Four simple diagrams explain local versus remote work (slide 6), login versus compute nodes with shared project storage (slide 21), nodes, tasks, and CPUs per task (slide 23), and installation versus activation (slide 33). They use the same `demo/` project and retain all official diagrams and screenshots. The installation diagram shows persistent package files separately from the environment selected by each shell or job.
+Four simple diagrams explain local versus remote work (slide 7), login versus compute nodes with shared project storage (slide 22), nodes, tasks, and CPUs per task (slide 24), and installation versus activation (slide 34). They use the same `demo/` project and retain all official diagrams and screenshots. The installation diagram shows persistent package files separately from the environment selected by each shell or job.
 
 All data are synthetic. The programs are not research-analysis pipelines or resource recommendations. Replace allocation, queue, GPU, node, and email placeholders before an authorized live run. Use the actual returned job IDs instead of the illustrative IDs on the slides.
 

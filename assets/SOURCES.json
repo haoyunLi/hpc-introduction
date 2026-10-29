@@ -52,5 +52,14 @@
     "accessed": "2026-10-27",
     "credit": "Microsoft",
     "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/vscode-interface.png",
+    "asset_url": "https://code.visualstudio.com/assets/docs/editing/userinterface/hero.png",
+    "source_page": "https://code.visualstudio.com/docs/editing/getting-started/userinterface",
+    "caption": "Official Microsoft VS Code interface screenshot with labeled areas.",
+    "accessed": "2026-10-28",
+    "credit": "Microsoft",
+    "rights": "Original owner retains rights; attributed educational use."
   }
 ]

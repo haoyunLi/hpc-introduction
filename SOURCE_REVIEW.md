@@ -7,19 +7,19 @@ Reviewed 27 October 2026 against the supplied ICC guide and Missing Semester, wi
 | Need in an actual analysis workflow | Topic / slides | Why it belongs |
 | --- | --- | --- |
 | Account access and login | Access, 1–4 | Explains cluster roles, approval prerequisites, login identity, and allocation details. |
-| Local VS Code setup, storage, connection, and upload | Files in VS Code, 5–11 | Separates local and remote work, selects a destination, and transfers a folder. |
-| Everyday Unix commands | Shell essentials, 12–20 | Command structure, paths, ls options, mkdir/cp/mv/rm, text previews, find/grep/wc/du, help and shortcuts. |
-| A first batch job | Slurm jobs, 21–25 | Explains shared storage and resources, submits hello.sbatch, checks the queue, and reads its short message. |
-| Output files and email | Slurm jobs, 26 | Explains output/error filenames, the job ID token, and email settings. |
-| GPU and named-node options | Slurm jobs, 27–28 | Decodes optional resource settings. |
-| Interactive compute allocation | Slurm jobs, 29 | Opens the compute shell used for software preparation. |
-| Python environment and packages | Software and packages, 30–33 | Loads Python, creates .venv, installs pandas, verifies the import, records versions, and explains installation versus activation. A brief exit reminder replaces the separate return-to-login page. |
-| Conda alternative | Software and packages, 34 | Explains an environment file and verifies the import in a separate setup session. |
-| Prepare, submit, and follow a job | Run and check, 35–37 | Reuses the software setup, submits analysis.sbatch, and reads its logs. |
-| Open outputs in VS Code | Run and check, 38 | Inspects output contents and explains viewing and downloading. |
-| Run an R project | Run and check, 39 | Shows a base-R batch job without an add-on package prerequisite. |
-| Troubleshooting | Run and check, 40 | Connects common errors to the first useful check. |
-| References and support | Run and check, 41 | Links current system documentation and account-specific assistance. |
+| Local VS Code setup, storage, connection, and upload | Files in VS Code, 5–12 | Introduces VS Code with an official interface screenshot, separates local and remote work, selects a destination, and transfers a folder. |
+| Everyday Unix commands | Shell essentials, 13–21 | Command structure, paths, ls options, mkdir/cp/mv/rm, text previews, find/grep/wc/du, help and shortcuts. |
+| A first batch job | Slurm jobs, 22–26 | Explains shared storage and resources, submits hello.sbatch, checks the queue, and reads its short message. |
+| Output files and email | Slurm jobs, 27 | Explains output/error filenames, the job ID token, and email settings. |
+| GPU and named-node options | Slurm jobs, 28–29 | Decodes optional resource settings. |
+| Interactive compute allocation | Slurm jobs, 30 | Opens the compute shell used for software preparation. |
+| Python environment and packages | Software and packages, 31–34 | Loads Python, creates .venv, installs pandas, verifies the import, records versions, and explains installation versus activation. A brief exit reminder replaces the separate return-to-login page. |
+| Conda alternative | Software and packages, 35 | Explains an environment file and verifies the import in a separate setup session. |
+| Prepare, submit, and follow a job | Run and check, 36–38 | Reuses the software setup, submits analysis.sbatch, and reads its logs. |
+| Open outputs in VS Code | Run and check, 39 | Inspects output contents and explains viewing and downloading. |
+| Run an R project | Run and check, 40 | Shows a base-R batch job without an add-on package prerequisite. |
+| Troubleshooting | Run and check, 41 | Connects common errors to the first useful check. |
+| References and support | Run and check, 42 | Links current system documentation and account-specific assistance. |
 
 ## Findings from the supplied websites
 
@@ -27,7 +27,7 @@ Reviewed 27 October 2026 against the supplied ICC guide and Missing Semester, wi
 
 [ICC running jobs](https://docs.ncsa.illinois.edu/systems/icc/en/latest/user_guide/running_jobs.html) extends far beyond basic submission. The useful first-workflow material includes login-node limits, account/partition pairing, interactive jobs, GPU requests, queue inspection, and cancellation. Those are included. Preemption, checkpointing, job arrays, MPI, and recurring jobs require a separate explanation and are not part of this introductory sequence.
 
-[ICC storage](https://docs.ncsa.illinois.edu/systems/icc/en/latest/user_guide/storage_data.html) makes storage policy and data transfer part of the working routine. Home, project, scratch, disk usage, and the large-transfer role of Globus are included. Node-local scratch and detailed transfer endpoint setup are deferred.
+[ICC storage](https://docs.ncsa.illinois.edu/systems/icc/en/latest/user_guide/storage_data.html) makes storage policy and data transfer part of the working routine. Home, project, scratch, disk usage, and the large-transfer role of Globus are included. The reminders now specify the limited 100 GiB home soft quota, shared project capacity with no snapshots, and scratch purging typically after 30 days without access or earlier under storage pressure. These details were rechecked on 28 October 2026. Node-local scratch and detailed transfer endpoint setup are deferred.
 
 [ICC software](https://docs.ncsa.illinois.edu/systems/icc/en/latest/user_guide/software.html) directly supports modules and installing R packages into writable locations. The lecture retains module selection and Python package setup. R package installation remains in the optional example reference rather than a separate slide. Exact available versions and permissions remain account/site-specific. The lecture records an example Python module while asking the presenter to verify it before use.
 
@@ -79,7 +79,7 @@ The review asked whether a first-time listener could identify where to act, read
 
 The review preserves all original figures, the basic-command coverage, six horizontal topics with vertical slides, and the runnable example files. Remaining uncertainties are account-specific values, available software versions, queue waiting, and installation behavior; the slides identify the values to confirm instead of presenting them as universal guarantees.
 
-The 41-slide version includes four simple teaching diagrams. Slide 6 separates the local VS Code window from remote project files and terminal processes. Slide 21 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 23 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 33 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
+The 42-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 22 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 24 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 34 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
 
 ## Topics that need more teaching time
 

@@ -251,3 +251,16 @@ dialog::backdrop{background:#0c1b2dcc}
 .listing-examples td{padding-left:10px;padding-right:10px}
 .listing-examples td:first-child{white-space:nowrap}
 #tools #github-profile-link{border:1px solid #68839b;border-radius:4px}
+
+/* Introductory editor screenshot and concise storage reminders. */
+.vscode-intro-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:center}
+.reveal .vscode-interface-image img{width:100%;max-height:510px;background:white}
+.vscode-intro-copy{display:flex;flex-direction:column;gap:20px}
+.vscode-intro-copy>p{font-size:25px;line-height:1.4}
+.vscode-intro-copy .row{grid-template-columns:1fr;gap:7px;padding:15px 0}
+.vscode-intro-copy .row strong{font-size:25px}
+.vscode-intro-copy .row span{font-size:23px;line-height:1.35}
+.storage-slide table{table-layout:fixed;font-size:23px}
+.storage-slide th:nth-child(1){width:29%}
+.storage-slide th:nth-child(2){width:27%}
+.storage-slide th:nth-child(3){width:44%}

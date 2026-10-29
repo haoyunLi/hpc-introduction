@@ -16,6 +16,7 @@ Reviewed 27 October 2026. Independent educational adaptation.
 - [Missing Semester · Command-line Environment (2026)](https://missing.csail.mit.edu/2026/command-line-environment/)
 - [Missing Semester · Shell Tools and Scripting (2020)](https://missing.csail.mit.edu/2020/shell-tools/)
 - [Microsoft · Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)
+- [Microsoft · VS Code user interface](https://code.visualstudio.com/docs/editing/getting-started/userinterface)
 - [Microsoft · VS Code setup](https://code.visualstudio.com/docs/setup/setup-overview)
 - [Microsoft · File import and download implementation](https://github.com/microsoft/vscode/blob/main/src/vs/workbench/contrib/files/browser/fileImportExport.ts)
 - [Rainbow CSV · Extension documentation](https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv)
@@ -39,6 +40,7 @@ Reviewed 27 October 2026. Independent educational adaptation.
 - `assets/vscode-folder.png`: Microsoft example remote folder selector. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh); [asset](https://code.visualstudio.com/assets/docs/remote/ssh/ssh-open-folder.png).
 - `assets/icc-overview.png`: Campus Cluster usage overview. Official NCSA figure. Credit: NCSA / University of Illinois. [Source](https://docs.ncsa.illinois.edu/systems/icc/en/latest/getting_started.html); [asset](https://docs.ncsa.illinois.edu/systems/icc/en/latest/_images/cc-diagram2.png).
 - `assets/vscode-architecture.png`: Microsoft Remote - SSH architecture. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh); [asset](https://code.visualstudio.com/assets/docs/remote/ssh/architecture-ssh.png).
+- `assets/vscode-interface.png`: Official Microsoft VS Code interface screenshot with labeled areas. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/editing/getting-started/userinterface); [asset](https://code.visualstudio.com/assets/docs/editing/userinterface/hero.png).
 - The original HTML workflow diagrams are illustrations, not live screenshots. Official diagrams and example UI screenshots retain their source credits.
 - Commands and small example datasets are adapted or newly written for explanation. They do not report a real research analysis.
 
