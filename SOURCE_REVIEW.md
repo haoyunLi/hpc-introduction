@@ -8,19 +8,19 @@ Reviewed 27 October 2026 against the supplied ICC guide and Missing Semester, wi
 | --- | --- | --- |
 | Opening title | Introduction, 1 | Opens the lecture in its own horizontal unit. |
 | Account access and login | Access, 2–4 | Explains cluster roles, approval prerequisites, login identity, and allocation details. |
-| Local VS Code setup, storage, connection, and upload | Files in VS Code, 5–12 | Introduces VS Code with an official interface screenshot, separates local and remote work, selects a destination, and transfers a folder. |
-| Everyday Unix commands | Shell essentials, 13–21 | Command structure, paths, ls options, mkdir/cp/mv/rm, text previews, find/grep/wc/du, help and shortcuts. |
-| A first batch job | Slurm jobs, 22–26 | Explains shared storage and resources, submits hello.sbatch, checks the queue, and reads its short message. |
-| Output files and email | Slurm jobs, 27 | Explains output/error filenames, the job ID token, and email settings. |
-| GPU and named-node options | Slurm jobs, 28–29 | Decodes optional resource settings. |
-| Interactive compute allocation | Slurm jobs, 30 | Opens the compute shell used for software preparation. |
-| Python environment and packages | Software and packages, 31–34 | Loads Python, creates .venv, installs pandas, verifies the import, records versions, and explains installation versus activation. A brief exit reminder replaces the separate return-to-login page. |
-| Conda alternative | Software and packages, 35 | Explains an environment file and verifies the import in a separate setup session. |
-| Prepare, submit, and follow a job | Run and check, 36–38 | Reuses the software setup, submits analysis.sbatch, and reads its logs. |
-| Open outputs in VS Code | Run and check, 39 | Inspects output contents and explains viewing and downloading. |
-| Run an R project | Run and check, 40 | Shows a base-R batch job without an add-on package prerequisite. |
-| Troubleshooting | Run and check, 41 | Connects common errors to the first useful check. |
-| References and support | Run and check, 42 | Links current system documentation and account-specific assistance. |
+| Local VS Code setup, storage, connection, and upload | Files in VS Code, 5–11 | Introduces VS Code with an official interface screenshot, separates local and remote work, selects a destination, and transfers a folder. |
+| Everyday Unix commands | Shell essentials, 12–20 | Command structure, paths, ls options, mkdir/cp/mv/rm, text previews, find/grep/wc/du, help and shortcuts. |
+| A first batch job | Slurm jobs, 21–25 | Explains shared storage and resources, submits hello.sbatch, checks the queue, and reads its short message. |
+| Output files and email | Slurm jobs, 26 | Explains output/error filenames, the job ID token, and email settings. |
+| GPU and named-node options | Slurm jobs, 27–28 | Decodes optional resource settings. |
+| Interactive compute allocation | Slurm jobs, 29 | Opens the compute shell used for software preparation. |
+| Python environment and packages | Software and packages, 30–33 | Loads Python, creates .venv, installs pandas, verifies the import, records versions, and explains installation versus activation. A brief exit reminder replaces the separate return-to-login page. |
+| Conda alternative | Software and packages, 34 | Explains an environment file and verifies the import in a separate setup session. |
+| Prepare, submit, and follow a job | Run and check, 35–37 | Reuses the software setup, submits analysis.sbatch, and reads its logs. |
+| Open outputs in VS Code | Run and check, 38 | Inspects output contents and explains viewing and downloading. |
+| Run an R project | Run and check, 39 | Shows a base-R batch job without an add-on package prerequisite. |
+| Troubleshooting | Run and check, 40 | Connects common errors to the first useful check. |
+| References and support | Run and check, 41 | Links current system documentation and account-specific assistance. |
 
 ## Findings from the supplied websites
 
@@ -78,21 +78,21 @@ The review asked whether a first-time listener could identify where to act, read
 | A job identifier or quiet log could be mistaken for success | The first and analysis jobs use distinct illustrative IDs. The first job is followed by its expected message. For the analysis job, the slides connect queue status, logs, and opening the actual output. Detailed accounting and numerical example checks remain in supplementary material. Optional cancellation is not presented as a step to perform on the successful example. |
 | The interactive batch explanation was incomplete in the static handout | All ten hello.sbatch line explanations are included in the printed PDF, while the browser retains clickable lines. |
 
-The review preserves all original figures, the basic-command coverage, a standalone introduction followed by six numbered horizontal topics with vertical slides, and the runnable example files. Remaining uncertainties are account-specific values, available software versions, queue waiting, and installation behavior; the slides identify the values to confirm instead of presenting them as universal guarantees.
+The review preserves the remaining figures, the basic-command coverage, a standalone introduction followed by six numbered horizontal topics with vertical slides, and the runnable example files. Remaining uncertainties are account-specific values, available software versions, queue waiting, and installation behavior; the slides identify the values to confirm instead of presenting them as universal guarantees.
 
-The 42-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 22 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 24 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 34 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
+The 41-slide version includes four simple teaching diagrams. Slide 6 separates the local VS Code window from remote project files and terminal processes. Slide 21 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 23 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 33 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview remains in the deck. The local/remote illustration now supplies one explanation in place of the earlier pair of overlapping architecture and file-location pages.
 
 ## Speaker-script and wording review — 28 October 2026
 
-Applied the research-talk-slides principles of one purpose per page, plain wording, and explicit transitions to this instructional course. All 42 notes are now spoken English paragraphs rather than directions to a presenter. Titles, order, diagrams, examples, and existing commands are preserved.
+Applied the research-talk-slides principles of one purpose per page, plain wording, and explicit transitions to this instructional course. All 41 notes are now spoken English paragraphs rather than directions to a presenter. Titles, order, diagrams, examples, and existing commands are preserved.
 
 The review checks each instruction for a location, action, and observable outcome. Changes include naming the connected host in VS Code, using the job ID returned by the actual submission, stating that Slurm substitutes `%j`, identifying an error-free package-version output as the import check, and giving concrete first actions for common errors. The verified `quota` command now appears beside `du` so storage usage is not confused with the storage allowance. Conda remains an optional alternative; no extra exercises or advanced workflow pages were added.
 
-A further conversational pass applies the opening slide's speaking style to slides 2–42. The notes use shorter sentences, natural contractions, and a shared walkthrough in the first person. Explanations begin with the reason for an action, describe what the command does and what to expect, and connect to the next step. Command options, placeholders, storage limits, job IDs, and the distinction between installation and activation are retained. The opening script, slide titles, visible content, illustrations, order, and presentation controls are unchanged.
+A further conversational pass applies the opening slide's speaking style to slides 2–41. The notes use shorter sentences, natural contractions, and a shared walkthrough in the first person. Explanations begin with the reason for an action, describe what the command does and what to expect, and connect to the next step. Command options, placeholders, storage limits, job IDs, and the distinction between installation and activation are retained. The opening script, slide titles, visible content, illustrations, order, and presentation controls are unchanged.
 
 ## Visual walkthrough review — 28 October 2026
 
-Nine existing slides were revised without changing their titles, order, or the 42-slide structure. Microsoft screenshots now show extension installation, the Connect to Host menu, the remote Open Folder dialog, the SSH status indicator, and a remote terminal. Numbered callouts and adjacent labels explain the action and expected outcome. The source images remain unmodified; the connection menu is focused through an HTML viewport. Microsoft example hostnames, paths, and the older extension version are explicitly identified.
+Nine retained slides use visuals to explain operations, with their titles and relative order preserved. Microsoft screenshots now show extension installation, the Connect to Host menu, the remote Open Folder dialog, the SSH status indicator, and a remote terminal. Numbered callouts and adjacent labels explain the action and expected outcome. The source images remain unmodified; the connection menu is focused through an HTML viewport. Microsoft example hostnames, paths, and the older extension version are explicitly identified.
 
 The upload and results pages use labeled illustrations rather than implying an ICC session was captured. The result preview matches the supplied demo: `samples,total_reads` followed by `3,3700`, one summary row representing three input samples. Queue progression distinguishes leaving the queue from confirmed success. Log routing separates program output, diagnostics, and Slurm email events. The log-viewer diagram shows why Ctrl+C stops `tail -f` while the batch job continues. Original commands, parameter explanations, email settings, and optional cancellation remain present.
 
@@ -110,6 +110,10 @@ These estimates are for the presenter, not labels on the slides.
 | Arrays, workflow managers, containers, and preemptible queues | A separate follow-up session | These become useful after one reproducible job works. |
 
 For an approximately one-hour explanation, focus on the connection, working directory, software environment, and job state. Spend the most attention on the folder-navigation transcript, the first job submission and message, and the transition from package setup to the analysis job. The nine shell slides are explanations, not exercises; log following comes later when a job has created its files. Use prepared outputs and keep Python plus pandas as the main worked route. Explain the R and Conda slides as brief alternatives rather than executing every installation. Do not spend the lecture waiting for a large installation or queue allocation. No audience exercise is needed.
+
+## Local/remote duplication review
+
+The earlier slides 6 and 7 both explained the local editor and remote files/processes. They are now one page: the simpler local/remote diagram is slide 6, with the direct-save advantage and Slurm distinction merged into its spoken notes. It follows the VS Code interface introduction and leads directly to installation. The course has 41 slides; other content is retained.
 
 ## Navigation implementation
 
