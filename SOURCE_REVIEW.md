@@ -90,6 +90,12 @@ The review checks each instruction for a location, action, and observable outcom
 
 A further conversational pass applies the opening slide's speaking style to slides 2–42. The notes use shorter sentences, natural contractions, and a shared walkthrough in the first person. Explanations begin with the reason for an action, describe what the command does and what to expect, and connect to the next step. Command options, placeholders, storage limits, job IDs, and the distinction between installation and activation are retained. The opening script, slide titles, visible content, illustrations, order, and presentation controls are unchanged.
 
+## Visual walkthrough review — 28 October 2026
+
+Nine existing slides were revised without changing their titles, order, or the 42-slide structure. Microsoft screenshots now show extension installation, the Connect to Host menu, the remote Open Folder dialog, the SSH status indicator, and a remote terminal. Numbered callouts and adjacent labels explain the action and expected outcome. The source images remain unmodified; the connection menu is focused through an HTML viewport. Microsoft example hostnames, paths, and the older extension version are explicitly identified.
+
+The upload and results pages use labeled illustrations rather than implying an ICC session was captured. The result preview matches the supplied demo: `samples,total_reads` followed by `3,3700`, one summary row representing three input samples. Queue progression distinguishes leaving the queue from confirmed success. Log routing separates program output, diagnostics, and Slurm email events. The log-viewer diagram shows why Ctrl+C stops `tail -f` while the batch job continues. Original commands, parameter explanations, email settings, and optional cancellation remain present.
+
 ## Topics that need more teaching time
 
 These estimates are for the presenter, not labels on the slides.

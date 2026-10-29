@@ -1,0 +1,68 @@
+/* Numbered callouts stay editable; screenshot pixels remain unchanged. */
+.vscode-visual .slide-body{gap:22px}
+.vs-prerequisite{font-size:27px;line-height:1.35}
+.vs-step{display:flex;align-items:flex-start;gap:14px;min-width:0}
+.vs-number,.vs-pin{background:var(--orange);color:#fff;border-radius:50%;width:34px;height:34px;display:inline-flex;justify-content:center;align-items:center;flex:0 0 34px;font:750 21px/1 sans-serif}
+.vs-step strong{display:block;font-size:27px;line-height:1.2;color:var(--navy)}
+.vs-step span{display:block;font-size:21px;line-height:1.4;color:#43596e;margin-top:9px}
+.vs-step-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+.vs-shot-window{position:relative}
+.reveal .vs-shot img{width:100%;max-height:none;background:#222}
+.reveal .vs-shot figcaption{font-size:17px;line-height:1.35;margin-top:8px}
+.vs-pin{position:absolute;box-shadow:0 0 0 3px white}
+.vs-install{margin-top:4px!important}
+.vs-install .vs-shot-window{max-width:1180px;margin:auto}
+.vs-connect-grid{display:grid;grid-template-columns:710px 1fr;gap:40px;align-items:center}
+.vs-connect-grid>div{display:flex;flex-direction:column;gap:18px}
+.vs-connect-menu .vs-shot-window{height:132px;overflow:hidden;border:3px solid #126c73}
+.vs-connect-menu img{transform:translateY(-124px)}
+.vs-host .vs-shot-window{max-height:135px;overflow:hidden}
+.vs-connect-check{padding-left:20px;border-left:1px solid var(--line)}
+.vs-address{background:#e2e9ec;padding:17px;font-size:20px;line-height:1.45}
+.vs-address span{display:block;font-weight:700;margin-bottom:10px}
+.vs-address code{font:20px/1.55 "SFMono-Regular",Consolas,monospace;overflow-wrap:anywhere}
+.vs-connect-check p{font-size:25px}
+.reveal .vs-status{max-width:430px}
+.vs-folder-grid{display:grid;grid-template-columns:710px 1fr;gap:50px;align-items:center}
+.vs-folder-grid>div{display:flex;flex-direction:column;gap:24px}
+.vs-path{font:24px/1.4 "SFMono-Regular",Consolas,monospace;background:#e2e9ec;padding:17px;color:var(--navy)}
+.vs-next{font-size:23px!important;line-height:1.45!important;border-left:4px solid var(--orange);padding-left:16px}
+.vs-illustration-label{font-size:17px;color:var(--muted);letter-spacing:.3px}
+.vs-transfer{display:grid;grid-template-columns:390px 210px 1fr;gap:24px;align-items:center}
+.vs-device{border:2px solid #8e9eac;border-radius:8px;background:#fff;overflow:hidden}
+.vs-device-title{background:var(--navy);color:white;font-size:24px;font-weight:700;padding:15px 20px}
+.vs-device-content{padding:22px;min-height:256px}
+.vs-device .vs-step strong{font-size:22px}
+.vs-tree{font:25px/1.65 "SFMono-Regular",Consolas,monospace;color:var(--navy)}
+.vs-folder-item{margin:14px 0 8px 22px;display:block;background:#e1eef0;border:2px solid var(--teal);padding:5px 12px;font-weight:700}
+.vs-device p{font-size:21px;margin-top:14px;color:#43596e}
+.vs-transfer-arrow{text-align:center;color:var(--teal);font-size:25px}
+.vs-transfer-arrow span{display:block;font-size:76px;line-height:1.1;margin:5px 0}
+.vs-transfer-arrow small{font-size:20px;line-height:1.4}
+.vs-tree-caption{display:block;font:650 18px/1.5 sans-serif;color:#53697b;margin-bottom:10px}
+.vs-drop-zone{border:2px dashed var(--teal);background:#edf5f5;padding:12px 18px;line-height:1.4}
+.vs-remote-device .vs-device-content{padding:15px 20px}
+.vs-status-illustration{background:var(--teal);color:white;padding:8px 20px;font-size:19px}
+.vs-upload-bottom{grid-template-columns:1.35fr 1fr}
+.vs-upload-bottom .vs-step strong{font-size:24px}
+.vs-upload-bottom .vs-step span{font-size:20px}
+.vs-terminal .vs-shot-window{height:220px;overflow:hidden}
+.reveal .vs-terminal img{width:170%;max-width:none;object-fit:initial}
+.vs-terminal-checks{display:grid;grid-template-columns:225px 1fr 280px;gap:24px}
+.vs-terminal-checks>div{border-top:3px solid var(--teal);padding-top:15px}
+.vs-terminal-checks code{display:block;font:24px/1.4 "SFMono-Regular",Consolas,monospace;color:var(--navy);margin-bottom:9px}
+.vs-terminal-checks span{font-size:23px;line-height:1.45;color:#43596e}
+.vs-result-window{border:2px solid #8197a6;border-radius:6px;display:grid;grid-template-columns:370px 1fr;overflow:hidden;background:#fff;min-height:325px}
+.vs-result-explorer{background:#e6ebee;padding:20px;border-right:1px solid #aebec9}
+.vs-result-explorer .vs-tree{font-size:24px;line-height:1.65}
+.vs-result-folder,.vs-result-selected{display:block}
+.vs-result-folder .vs-number,.vs-result-selected .vs-number{width:27px;height:27px;font-size:18px}
+.vs-result-selected{background:#c9e0e5;padding:2px 8px;margin:5px -8px}
+.vs-result-editor{position:relative}
+.vs-result-tab{font:22px/1.4 monospace;background:var(--navy);color:white;padding:12px 22px}
+.vs-csv{display:grid;grid-template-columns:30px 1fr;gap:13px 20px;padding:28px 26px;font:30px/1.4 "SFMono-Regular",Consolas,monospace}
+.vs-csv>span{color:#8494a2;font-size:22px;align-self:center}
+.vs-result-check{display:flex;gap:13px;align-items:center;margin:5px 25px 20px;padding:12px 18px;border-left:4px solid var(--teal);background:#eaf3f2}
+.vs-result-check p{font-size:25px;color:var(--teal)}
+.vs-result-bottom{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.vs-result-bottom p{font-size:22px;line-height:1.45}

@@ -61,5 +61,50 @@
     "accessed": "2026-10-28",
     "credit": "Microsoft",
     "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/vscode-remote-extension.png",
+    "asset_url": "https://code.visualstudio.com/assets/docs/remote/ssh-tutorial/remote-ssh-extension.png",
+    "source_page": "https://code.visualstudio.com/docs/remote/ssh-tutorial",
+    "caption": "Remote - SSH extension installation; historical UI version.",
+    "accessed": "2026-10-28",
+    "credit": "Microsoft",
+    "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/vscode-connect-command.png",
+    "asset_url": "https://code.visualstudio.com/assets/docs/remote/ssh-tutorial/remote-commands-simple.png",
+    "source_page": "https://code.visualstudio.com/docs/remote/ssh-tutorial",
+    "caption": "Remote command menu; slide viewport focuses the Connect to Host selection.",
+    "accessed": "2026-10-28",
+    "credit": "Microsoft",
+    "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/vscode-statusbar.png",
+    "asset_url": "https://code.visualstudio.com/assets/docs/remote/ssh/ssh-statusbar.png",
+    "source_page": "https://code.visualstudio.com/docs/remote/ssh",
+    "caption": "SSH status indicator using Microsoft example hostname.",
+    "accessed": "2026-10-28",
+    "credit": "Microsoft",
+    "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/vscode-remote-folder.png",
+    "asset_url": "https://code.visualstudio.com/assets/docs/remote/ssh-tutorial/remote-open-folder.png",
+    "source_page": "https://code.visualstudio.com/docs/remote/ssh-tutorial",
+    "caption": "Remote Open Folder dialog using Microsoft example path.",
+    "accessed": "2026-10-28",
+    "credit": "Microsoft",
+    "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/vscode-remote-terminal.png",
+    "asset_url": "https://code.visualstudio.com/assets/docs/remote/ssh-tutorial/check-uname.png",
+    "source_page": "https://code.visualstudio.com/docs/remote/ssh-tutorial",
+    "caption": "Remote Linux terminal example showing uname and Linux.",
+    "accessed": "2026-10-28",
+    "credit": "Microsoft",
+    "rights": "Original owner retains rights; attributed educational use."
   }
 ]

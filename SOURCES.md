@@ -17,6 +17,7 @@ Reviewed 27 October 2026. Independent educational adaptation.
 - [Missing Semester · Command-line Environment (2026)](https://missing.csail.mit.edu/2026/command-line-environment/)
 - [Missing Semester · Shell Tools and Scripting (2020)](https://missing.csail.mit.edu/2020/shell-tools/)
 - [Microsoft · Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)
+- [Microsoft · Remote - SSH tutorial](https://code.visualstudio.com/docs/remote/ssh-tutorial)
 - [Microsoft · VS Code user interface](https://code.visualstudio.com/docs/editing/getting-started/userinterface)
 - [Microsoft · VS Code setup](https://code.visualstudio.com/docs/setup/setup-overview)
 - [Microsoft · File import and download implementation](https://github.com/microsoft/vscode/blob/main/src/vs/workbench/contrib/files/browser/fileImportExport.ts)
@@ -38,10 +39,14 @@ Reviewed 27 October 2026. Independent educational adaptation.
 - `assets/icc-login.png`: Official example login screenshot. Historical banner content. Credit: NCSA / University of Illinois. [Source](https://docs.ncsa.illinois.edu/systems/icc/en/latest/user_guide/accessing.html); [asset](https://docs.ncsa.illinois.edu/systems/icc/en/latest/_images/icc-terminal-login.png).
 - `assets/cluster-photo.png`: Official Illinois Computes resource photograph. Credit: NCSA / University of Illinois. [Source](https://computes.illinois.edu/); [asset](https://computes.illinois.edu/files/2024/07/resources_left.png).
 - `assets/vscode-host.png`: Microsoft example host selector. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh); [asset](https://code.visualstudio.com/assets/docs/remote/ssh/ssh-user@box.png).
-- `assets/vscode-folder.png`: Microsoft example remote folder selector. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh); [asset](https://code.visualstudio.com/assets/docs/remote/ssh/ssh-open-folder.png).
 - `assets/icc-overview.png`: Campus Cluster usage overview. Official NCSA figure. Credit: NCSA / University of Illinois. [Source](https://docs.ncsa.illinois.edu/systems/icc/en/latest/getting_started.html); [asset](https://docs.ncsa.illinois.edu/systems/icc/en/latest/_images/cc-diagram2.png).
 - `assets/vscode-architecture.png`: Microsoft Remote - SSH architecture. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh); [asset](https://code.visualstudio.com/assets/docs/remote/ssh/architecture-ssh.png).
 - `assets/vscode-interface.png`: Official Microsoft VS Code interface screenshot with labeled areas. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/editing/getting-started/userinterface); [asset](https://code.visualstudio.com/assets/docs/editing/userinterface/hero.png).
+- `assets/vscode-remote-extension.png`: Remote - SSH extension installation; historical UI version. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh-tutorial); [asset](https://code.visualstudio.com/assets/docs/remote/ssh-tutorial/remote-ssh-extension.png).
+- `assets/vscode-connect-command.png`: Remote command menu; slide viewport focuses the Connect to Host selection. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh-tutorial); [asset](https://code.visualstudio.com/assets/docs/remote/ssh-tutorial/remote-commands-simple.png).
+- `assets/vscode-statusbar.png`: SSH status indicator using Microsoft example hostname. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh); [asset](https://code.visualstudio.com/assets/docs/remote/ssh/ssh-statusbar.png).
+- `assets/vscode-remote-folder.png`: Remote Open Folder dialog using Microsoft example path. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh-tutorial); [asset](https://code.visualstudio.com/assets/docs/remote/ssh-tutorial/remote-open-folder.png).
+- `assets/vscode-remote-terminal.png`: Remote Linux terminal example showing uname and Linux. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh-tutorial); [asset](https://code.visualstudio.com/assets/docs/remote/ssh-tutorial/check-uname.png).
 - The original HTML workflow diagrams are illustrations, not live screenshots. Official diagrams and example UI screenshots retain their source credits.
 - Commands and small example datasets are adapted or newly written for explanation. They do not report a real research analysis.
 

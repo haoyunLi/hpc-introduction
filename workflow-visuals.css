@@ -1,0 +1,59 @@
+/* Scoped teaching illustrations; all labels remain selectable text. */
+.workflow-figure{width:100%;color:var(--ink);font-size:22px;line-height:1.3}
+.workflow-figure code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:21px;white-space:nowrap}
+.workflow-figure strong{color:var(--navy);font-weight:720}
+.workflow-caption{font-size:16px;line-height:1.35;color:var(--muted);margin-bottom:9px;font-weight:650}
+.workflow-caption code{font-size:16px}
+.workflow-arrow{display:flex;align-items:center;justify-content:center;font-size:32px;line-height:1;color:var(--muted);font-weight:500}
+.workflow-footnote{font-size:18px;line-height:1.35;margin-top:9px;color:#4c5d70}
+.workflow-footnote code{font-size:18px}
+
+/* Three recognizable queue states, without treating departure as success. */
+.workflow-queue-grid{display:grid;grid-template-columns:1fr 40px 1fr 40px 1.15fr;gap:12px;align-items:stretch}
+.workflow-state{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:7px;min-height:140px;padding:16px 20px;border:1px solid var(--line);border-top:4px solid var(--navy);background:#fff}
+.workflow-state strong{font-size:24px;line-height:1.2}
+.workflow-state>span:not(.workflow-status-label){font-size:20px;color:#4c5d70}
+.workflow-state-code{display:inline-block;padding:3px 10px;background:#e6e9ed;color:var(--navy);font-weight:750;border-radius:3px}
+.workflow-pending{border-top-color:#b67a20;background:#fffaf0}
+.workflow-pending .workflow-state-code{background:#f1dfb7;color:#77510f}
+.workflow-running{border-top-color:var(--teal);background:#f0f7f6}
+.workflow-running .workflow-state-code{background:#d5e9e6;color:var(--teal)}
+.workflow-status-label{font-size:18px;color:var(--muted);font-weight:650}
+.workflow-check-output>code{font-size:21px;color:var(--navy)}
+.workflow-caution{margin-top:11px;padding-left:12px;border-left:4px solid var(--orange);font-size:21px;line-height:1.3;color:var(--navy)}
+
+/* The email branch originates from Slurm events, not from an output file. */
+.workflow-stream-row{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1.35fr);align-items:stretch;gap:14px;min-height:62px;margin-top:7px}
+.workflow-stream-source{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:7px 14px;background:#e9eef0;border-radius:3px}
+.workflow-stream-source strong{font-size:21px;line-height:1.2}
+.workflow-stream-source span{font-size:18px;color:#4c5d70}
+.workflow-stream-source span code{font-size:18px}
+.workflow-stream-target{display:flex;align-items:center;gap:12px;min-width:0;padding:10px 17px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:3px}
+.workflow-stream-target code{font-size:23px;color:var(--navy)}
+.workflow-job-id{color:var(--teal);font-weight:750}
+.workflow-error-file{border-left-color:var(--orange)}
+.workflow-email{border-left-color:var(--navy)}
+.workflow-email>span{font-size:18px;color:var(--muted);white-space:nowrap}
+.workflow-email>code{font-size:22px}
+
+/* A compact diagram for a roughly 500px-wide column beside log commands. */
+.workflow-log-top{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1.4fr);gap:8px;align-items:stretch}
+.workflow-batch-job{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:13px 8px;background:#edf6f4;border:2px solid var(--teal);border-radius:4px;text-align:center}
+.workflow-batch-job>strong{font-size:23px;line-height:1.2}
+.workflow-batch-job>code{font-size:22px}
+.workflow-running-badge{font-size:17px;line-height:1.2;font-weight:650;color:var(--teal)}
+.workflow-write-link{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.workflow-write-link>span{font-size:15px;color:var(--muted)}
+.workflow-log-file{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:9px;min-width:0;padding:13px 9px;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:3px;background:#fff}
+.workflow-log-file>span{font-size:19px;color:var(--muted)}
+.workflow-log-file>code{font-size:20px;color:var(--navy)}
+.workflow-log-read{display:flex;align-items:center;justify-content:flex-end;gap:12px;min-height:42px;padding-right:18px;color:var(--muted)}
+.workflow-log-read>span{font-size:17px}
+.workflow-log-read code{font-size:17px}
+.workflow-log-read>b{font-size:29px;font-weight:500;line-height:1}
+.workflow-terminal-viewer{display:flex;flex-direction:column;gap:9px;padding:15px 18px;background:var(--code);color:#f2f6f8;border-radius:4px}
+.workflow-viewer-label{font-size:17px;color:#b9cddd}
+.workflow-terminal-viewer>code{font-size:20px;color:#fff}
+.workflow-viewer-stop{display:flex;align-items:center;gap:12px;padding-top:8px;border-top:1px solid #4e657b;font-size:19px}
+.workflow-viewer-stop>strong{padding:3px 8px;background:#7e2635;border-radius:3px;color:#fff;font-size:19px}
+.workflow-log>.workflow-footnote{text-align:center;font-size:18px}

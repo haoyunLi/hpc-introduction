@@ -55,10 +55,12 @@ The language review rewrites all 42 notes as spoken English and makes actions an
 
 Four simple diagrams explain local versus remote work (slide 7), login versus compute nodes with shared project storage (slide 22), nodes, tasks, and CPUs per task (slide 24), and installation versus activation (slide 34). They use the same `demo/` project and retain all official diagrams and screenshots. The installation diagram shows persistent package files separately from the environment selected by each shell or job.
 
+The visual walkthrough uses numbered Microsoft screenshots for Remote - SSH installation, connection, folder selection, and the terminal (slides 8, 9, 11, 13). The upload and result pages (12, 39) use explicitly labeled illustrations. Three further diagrams show queue progression (26), output/error/email destinations (27), and the difference between a running batch job and its log viewer (38). Screenshot sample hosts and paths are identified as Microsoft examples; no screenshot claims a live ICC connection.
+
 All data are synthetic. The programs are not research-analysis pipelines or resource recommendations. Replace allocation, queue, GPU, node, and email placeholders before an authorized live run. Use the actual returned job IDs instead of the illustrative IDs on the slides.
 
 ## Edit
 
-Edit the English slides and notes in `course_content.py`. The editable teaching diagrams are in `concept_diagrams.py`. `build_deck.py` supplies reusable formatting helpers and generates `index.html`, `print.html`, `lecturer-notes.html`, `slides.json`, and `SOURCES.md`. Run `python3 build_deck.py` after a content change. `app.js` handles navigation and `theme.css` controls appearance. Export the PDF separately from the flattened `print.html`.
+Edit the English slides and notes in `course_content.py`. The editable teaching diagrams are in `concept_diagrams.py` and `workflow_diagrams.py`. `vscode_visuals.py` supplies the annotated screenshots and file-operation illustrations; their styles are in `vscode-visuals.css` and `workflow-visuals.css`. `build_deck.py` supplies reusable formatting helpers and generates `index.html`, `print.html`, `lecturer-notes.html`, `slides.json`, and `SOURCES.md`. Run `python3 build_deck.py` after a content change. `app.js` handles navigation and `theme.css` controls appearance. Export the PDF separately from the flattened `print.html`.
 
 The source review was performed on 27 October 2026. Site policy, available modules, queue access, and GPU names should be rechecked for the actual presenter before a live demonstration. No private cluster was accessed while preparing the materials.
