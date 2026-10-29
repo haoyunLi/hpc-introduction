@@ -16,7 +16,7 @@ BATCH=[
 
 S('Getting started on the<br>Illinois Campus Cluster',
   '<div class="cover-copy"><p class="cover-sub">A practical workflow for data analysis</p></div>'+img('cluster-photo.png','University of Illinois computing hardware','','cover-photo'),
-  'Hi everyone, I’m from Kun Wang’s lab. We mainly do computational work, so for us, HPC is a bit like the lab bench in a wet lab—it’s where we run our analyses. Today, I’ll give you a brief introduction to the Illinois Campus Cluster and walk through the basic skills you need to run computationally intensive analyses on it.',['computes'],A,'cover')
+  'Hi everyone, I’m from Kun Wang’s lab. We mainly do computational work, so for us, HPC is a bit like the lab bench in a wet lab—it’s where we run our analyses. Today, I’ll give you a brief introduction to the Illinois Campus Cluster and walk through the basic skills you need to run computationally intensive analyses on it.',['computes'],'Introduction','cover')
 
 S('Prepare files on login nodes; run jobs on compute nodes',
   img('icc-overview.png','Official NCSA Campus Cluster usage overview','HPC = high-performance computing. A node is one computer. Login: prepare files. Compute: run scheduled analysis.','overview-image'),

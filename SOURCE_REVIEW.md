@@ -6,7 +6,8 @@ Reviewed 27 October 2026 against the supplied ICC guide and Missing Semester, wi
 
 | Need in an actual analysis workflow | Topic / slides | Why it belongs |
 | --- | --- | --- |
-| Account access and login | Access, 1–4 | Explains cluster roles, approval prerequisites, login identity, and allocation details. |
+| Opening title | Introduction, 1 | Opens the lecture in its own horizontal unit. |
+| Account access and login | Access, 2–4 | Explains cluster roles, approval prerequisites, login identity, and allocation details. |
 | Local VS Code setup, storage, connection, and upload | Files in VS Code, 5–12 | Introduces VS Code with an official interface screenshot, separates local and remote work, selects a destination, and transfers a folder. |
 | Everyday Unix commands | Shell essentials, 13–21 | Command structure, paths, ls options, mkdir/cp/mv/rm, text previews, find/grep/wc/du, help and shortcuts. |
 | A first batch job | Slurm jobs, 22–26 | Explains shared storage and resources, submits hello.sbatch, checks the queue, and reads its short message. |
@@ -77,7 +78,7 @@ The review asked whether a first-time listener could identify where to act, read
 | A job identifier or quiet log could be mistaken for success | The first and analysis jobs use distinct illustrative IDs. The first job is followed by its expected message. For the analysis job, the slides connect queue status, logs, and opening the actual output. Detailed accounting and numerical example checks remain in supplementary material. Optional cancellation is not presented as a step to perform on the successful example. |
 | The interactive batch explanation was incomplete in the static handout | All ten hello.sbatch line explanations are included in the printed PDF, while the browser retains clickable lines. |
 
-The review preserves all original figures, the basic-command coverage, six horizontal topics with vertical slides, and the runnable example files. Remaining uncertainties are account-specific values, available software versions, queue waiting, and installation behavior; the slides identify the values to confirm instead of presenting them as universal guarantees.
+The review preserves all original figures, the basic-command coverage, a standalone introduction followed by six numbered horizontal topics with vertical slides, and the runnable example files. Remaining uncertainties are account-specific values, available software versions, queue waiting, and installation behavior; the slides identify the values to confirm instead of presenting them as universal guarantees.
 
 The 42-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 22 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 24 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 34 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
 
@@ -106,4 +107,4 @@ For an approximately one-hour explanation, focus on the connection, working dire
 
 ## Navigation implementation
 
-The deck follows [Reveal.js vertical slides](https://revealjs.com/vertical-slides/): six top-level `<section>` stacks, each containing its topic’s slides. `navigationMode: "default"` preserves left/right topic changes, up/down within-topic movement, and Space through the full sequence. The Course map slide has been removed; the Contents control still provides direct navigation. The PDF flattens that same reading order. No course duration, cumulative timing, or timing table appears in the presentation.
+The deck follows [Reveal.js vertical slides](https://revealjs.com/vertical-slides/): seven top-level `<section>` stacks: a single-slide Introduction followed by six numbered topics. The title page is separate from Access, which starts at 01 and contains slides 2–4. `navigationMode: "default"` preserves left/right topic changes, up/down within-topic movement, and Space through the full sequence. The Course map slide has been removed; the Contents control still provides direct navigation. The PDF flattens that same reading order. No course duration, cumulative timing, or timing table appears in the presentation.

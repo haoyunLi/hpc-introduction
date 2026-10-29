@@ -6,12 +6,13 @@
     "sources": [
       "computes"
     ],
-    "section": "Access",
+    "section": "Introduction",
     "cls": "cover",
     "index": 0,
     "h": 0,
     "v": 0,
-    "anchor": "0/0"
+    "anchor": "0/0",
+    "position": ""
   },
   {
     "title": "Prepare files on login nodes; run jobs on compute nodes",
@@ -24,9 +25,10 @@
     "section": "Access",
     "cls": "image-slide",
     "index": 1,
-    "h": 0,
-    "v": 1,
-    "anchor": "0/1"
+    "h": 1,
+    "v": 0,
+    "anchor": "1/0",
+    "position": "1.1"
   },
   {
     "title": "Request access and confirm your allocation details",
@@ -41,9 +43,10 @@
     "section": "Access",
     "cls": "",
     "index": 2,
-    "h": 0,
-    "v": 2,
-    "anchor": "0/2"
+    "h": 1,
+    "v": 1,
+    "anchor": "1/1",
+    "position": "1.2"
   },
   {
     "title": "The first SSH login",
@@ -55,9 +58,10 @@
     "section": "Access",
     "cls": "compact",
     "index": 3,
-    "h": 0,
-    "v": 3,
-    "anchor": "0/3"
+    "h": 1,
+    "v": 2,
+    "anchor": "1/2",
+    "position": "1.3"
   },
   {
     "title": "VS Code is an editor for code and project files",
@@ -69,9 +73,10 @@
     "section": "Files in VS Code",
     "cls": "vscode-intro",
     "index": 4,
-    "h": 1,
+    "h": 2,
     "v": 0,
-    "anchor": "1/0"
+    "anchor": "2/0",
+    "position": "2.1"
   },
   {
     "title": "Use local VS Code to edit files on the cluster",
@@ -83,9 +88,10 @@
     "section": "Files in VS Code",
     "cls": "",
     "index": 5,
-    "h": 1,
+    "h": 2,
     "v": 1,
-    "anchor": "1/1"
+    "anchor": "2/1",
+    "position": "2.2"
   },
   {
     "title": "Files stay on the cluster; terminal commands run there",
@@ -98,9 +104,10 @@
     "section": "Files in VS Code",
     "cls": "concept-slide",
     "index": 6,
-    "h": 1,
+    "h": 2,
     "v": 2,
-    "anchor": "1/2"
+    "anchor": "2/2",
+    "position": "2.3"
   },
   {
     "title": "Install VS Code and the Remote - SSH extension",
@@ -113,9 +120,10 @@
     "section": "Files in VS Code",
     "cls": "",
     "index": 7,
-    "h": 1,
+    "h": 2,
     "v": 3,
-    "anchor": "1/3"
+    "anchor": "2/3",
+    "position": "2.4"
   },
   {
     "title": "Connecting VS Code with Remote - SSH",
@@ -128,9 +136,10 @@
     "section": "Files in VS Code",
     "cls": "compact",
     "index": 8,
-    "h": 1,
+    "h": 2,
     "v": 4,
-    "anchor": "1/4"
+    "anchor": "2/4",
+    "position": "2.5"
   },
   {
     "title": "Choose home, project, or scratch storage",
@@ -142,9 +151,10 @@
     "section": "Files in VS Code",
     "cls": "storage-slide",
     "index": 9,
-    "h": 1,
+    "h": 2,
     "v": 5,
-    "anchor": "1/5"
+    "anchor": "2/5",
+    "position": "2.6"
   },
   {
     "title": "Open the remote project location",
@@ -156,9 +166,10 @@
     "section": "Files in VS Code",
     "cls": "compact",
     "index": 10,
-    "h": 1,
+    "h": 2,
     "v": 6,
-    "anchor": "1/6"
+    "anchor": "2/6",
+    "position": "2.7"
   },
   {
     "title": "Upload the demo folder with VS Code",
@@ -172,9 +183,10 @@
     "section": "Files in VS Code",
     "cls": "compact",
     "index": 11,
-    "h": 1,
+    "h": 2,
     "v": 7,
-    "anchor": "1/7"
+    "anchor": "2/7",
+    "position": "2.8"
   },
   {
     "title": "Open a terminal in the same project",
@@ -186,9 +198,10 @@
     "section": "Shell essentials",
     "cls": "",
     "index": 12,
-    "h": 2,
+    "h": 3,
     "v": 0,
-    "anchor": "2/0"
+    "anchor": "3/0",
+    "position": "3.1"
   },
   {
     "title": "Read the program, options, and path in a command",
@@ -201,9 +214,10 @@
     "section": "Shell essentials",
     "cls": "",
     "index": 13,
-    "h": 2,
+    "h": 3,
     "v": 1,
-    "anchor": "2/1"
+    "anchor": "3/1",
+    "position": "3.2"
   },
   {
     "title": "Navigate the uploaded project",
@@ -215,9 +229,10 @@
     "section": "Shell essentials",
     "cls": "compact navigation-examples",
     "index": 14,
-    "h": 2,
+    "h": 3,
     "v": 2,
-    "anchor": "2/2"
+    "anchor": "3/2",
+    "position": "3.3"
   },
   {
     "title": "List files and inspect their details",
@@ -231,9 +246,10 @@
     "section": "Shell essentials",
     "cls": "compact listing-examples",
     "index": 15,
-    "h": 2,
+    "h": 3,
     "v": 3,
-    "anchor": "2/3"
+    "anchor": "3/3",
+    "position": "3.4"
   },
   {
     "title": "Creating, copying, moving, and deleting",
@@ -246,9 +262,10 @@
     "section": "Shell essentials",
     "cls": "compact",
     "index": 16,
-    "h": 2,
+    "h": 3,
     "v": 4,
-    "anchor": "2/4"
+    "anchor": "3/4",
+    "position": "3.5"
   },
   {
     "title": "Inspecting a small text file",
@@ -261,9 +278,10 @@
     "section": "Shell essentials",
     "cls": "compact",
     "index": 17,
-    "h": 2,
+    "h": 3,
     "v": 5,
-    "anchor": "2/5"
+    "anchor": "3/5",
+    "position": "3.6"
   },
   {
     "title": "Find a file, then find text inside it",
@@ -276,9 +294,10 @@
     "section": "Shell essentials",
     "cls": "compact",
     "index": 18,
-    "h": 2,
+    "h": 3,
     "v": 6,
-    "anchor": "2/6"
+    "anchor": "3/6",
+    "position": "3.7"
   },
   {
     "title": "Count lines and check disk usage",
@@ -291,9 +310,10 @@
     "section": "Shell essentials",
     "cls": "compact",
     "index": 19,
-    "h": 2,
+    "h": 3,
     "v": 7,
-    "anchor": "2/7"
+    "anchor": "3/7",
+    "position": "3.8"
   },
   {
     "title": "Help and everyday terminal shortcuts",
@@ -306,9 +326,10 @@
     "section": "Shell essentials",
     "cls": "compact",
     "index": 20,
-    "h": 2,
+    "h": 3,
     "v": 8,
-    "anchor": "2/8"
+    "anchor": "3/8",
+    "position": "3.9"
   },
   {
     "title": "Slurm runs work on allocated resources",
@@ -322,9 +343,10 @@
     "section": "Slurm jobs",
     "cls": "concept-slide",
     "index": 21,
-    "h": 3,
+    "h": 4,
     "v": 0,
-    "anchor": "3/0"
+    "anchor": "4/0",
+    "position": "4.1"
   },
   {
     "title": "Read a Slurm batch script line by line",
@@ -336,9 +358,10 @@
     "section": "Slurm jobs",
     "cls": "beginner-script",
     "index": 22,
-    "h": 3,
+    "h": 4,
     "v": 1,
-    "anchor": "3/1"
+    "anchor": "4/1",
+    "position": "4.2"
   },
   {
     "title": "Set nodes, tasks, CPUs, memory, and time for a job",
@@ -350,9 +373,10 @@
     "section": "Slurm jobs",
     "cls": "concept-slide resource-slide",
     "index": 23,
-    "h": 3,
+    "h": 4,
     "v": 2,
-    "anchor": "3/2"
+    "anchor": "4/2",
+    "position": "4.3"
   },
   {
     "title": "Submit the first job: hello.sbatch",
@@ -364,9 +388,10 @@
     "section": "Slurm jobs",
     "cls": "",
     "index": 24,
-    "h": 3,
+    "h": 4,
     "v": 3,
-    "anchor": "3/3"
+    "anchor": "4/3",
+    "position": "4.4"
   },
   {
     "title": "Checking the queue and stopping a job",
@@ -379,9 +404,10 @@
     "section": "Slurm jobs",
     "cls": "compact",
     "index": 25,
-    "h": 3,
+    "h": 4,
     "v": 4,
-    "anchor": "3/4"
+    "anchor": "4/4",
+    "position": "4.5"
   },
   {
     "title": "Output files and email notifications",
@@ -393,9 +419,10 @@
     "section": "Slurm jobs",
     "cls": "compact",
     "index": 26,
-    "h": 3,
+    "h": 4,
     "v": 5,
-    "anchor": "3/5"
+    "anchor": "4/5",
+    "position": "4.6"
   },
   {
     "title": "When the analysis needs a GPU",
@@ -408,9 +435,10 @@
     "section": "Slurm jobs",
     "cls": "",
     "index": 27,
-    "h": 3,
+    "h": 4,
     "v": 6,
-    "anchor": "3/6"
+    "anchor": "4/6",
+    "position": "4.7"
   },
   {
     "title": "When a particular node is required",
@@ -423,9 +451,10 @@
     "section": "Slurm jobs",
     "cls": "",
     "index": 28,
-    "h": 3,
+    "h": 4,
     "v": 7,
-    "anchor": "3/7"
+    "anchor": "4/7",
+    "position": "4.8"
   },
   {
     "title": "Open an interactive compute shell with srun",
@@ -438,9 +467,10 @@
     "section": "Slurm jobs",
     "cls": "compact",
     "index": 29,
-    "h": 3,
+    "h": 4,
     "v": 8,
-    "anchor": "3/8"
+    "anchor": "4/8",
+    "position": "4.9"
   },
   {
     "title": "Make Python available in the compute shell",
@@ -452,9 +482,10 @@
     "section": "Software and packages",
     "cls": "",
     "index": 30,
-    "h": 4,
+    "h": 5,
     "v": 0,
-    "anchor": "4/0"
+    "anchor": "5/0",
+    "position": "5.1"
   },
   {
     "title": "Create a Python environment and install pandas",
@@ -468,9 +499,10 @@
     "section": "Software and packages",
     "cls": "compact",
     "index": 31,
-    "h": 4,
+    "h": 5,
     "v": 1,
-    "anchor": "4/1"
+    "anchor": "5/1",
+    "position": "5.2"
   },
   {
     "title": "Check that pandas imports and save package versions",
@@ -484,9 +516,10 @@
     "section": "Software and packages",
     "cls": "compact",
     "index": 32,
-    "h": 4,
+    "h": 5,
     "v": 2,
-    "anchor": "4/2"
+    "anchor": "5/2",
+    "position": "5.3"
   },
   {
     "title": "The environment stays; activation is per shell",
@@ -499,9 +532,10 @@
     "section": "Software and packages",
     "cls": "concept-slide",
     "index": 33,
-    "h": 4,
+    "h": 5,
     "v": 3,
-    "anchor": "4/3"
+    "anchor": "5/3",
+    "position": "5.4"
   },
   {
     "title": "Create a Conda environment from a supplied file",
@@ -514,9 +548,10 @@
     "section": "Software and packages",
     "cls": "",
     "index": 34,
-    "h": 4,
+    "h": 5,
     "v": 4,
-    "anchor": "4/4"
+    "anchor": "5/4",
+    "position": "5.5"
   },
   {
     "title": "Prepare a Python batch job with its environment",
@@ -530,9 +565,10 @@
     "section": "Run and check",
     "cls": "compact",
     "index": 35,
-    "h": 5,
+    "h": 6,
     "v": 0,
-    "anchor": "5/0"
+    "anchor": "6/0",
+    "position": "6.1"
   },
   {
     "title": "Submit the analysis job",
@@ -545,9 +581,10 @@
     "section": "Run and check",
     "cls": "",
     "index": 36,
-    "h": 5,
+    "h": 6,
     "v": 1,
-    "anchor": "5/1"
+    "anchor": "6/1",
+    "position": "6.2"
   },
   {
     "title": "Watch job output and search the error log",
@@ -561,9 +598,10 @@
     "section": "Run and check",
     "cls": "compact",
     "index": 37,
-    "h": 5,
+    "h": 6,
     "v": 2,
-    "anchor": "5/2"
+    "anchor": "6/2",
+    "position": "6.3"
   },
   {
     "title": "Open the result in VS Code",
@@ -579,9 +617,10 @@
     "section": "Run and check",
     "cls": "compact",
     "index": 38,
-    "h": 5,
+    "h": 6,
     "v": 3,
-    "anchor": "5/3"
+    "anchor": "6/3",
+    "position": "6.4"
   },
   {
     "title": "Run an R script as a Slurm batch job",
@@ -594,9 +633,10 @@
     "section": "Run and check",
     "cls": "compact",
     "index": 39,
-    "h": 5,
+    "h": 6,
     "v": 4,
-    "anchor": "5/4"
+    "anchor": "6/4",
+    "position": "6.5"
   },
   {
     "title": "Common errors and the first useful check",
@@ -610,9 +650,10 @@
     "section": "Run and check",
     "cls": "compact",
     "index": 40,
-    "h": 5,
+    "h": 6,
     "v": 5,
-    "anchor": "5/5"
+    "anchor": "6/5",
+    "position": "6.6"
   },
   {
     "title": "Documentation and help",
@@ -622,8 +663,9 @@
     "section": "Run and check",
     "cls": "",
     "index": 41,
-    "h": 5,
+    "h": 6,
     "v": 6,
-    "anchor": "5/6"
+    "anchor": "6/6",
+    "position": "6.7"
   }
 ]

@@ -1,6 +1,6 @@
 # Getting started on the Illinois Campus Cluster
 
-An English beginner lecture covering account access, remote file management, everyday shell commands, software setup, job submission, and reading outputs. There are 42 slides in six topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
+An English beginner lecture covering account access, remote file management, everyday shell commands, software setup, job submission, and reading outputs. There are 42 slides: a standalone introduction followed by six numbered topics, with no exercises or audience tasks. Slide content has no course-duration labels or timing table.
 
 ## Presentation and downloads
 
@@ -27,7 +27,7 @@ Open `index.html` in a desktop browser. The presentation, official diagrams and 
 - Click a line of the small batch script: read its explanation
 - GitHub button in the bottom toolbar: open [Haoyun Li’s profile](https://github.com/haoyunLi)
 
-The six topics are Access, Files in VS Code, Shell essentials, Slurm jobs, Software and packages, and Run and check. Use Contents to navigate directly; there is no course-map slide. The PDF follows the same order, flattening each vertical topic into consecutive pages. The ten line explanations for `hello.sbatch` are printed in the PDF as well as available interactively in the browser.
+The title page has its own horizontal Introduction unit. Press Right or Space to enter 01 · Access; use Down to move within that topic. The six numbered topics are Access, Files in VS Code, Shell essentials, Slurm jobs, Software and packages, and Run and check. Use Contents to navigate directly; there is no course-map slide. The PDF follows the same order, flattening each vertical topic into consecutive pages. The ten line explanations for `hello.sbatch` are printed in the PDF as well as available interactively in the browser.
 
 Use `lecturer-notes.html` for the full English speaking script. The notes use conversational English throughout, matching the opening introduction: short sentences, natural explanations, and transitions that connect each step to the next. Command meanings, expected outputs, and important distinctions remain explicit. `SOURCE_REVIEW.md` records coverage of the two supplied websites and identifies topics that need more teaching time. `SOURCES.md` contains references and image credits.
 

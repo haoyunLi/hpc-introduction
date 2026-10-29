@@ -192,8 +192,7 @@ function syncNotes(){
   const slide=deck.getCurrentSlide();
   if(!slide?.matches('.lecture-slide'))return;
   document.querySelector('#note-content').innerHTML=`<h2>${slide.dataset.title}</h2>`+slide.querySelector('aside.notes').innerHTML;
-  const {h,v}=deck.getIndices();
-  document.querySelector('#position-label').textContent=`${slide.dataset.section} · ${h+1}.${v+1} · ${Number(slide.dataset.index)+1}/${leafSlides.length}`;
+  document.querySelector('#position-label').textContent=[slide.dataset.section,slide.dataset.position,`${Number(slide.dataset.index)+1}/${leafSlides.length}`].filter(Boolean).join(' · ');
 }
 function toggleNotes(){
   notesPanel.hidden=!notesPanel.hidden;
@@ -214,11 +213,11 @@ document.querySelector('#fullscreen-btn').addEventListener('click',()=>{
 });
 document.querySelectorAll('.slides > .chapter-stack').forEach((stack,h)=>{
   const group=document.createElement('div');group.className='contents-chapter';
-  const title=document.createElement('h3');title.textContent=`${h+1}. ${stack.dataset.chapter}`;group.append(title);
+  const title=document.createElement('h3');title.textContent=stack.dataset.label;group.append(title);
   [...stack.children].filter(s=>s.matches('.lecture-slide')).forEach((slide,v)=>{
     const button=document.createElement('button');
     button.dataset.h=h;button.dataset.v=v;
-    const index=document.createElement('span');index.className='idx';index.textContent=`${h+1}.${v+1}`;
+    const index=document.createElement('span');index.className='idx';index.textContent=slide.dataset.position||'—';
     button.append(index,document.createTextNode(slide.dataset.title));
     button.addEventListener('click',()=>{deck.slide(h,v);contentDialog.close();});
     group.append(button);
