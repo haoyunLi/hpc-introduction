@@ -97,18 +97,13 @@ dialog{border:0;border-radius:8px;background:var(--paper);color:var(--navy);widt
 dialog::backdrop{background:#0c1b2dcc}
 .dialog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .dialog-header h2{margin:0;font-size:26px}
-.dialog-header button,#close-notes{border:0;background:transparent;color:var(--navy);font-size:28px;cursor:pointer}
+.dialog-header button{border:0;background:transparent;color:var(--navy);font-size:28px;cursor:pointer}
 #contents-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}
 #contents-list button{background:transparent;border:0;border-bottom:1px solid var(--line);padding:11px;text-align:left;cursor:pointer;color:var(--navy);font-size:15px}
 #contents-list button:hover{background:#e5e8e9}
 #contents-list .idx{display:inline-block;color:var(--orange);width:30px;font-weight:700}
-#notes-panel{position:fixed;z-index:30;right:18px;top:20px;bottom:56px;width:min(500px,93vw);overflow:auto;background:#fffaf2;border:1px solid #d5cec2;padding:24px 30px;box-shadow:0 12px 80px #0005;font:18px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-#notes-panel h2{font-size:24px;line-height:1.25;padding-right:18px}
-#notes-panel p{margin:14px 0}
-#notes-panel a{font-size:13px;color:var(--teal)}
-#close-notes{position:absolute;right:10px;top:8px}
 @media(max-width:700px){#tools{gap:0;padding:0 3px}#tools button,#tools a{padding:4px 6px;font-size:10px}#position-label{display:none}#contents-list{grid-template-columns:1fr}}
-@media print{#tools,#notes-panel,dialog,.reveal .controls{display:none!important}.slide-inner{-webkit-print-color-adjust:exact;print-color-adjust:exact}.reveal .slides>section{break-after:page!important}.reveal .progress{display:none!important}}
+@media print{#tools,dialog,.reveal .controls{display:none!important}.slide-inner{-webkit-print-color-adjust:exact;print-color-adjust:exact}.reveal .slides>section{break-after:page!important}.reveal .progress{display:none!important}}
 
 .print-only{display:none}
 @media print{.print-only{display:block}.screen-only{display:none}.annotation-text .print-only p{font-size:25px;line-height:1.4;margin:22px 0}}

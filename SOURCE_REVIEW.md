@@ -4,7 +4,7 @@ Reviewed 27 October 2026 against the supplied ICC guide and Missing Semester, wi
 
 ## What the lecture now covers
 
-The current deck contains 45 slides. Page numbers below refer to the version following the whole-deck readability audit on 29 October 2026.
+The current deck contains 45 slides. Page numbers below refer to the version following the whole-deck readability audit on 29 October 2026. The Lecturer guide has 44 spoken entries, numbered Slide 02–45 to match the presentation. The title slide remains visible but has empty speaker notes and no guide entry. The toolbar has one Lecturer guide entry; the separate presenter window remains available with S.
 
 | Need in an actual analysis workflow | Topic / slides | Why it belongs |
 | --- | --- | --- |
@@ -84,13 +84,13 @@ The review preserves the remaining figures, the basic-command coverage, a standa
 
 The current 45-slide version includes four simple concept diagrams. Slide 6 separates the local VS Code window from remote project files and terminal processes. Slide 24 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 26 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 36 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview remains in the deck. The local/remote illustration now supplies one explanation in place of the earlier pair of overlapping architecture and file-location pages.
 
-## Speaker-script and wording review — 28 October 2026
+## Historical speaker-script and wording review — 28 October 2026
 
 Applied the research-talk-slides principles of one purpose per page, plain wording, and explicit transitions to this instructional course. The notes in that draft were rewritten as spoken English paragraphs rather than directions to a presenter. Titles, order, diagrams, examples, and existing commands were preserved during that pass.
 
-The review checks each instruction for a location, action, and observable outcome. Changes include naming the connected host in VS Code, using the job ID returned by the actual submission, stating that Slurm substitutes `%j`, identifying an error-free package-version output as the import check, and giving concrete first actions for common errors. The verified `quota` command now appears beside `du` so storage usage is not confused with the storage allowance. Conda remains an optional alternative; no extra exercises or advanced workflow pages were added.
+That review checked each instruction for a location, action, and observable outcome. Changes included naming the connected host in VS Code, using the job ID returned by the actual submission, stating that Slurm substitutes `%j`, identifying an error-free package-version output as the import check, and giving concrete first actions for common errors. The verified `quota` command was added beside `du` so storage usage would not be confused with the storage allowance. Conda remained an optional alternative; no extra exercises or advanced workflow pages were added.
 
-A further conversational pass applied the opening slide's speaking style to the rest of the deck. The notes use shorter sentences, natural contractions, and a shared walkthrough in the first person. Explanations begin with the reason for an action, describe what the command does and what to expect, and connect to the next step. Command options, placeholders, storage limits, job IDs, and the distinction between installation and activation are retained. The opening script, slide titles, visible content, illustrations, order, and presentation controls were unchanged by that wording pass.
+A further conversational pass applied the opening slide's speaking style to the rest of that draft. The notes used shorter sentences, natural contractions, and a shared walkthrough in the first person. Explanations began with the reason for an action, described what the command does and what to expect, and connected to the next step. Command options, placeholders, storage limits, job IDs, and the distinction between installation and activation were retained. The opening script, slide titles, visible content, illustrations, order, and presentation controls were unchanged by that wording pass. The later guide revision below removed the scripted opening while retaining the title slide.
 
 ## Visual walkthrough review — 28 October 2026
 
@@ -131,13 +131,37 @@ The follow-up audit checked the complete rendered deck for crowded content and s
 
 The six workflow pages from the initial pass retain their 28 px command text. The full-width log diagram now uses 24–28 px labels and separates stopping the viewer from stopping the submitted job. Text previews received more width, line-count commands were enlarged, the interactive batch-script text and resource/output labels were enlarged, and the long Conda verification command was wrapped using the already explained line continuation. These pages did not need further splits. The storage and troubleshooting tables, concept diagrams, early VS Code screenshots, Extensions icon close-up, and reference page remain together where their existing grouping is useful and readable.
 
-## Speaking-script alignment with 45 slides — 29 October 2026
+## Historical speaking-script alignment with 45 slides — 29 October 2026
 
-The English narration was reviewed page by page after the readability splits, using the research-talk-slides principles of one purpose per page, plain explanations, and connected transitions. The accepted cover introduction stays unchanged. Every subsequent page has its own spoken paragraphs tied to the content actually visible there, with no presenter stage directions or audience exercises.
+The English narration was reviewed page by page after the readability splits, using the research-talk-slides principles of one purpose per page, plain explanations, and connected transitions. At that stage, the accepted cover introduction remained unchanged, and every subsequent page had its own spoken paragraphs tied to the visible content, with no presenter stage directions or audience exercises.
 
 The separated shell pages now move from project navigation to file names, details, creating/copying, moving/removing, and inspection. The later pages distinguish preparing the batch script, submitting it, following output, searching an error log, and opening the result. The software sequence explicitly follows the compute shell through installation, verification, activation, and exit; Conda remains an alternative setup in its own allocation before returning to the existing .venv workflow. GPU, named-node, and R examples are introduced as optional routes rather than extra required steps.
 
-All 45 note entries are matched to their slide titles and positions in the generated deck, Notes panel, separate presenter window, and lecturer guide. Command options, placeholders, illustrative outputs, and success checks are retained. Slide titles, visible bodies, diagrams, page order, and the slide-only PDF are unchanged by this narration review.
+That version had 45 note entries matched to slide titles and positions in the generated deck, presenter interfaces, and lecturer guide. Command options, placeholders, illustrative outputs, and success checks were retained. Slide titles, visible bodies, diagrams, page order, and the slide-only PDF were unchanged by that narration review. This describes the earlier draft; the current guide and timing revision follows.
+
+## Current guide and timing revision — 29 October 2026
+
+The presentation retains all 45 slides, including its standalone title slide. The title slide's speaker notes are now empty, and the Lecturer guide begins at Slide 02 and ends at Slide 45: 44 spoken entries. A single Lecturer guide entry opens the full script. The separate presenter window remains available with S. Offline materials provide the presentation and Lecturer guide together.
+
+The spoken script now totals 6,201 words, compared with the earlier 8,008 words. The revision removes repeated explanations and routine reminders while keeping each command and parameter meaning at its first full introduction. Later steps refer back to that explanation and identify what changes. The everyday commands, Slurm resources and submission checks, package installation, environment activation, Conda, R, and optional GPU/node/email settings remain covered. No slide was removed for timing.
+
+At 120–130 spoken words per minute, the script takes approximately 47.7–51.7 minutes. Adding 6–8 minutes for slide changes, pointing, and pauses, plus about 0.5 minute for an unscripted opening, gives an estimated 54.2–60.2 minutes. Plan for approximately **55–60 minutes**. At a slower 115 words per minute with 8 minutes of pauses and the same opening, the estimate is about 62.4 minutes.
+
+These are planning assumptions, not measured rehearsal results or a benchmark. They exclude Q&A, live package installation, and queue waiting. Use prepared outputs for the explanation; installing software or waiting for an allocation live needs additional time. Timing appears only in presenter documentation, not on the slides or in the spoken entries.
+
+The following section budgets total 60 minutes. They are suggested allocations for delivery, not measured section durations or replacements for the word-based estimate.
+
+| Section | Planning budget |
+| --- | ---: |
+| Unscripted cover opening | 1 minute |
+| Access | 4 minutes |
+| Files in VS Code | 8 minutes |
+| Shell essentials | 14 minutes |
+| Slurm jobs | 14 minutes |
+| Software and packages | 8 minutes |
+| Run and check | 10 minutes |
+| Spare time | 1 minute |
+| Total | 60 minutes |
 
 ## Navigation implementation
 

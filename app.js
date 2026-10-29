@@ -10,7 +10,6 @@ const deck = new Reveal({
 window.deck=deck;
 const leafSlides=[...document.querySelectorAll('.slides .lecture-slide')];
 const contentDialog=document.querySelector('#contents');
-const notesPanel=document.querySelector('#notes-panel');
 const laserButton=document.querySelector('#laser-btn');
 const laserPointer=document.createElement('div');
 laserPointer.id='laser-pointer';
@@ -188,23 +187,15 @@ deck.on('slidechanged',resetLaser);
 deck.on('slidetransitionend',updateLaser);
 deck.on('overviewshown',resetLaser);
 deck.on('paused',resetLaser);
-function syncNotes(){
+function syncPosition(){
   const slide=deck.getCurrentSlide();
   if(!slide?.matches('.lecture-slide'))return;
-  document.querySelector('#note-content').innerHTML=`<h2>${slide.dataset.title}</h2>`+slide.querySelector('aside.notes').innerHTML;
   document.querySelector('#position-label').textContent=[slide.dataset.section,slide.dataset.position,`${Number(slide.dataset.index)+1}/${leafSlides.length}`].filter(Boolean).join(' · ');
-}
-function toggleNotes(){
-  notesPanel.hidden=!notesPanel.hidden;
-  syncNotes();
-  notesPanel.hidden?updateLaser():resetLaser();
 }
 function toggleContents(){
   if(contentDialog.open){contentDialog.close();updateLaser();}
   else{contentDialog.showModal();resetLaser();}
 }
-document.querySelector('#notes-btn').addEventListener('click',toggleNotes);
-document.querySelector('#close-notes').addEventListener('click',()=>notesPanel.hidden=true);
 document.querySelector('#contents-btn').addEventListener('click',toggleContents);
 document.querySelector('.close-dialog').addEventListener('click',()=>contentDialog.close());
 document.querySelector('#fullscreen-btn').addEventListener('click',()=>{
@@ -231,7 +222,6 @@ document.querySelectorAll('.code-line').forEach(button=>button.addEventListener(
   button.classList.add('active');
   block.querySelector('.line-explanation').textContent=button.dataset.explain;
 }));
-deck.addKeyBinding({keyCode:78,key:'N',description:'Show in-window speaker notes'},toggleNotes);
 deck.addKeyBinding({keyCode:67,key:'C',description:'Open course contents'},toggleContents);
 deck.addKeyBinding({keyCode:76,key:'L',description:'Toggle laser pointer'},event=>{
   if(!event.repeat)toggleLaser();
@@ -250,6 +240,6 @@ function fitCode(slide){
     if(longest>available)pre.style.fontSize=`${Math.max(20,size*available/longest)}px`;
   });
 }
-deck.on('ready',()=>{syncNotes();fitCode(deck.getCurrentSlide());});
-deck.on('slidechanged',()=>{syncNotes();fitCode(deck.getCurrentSlide());});
-deck.initialize().then(()=>{syncNotes();fitCode(deck.getCurrentSlide());window.presentationReady=true;});
+deck.on('ready',()=>{syncPosition();fitCode(deck.getCurrentSlide());});
+deck.on('slidechanged',()=>{syncPosition();fitCode(deck.getCurrentSlide());});
+deck.initialize().then(()=>{syncPosition();fitCode(deck.getCurrentSlide());window.presentationReady=true;});

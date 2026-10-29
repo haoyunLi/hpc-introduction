@@ -5,11 +5,11 @@ An English beginner lecture covering account access, remote file management, eve
 ## Presentation and downloads
 
 - **[Open the online presentation](https://haoyunli.github.io/hpc-introduction/)**
-- [Read the English speaking script](https://haoyunli.github.io/hpc-introduction/lecturer-notes.html)
+- [Open the Lecturer guide](https://haoyunli.github.io/hpc-introduction/lecturer-notes.html)
 - [Download the PDF](https://github.com/haoyunLi/hpc-introduction/releases/latest/download/HPC_Introduction.pdf)
 - [Download the complete offline package](https://github.com/haoyunLi/hpc-introduction/releases/latest/download/HPC_Introduction_Offline.zip)
 
-The offline package includes the presentation, images, PDF, notes, and example files. Unzip it, keep the folder together, and open `HPC_Introduction/index.html`.
+The offline package includes the presentation, images, PDF, Lecturer guide, and example files. Unzip it, keep the folder together, and open `HPC_Introduction/index.html`. Open `lecturer-notes.html` for the guide.
 
 ## Open and navigate
 
@@ -19,7 +19,7 @@ Open `index.html` in a desktop browser. The presentation, official diagrams and 
 - Up / down: move within a topic
 - Space: follow all slides in reading order
 - C / Contents: choose any topic or slide
-- N / Notes: show the current English lecturer notes
+- Lecturer guide: open the full English speaking script
 - S: open the separate presenter window with the current slide, upcoming slide, and notes
 - F / Full screen: full screen
 - L / Laser: toggle a red laser pointer that follows the mouse, including in full screen
@@ -29,9 +29,9 @@ Open `index.html` in a desktop browser. The presentation, official diagrams and 
 
 The title page has its own horizontal Introduction unit. Press Right or Space to enter 01 · Access; use Down to move within that topic. The six numbered topics are Access, Files in VS Code, Shell essentials, Slurm jobs, Software and packages, and Run and check. Use Contents to navigate directly; there is no course-map slide. The PDF follows the same order, flattening each vertical topic into consecutive pages. The ten line explanations for `hello.sbatch` are printed in the PDF as well as available interactively in the browser.
 
-Use `lecturer-notes.html` for the full English speaking script. Its 45 numbered entries match the 45 slides, the in-window Notes panel, and the separate presenter window. The accepted opening is unchanged; the remaining notes were reviewed after the readability splits to use the same conversational style, with natural explanations and transitions that connect each step to the next. Command meanings, expected outputs, and important distinctions remain explicit. `SOURCE_REVIEW.md` records coverage of the two supplied websites and identifies topics that need more teaching time. `SOURCES.md` contains references and image credits.
+Use the single **Lecturer guide** entry for the full English speaking script. Its 44 entries retain the presentation's slide numbers, from Slide 02 through Slide 45. The title slide remains in the presentation, but has no scripted introduction or speaker notes and is omitted from the guide. The same spoken text is available in the separate presenter window. The guide uses conversational English and connected steps; command and parameter meanings are explained at their first full introduction, with repeated explanations condensed later. `SOURCE_REVIEW.md` records source coverage, teaching priorities, and the timing estimate. `SOURCES.md` contains references and image credits.
 
-For two displays, open the online presentation and press **S** to open the presenter window (allow popups if prompted). Put the main presentation on the audience display and use **F** there for full screen. Keep the presenter window on your own display. Click **Laser (L)** in the presenter window or press **L**, then move the mouse over its **current slide** preview: the audience sees the red dot at the matching position. Leaving that preview, turning Laser off, or changing slides clears the dot. The upcoming preview does not control the laser. **N / Notes** shows notes in the main window; use **S** when the audience should not see your notes.
+For two displays, open the online presentation and press **S** to open the presenter window (allow popups if prompted). Put the main presentation on the audience display and use **F** there for full screen. Keep the presenter window on your own display. Click **Laser (L)** in the presenter window or press **L**, then move the mouse over its **current slide** preview: the audience sees the red dot at the matching position. Leaving that preview, turning Laser off, or changing slides clears the dot. The upcoming preview does not control the laser.
 
 Presenter laser synchronization works between these two connected windows in the same browser. For offline use, serve the folder locally instead of opening it with `file://`:
 
@@ -39,7 +39,13 @@ Presenter laser synchronization works between these two connected windows in the
 python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Then open `http://127.0.0.1:8765/`. Double-click presentation and in-window notes also work without a server.
+Then open `http://127.0.0.1:8765/`. The presentation and Lecturer guide can also be opened directly without a server.
+
+## Presenter timing
+
+The 44 spoken entries total 6,201 words, reduced from the earlier 8,008-word script by condensing repeated explanations. At 120–130 words per minute, plus 6–8 minutes for switching slides, pointing, and pauses, and about half a minute for an unscripted opening, the estimated duration is 54.2–60.2 minutes: approximately **55–60 minutes**. A slower delivery at 115 words per minute with the longer pause allowance would take about 62.4 minutes.
+
+This is a planning estimate, not a recorded rehearsal or benchmark. It excludes Q&A, live package installation, and queue waiting. Timing guidance stays in presenter documentation; it is not shown on slides or included in the spoken notes. See `SOURCE_REVIEW.md` for a suggested section budget.
 
 ## Scope
 
@@ -51,7 +57,7 @@ The shell material includes navigation, hidden files and listing options, folder
 
 Use `demo/` for the continuous Python walkthrough. It starts with the input and saved scripts, without an environment or generated result. `examples/` contains the fuller set of templates, including R, Conda, and GPU alternatives. The Conda alternative follows the completed Python setup and uses its own allocated setup session. The R job example appears after opening outputs in VS Code and uses base R without additional package installation. Copy the relevant alternative files into their intended remote project; neither route is an extra step for the Python walkthrough.
 
-All 45 speaking notes use conversational English and make actions and success checks explicit: which host or folder to use, what to replace, what command output to expect, and what to do after an error. The storage table states limits and actions; the disk-usage slide distinguishes `du` from `quota`. The beginner review makes local versus remote actions, command prompts, placeholders, option meanings, and expected results explicit. It also distinguishes commands to run in sequence from optional reference commands such as cancellation or leaving a shell.
+All 44 speaking entries use conversational English and make actions and success checks explicit: which host or folder to use, what to replace, what command output to expect, and what to do after an error. The storage table states limits and actions; the disk-usage slide distinguishes `du` from `quota`. The beginner review makes local versus remote actions, command prompts, placeholders, option meanings, and expected results explicit. It also distinguishes commands to run in sequence from optional reference commands such as cancellation or leaving a shell.
 
 Four simple diagrams explain local versus remote work (slide 6), login versus compute nodes with shared project storage (slide 24), nodes, tasks, and CPUs per task (slide 26), and installation versus activation (slide 36). They use the same `demo/` project. The local/remote diagram combines the earlier architecture overview and file-location explanation into one page. The installation diagram shows persistent package files separately from the environment selected by each shell or job.
 
