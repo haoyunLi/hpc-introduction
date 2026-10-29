@@ -87,6 +87,8 @@ Applied the research-talk-slides principles of one purpose per page, plain wordi
 
 The review checks each instruction for a location, action, and observable outcome. Changes include naming the connected host in VS Code, using the job ID returned by the actual submission, stating that Slurm substitutes `%j`, identifying an error-free package-version output as the import check, and giving concrete first actions for common errors. The verified `quota` command now appears beside `du` so storage usage is not confused with the storage allowance. Conda remains an optional alternative; no extra exercises or advanced workflow pages were added.
 
+A further conversational pass applies the opening slide's speaking style to slides 2–42. The notes use shorter sentences, natural contractions, and a shared walkthrough in the first person. Explanations begin with the reason for an action, describe what the command does and what to expect, and connect to the next step. Command options, placeholders, storage limits, job IDs, and the distinction between installation and activation are retained. The opening script, slide titles, visible content, illustrations, order, and presentation controls are unchanged.
+
 ## Topics that need more teaching time
 
 These estimates are for the presenter, not labels on the slides.
