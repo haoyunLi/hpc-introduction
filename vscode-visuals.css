@@ -6,6 +6,11 @@
 .vs-step strong{display:block;font-size:27px;line-height:1.2;color:var(--navy)}
 .vs-step span{display:block;font-size:21px;line-height:1.4;color:#43596e;margin-top:9px}
 .vs-step-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+.vs-extension-step>div{min-width:0}
+.vs-icon-guide{display:flex;align-items:center;gap:14px;margin-top:12px}
+.reveal .vs-icon-guide img{display:block;width:91px;height:95px;max-width:none;flex:0 0 91px;margin:0;border:1px solid #a2adb5;border-radius:3px;box-shadow:none;background:#333}
+.vs-step .vs-icon-guide span{font-size:20px;line-height:1.35;margin:0}
+.vs-icon-guide small{display:block;font-size:18px;line-height:1.4;color:#43596e;margin-top:8px}
 .vs-shot-window{position:relative}
 .reveal .vs-shot img{width:100%;max-height:none;background:#222}
 .reveal .vs-shot figcaption{font-size:17px;line-height:1.35;margin-top:8px}

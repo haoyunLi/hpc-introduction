@@ -18,6 +18,7 @@ Reviewed 27 October 2026. Independent educational adaptation.
 - [Missing Semester · Shell Tools and Scripting (2020)](https://missing.csail.mit.edu/2020/shell-tools/)
 - [Microsoft · Remote - SSH](https://code.visualstudio.com/docs/remote/ssh)
 - [Microsoft · Remote - SSH tutorial](https://code.visualstudio.com/docs/remote/ssh-tutorial)
+- [Microsoft · Extensions view](https://code.visualstudio.com/docs/configure/extensions/extension-marketplace)
 - [Microsoft · VS Code user interface](https://code.visualstudio.com/docs/editing/getting-started/userinterface)
 - [Microsoft · VS Code setup](https://code.visualstudio.com/docs/setup/setup-overview)
 - [Microsoft · File import and download implementation](https://github.com/microsoft/vscode/blob/main/src/vs/workbench/contrib/files/browser/fileImportExport.ts)
@@ -46,6 +47,7 @@ Reviewed 27 October 2026. Independent educational adaptation.
 - `assets/vscode-statusbar.png`: SSH status indicator using Microsoft example hostname. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh); [asset](https://code.visualstudio.com/assets/docs/remote/ssh/ssh-statusbar.png).
 - `assets/vscode-remote-folder.png`: Remote Open Folder dialog using Microsoft example path. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh-tutorial); [asset](https://code.visualstudio.com/assets/docs/remote/ssh-tutorial/remote-open-folder.png).
 - `assets/vscode-remote-terminal.png`: Remote Linux terminal example showing uname and Linux. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/remote/ssh-tutorial); [asset](https://code.visualstudio.com/assets/docs/remote/ssh-tutorial/check-uname.png).
+- `assets/vscode-extensions-icon.png`: Official Microsoft screenshot of the Extensions icon in the Activity Bar. Displayed at its original 91 by 95 pixel size. Credit: Microsoft. [Source](https://code.visualstudio.com/docs/configure/extensions/extension-marketplace); [asset](https://code.visualstudio.com/assets/docs/configure/extensions/extension-marketplace/extensions-view-icon.png).
 - The original HTML workflow diagrams are illustrations, not live screenshots. Official diagrams and example UI screenshots retain their source credits.
 - Commands and small example datasets are adapted or newly written for explanation. They do not report a real research analysis.
 

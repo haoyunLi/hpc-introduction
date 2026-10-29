@@ -106,5 +106,14 @@
     "accessed": "2026-10-28",
     "credit": "Microsoft",
     "rights": "Original owner retains rights; attributed educational use."
+  },
+  {
+    "file": "assets/vscode-extensions-icon.png",
+    "asset_url": "https://code.visualstudio.com/assets/docs/configure/extensions/extension-marketplace/extensions-view-icon.png",
+    "source_page": "https://code.visualstudio.com/docs/configure/extensions/extension-marketplace",
+    "caption": "Official Microsoft screenshot of the Extensions icon in the Activity Bar. Displayed at its original 91 by 95 pixel size.",
+    "accessed": "2026-10-28",
+    "credit": "Microsoft",
+    "rights": "Original owner retains rights; attributed educational use."
   }
 ]
