@@ -1,0 +1,33 @@
+/* Targeted projection readability for the batch-script and resource diagrams. */
+.beginner-script .annotated{grid-template-columns:845px minmax(0,1fr);gap:30px}
+.beginner-script .annotation-code{padding:16px 18px}
+.beginner-script .code-line{font-size:28px;line-height:1.28;padding:4px 7px}
+.beginner-script .code-line>span{font-size:18px;width:36px}
+.beginner-script .annotation-text .code-label{font-size:22px}
+.beginner-script .line-explanation{font-size:30px;line-height:1.35}
+
+/* The full printed explanation list still fits beside all ten script lines. */
+.beginner-script .annotation-list>div{font-size:20px;line-height:1.25;padding:6px 0;grid-template-columns:26px 1fr;gap:9px}
+.beginner-script .annotation-list b{font-size:17px}
+
+/* Give memory and runtime the same readable treatment as the CPU labels. */
+.resource-slide .resource-demo{padding-top:12px}
+.resource-slide .resource-demo>strong{font-size:26px;line-height:1.25;margin-bottom:10px}
+.resource-slide .resource-demo>div{grid-template-columns:max-content minmax(0,.8fr) max-content minmax(0,1.4fr);gap:12px;font-size:24px;line-height:1.3}
+.resource-slide .resource-demo code{font-size:24px;line-height:1.3}
+
+/* Scope spacing changes to the output/email slide, leaving other flows alone. */
+.lecture-slide:has(.workflow-streams) .slide-body{gap:12px}
+.lecture-slide:has(.workflow-streams) .slide-body>.code-label{font-size:20px;line-height:1.3}
+.lecture-slide:has(.workflow-streams) pre{font-size:26px;line-height:1.35;padding-top:16px;padding-bottom:16px}
+.workflow-streams .workflow-caption{font-size:20px;line-height:1.3;margin-bottom:8px}
+.workflow-streams .workflow-caption code{font-size:20px}
+.workflow-streams .workflow-stream-row{min-height:70px;margin-top:6px}
+.workflow-streams .workflow-stream-source{padding:6px 14px}
+.workflow-streams .workflow-stream-source strong{font-size:24px;line-height:1.2}
+.workflow-streams .workflow-stream-source span,
+.workflow-streams .workflow-stream-source span code{font-size:22px;line-height:1.25}
+.workflow-streams .workflow-stream-target code{font-size:26px}
+.workflow-streams .workflow-email>span{font-size:22px}
+.workflow-streams .workflow-footnote,
+.workflow-streams .workflow-footnote code{font-size:21px;line-height:1.3}

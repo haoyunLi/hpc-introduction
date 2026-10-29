@@ -18,3 +18,26 @@
 .readable-batch .cols>div{gap:16px}
 .readable-batch .code-label{font-size:20px}
 .readable-batch pre{font-size:28px;line-height:1.45;padding:18px 20px}
+
+/* Full-deck readability pass: separate long command sequences by purpose. */
+.readable-navigation .cols{grid-template-columns:1.08fr .92fr;gap:38px;align-items:start}
+.readable-navigation .row{grid-template-columns:160px 1fr}
+.readable-navigation pre{line-height:1.4}
+.readable-navigation .row strong,.readable-navigation .row span{font-size:27px}
+.readable-list-details .slide-body{gap:12px}
+.readable-list-details pre{font-size:28px;line-height:1.28;padding:14px 24px}
+.readable-file-ops table{font-size:27px;table-layout:fixed}
+.readable-file-ops th:first-child{width:49%}
+.readable-file-ops td{padding:17px 16px}
+.readable-text-preview .cols.wide-left{grid-template-columns:1.65fr 1fr;gap:28px}
+.readable-text-preview table{font-size:25px}
+.readable-text-preview td:first-child{white-space:nowrap}
+.readable-text-preview pre{font-size:27px;line-height:1.5;padding:20px}
+.readable-conda .slide-body{gap:16px}
+.readable-conda pre{line-height:1.35;padding:18px 24px}
+.readable-conda .row{padding:12px 0;grid-template-columns:250px 1fr}
+.readable-conda .row strong,.readable-conda .row span{font-size:26px}
+.readable-log .slide-body{gap:16px}
+.readable-log pre{padding:16px 24px}
+
+.readable-count pre,.readable-count .cols pre{font-size:28px;line-height:1.4}

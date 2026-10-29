@@ -210,14 +210,14 @@
     "position": "3.2"
   },
   {
-    "title": "Navigate the uploaded project",
-    "body": "<div class=\"cols \"><div><div class=\"code-label\">Transcript: type commands after $; other lines are output</div><pre class=\"terminal-transcript\"><code><span class=\"terminal-command\">$ pwd</span>\n/projects/YOUR_GROUP/demo\n<span class=\"terminal-command\">$ cd data</span>\n<span class=\"terminal-command\">$ pwd</span>\n/projects/YOUR_GROUP/demo/data\n<span class=\"terminal-command\">$ cd ..</span>\n<span class=\"terminal-command\">$ pwd</span>\n/projects/YOUR_GROUP/demo\n<span class=\"terminal-command\">$ cd ~</span>\n<span class=\"terminal-command\">$ pwd</span>\n/u/YOUR_NETID\n<span class=\"terminal-command\">$ cd -</span>\n/projects/YOUR_GROUP/demo\n<span class=\"terminal-command\">$ pwd</span>\n/projects/YOUR_GROUP/demo</code></pre></div><div><table class=\"\"><thead><tr><th>Command</th><th>Meaning</th></tr></thead><tbody><tr><td>pwd</td><td>Print the current folder</td></tr><tr><td>cd data</td><td>Enter the data subfolder</td></tr><tr><td>cd ..</td><td>Go up one folder</td></tr><tr><td>cd ~</td><td>Go to your home folder</td></tr><tr><td>cd -</td><td>Return to the previous folder</td></tr></tbody></table><p class=\"small\"><code>cd -</code> also prints its destination. The next <code>pwd</code> confirms it.</p></div></div><p class=\"small\"><code>.</code> current folder \u00b7 <code>..</code> parent \u00b7 <code>/projects/\u2026</code> absolute path \u00b7 <code>data/\u2026</code> relative path</p>",
-    "notes": "Once we\u2019re in the terminal, the first thing I want to know is where we are. That\u2019s what pwd tells us. Here, we\u2019re starting in demo. cd data takes us into the data folder, and the next pwd shows the new path. cd .. takes us one level up, back to demo. Those two dots mean the parent folder.\n\ncd ~ takes us home, which is shown here as /u/YOUR_NETID. Then cd - takes us back to the folder we were in before, so here we return to demo. That\u2019s different from going up one level. cd - also prints the destination itself, which is why we see the path again when we run pwd.\n\nA path beginning with a slash is an absolute path: it gives the location from the filesystem root. A relative path, like data, starts wherever we are now. One dot means this folder, two dots mean its parent, and the tilde means home. Capitalization matters in file and folder names.\n\nIn this transcript, we type what comes after the dollar sign. The other lines are the computer\u2019s response. We\u2019re back in demo now, so we can list what\u2019s in data without moving into it.",
+    "title": "Use pwd and cd to move through the project",
+    "body": "<div class=\"cols \"><div><div class=\"code-label\">Type commands after $; other lines are output</div><pre class=\"terminal-transcript\"><code><span class=\"terminal-command\">$ pwd</span>\n/projects/YOUR_GROUP/demo\n<span class=\"terminal-command\">$ cd data</span>\n<span class=\"terminal-command\">$ pwd</span>\n/projects/YOUR_GROUP/demo/data\n<span class=\"terminal-command\">$ cd ..</span>\n<span class=\"terminal-command\">$ pwd</span>\n/projects/YOUR_GROUP/demo</code></pre></div><div><div class=\"rows\"><div class=\"row\"><strong><code>pwd</code></strong><span>Print the current folder.</span></div><div class=\"row\"><strong><code>cd data</code></strong><span>Enter the data subfolder.</span></div><div class=\"row\"><strong><code>cd ..</code></strong><span>Go up to the parent folder.</span></div></div></div></div><p class=\"small\"><code>.</code> = current folder \u00b7 <code>..</code> = parent folder</p><p class=\"small\"><code>/projects/\u2026</code> starts at the filesystem root; <code>data/\u2026</code> starts from the current folder.</p>",
+    "notes": "Once we\u2019re in the terminal, the first thing I want to know is where we are. That\u2019s what pwd tells us. Here, we\u2019re starting in demo. We type what comes after the dollar sign; the other lines are the computer\u2019s response.\n\ncd data takes us into the data folder. It usually prints nothing, so the next pwd lets us see the new location. cd .. takes us one level up, back to demo, and pwd confirms it again. Two dots mean the parent folder; one dot means the current folder.\n\nA path beginning with a slash is an absolute path: it gives the location from the filesystem root. A relative path, like data, starts wherever we are now. Capitalization matters in file and folder names.\n\nThat covers moving into a folder and going up one level. Next, let\u2019s look at two shortcuts for moving home and coming back.",
     "sources": [
       "shell"
     ],
     "section": "Shell essentials",
-    "cls": "compact navigation-examples",
+    "cls": "readable-slide readable-navigation",
     "index": 13,
     "h": 3,
     "v": 2,
@@ -225,16 +225,14 @@
     "position": "3.3"
   },
   {
-    "title": "List files and inspect their details",
-    "body": "<div class=\"cols \"><div><table class=\"\"><thead><tr><th>Command</th><th>What changes</th></tr></thead><tbody><tr><td>ls</td><td>List visible file and folder names</td></tr><tr><td>ls -a</td><td>Include hidden names beginning with a dot</td></tr><tr><td>ls -l</td><td>Show details such as size and date</td></tr><tr><td>ls -lh</td><td>Use readable sizes, such as K or M</td></tr><tr><td>ls -lah</td><td>Show hidden names, details, and readable sizes</td></tr></tbody></table></div><div><div class=\"code-label\">Illustrative listing with a larger file; total lines omitted</div><pre class=\"terminal-transcript\"><code><span class=\"terminal-command\">$ ls data</span>\ncounts.tsv  samples.csv\n<span class=\"terminal-command\">$ ls -a data</span>\n.  ..  counts.tsv  samples.csv\n<span class=\"terminal-command\">$ ls -l data</span>\n-rw-r--r-- 1 user group 25165824 Oct 27 10:00 counts.tsv\n-rw-r--r-- 1 user group       58 Oct 27 10:00 samples.csv\n<span class=\"terminal-command\">$ ls -lh data</span>\n-rw-r--r-- 1 user group  24M Oct 27 10:00 counts.tsv\n-rw-r--r-- 1 user group   58 Oct 27 10:00 samples.csv\n<span class=\"terminal-command\">$ ls -lah data</span>\ndrwxr-xr-x 2 user group 4.0K Oct 27 10:00 .\ndrwxr-xr-x 3 user group 4.0K Oct 27 10:00 ..\n-rw-r--r-- 1 user group  24M Oct 27 10:00 counts.tsv\n-rw-r--r-- 1 user group   58 Oct 27 10:00 samples.csv</code></pre></div></div><p class=\"small\">With <code>-h</code>: <strong>25165824 bytes \u2192 24M</strong>. <code>counts.tsv</code> is illustrative; the demo still uses <code>samples.csv</code>.</p>",
-    "notes": "We\u2019ve found the folder. To see what\u2019s inside, we use ls. Each example here lists data, and our terminal stays in demo throughout. For this slide, imagine we also have a larger file called counts.tsv in that folder. It\u2019s just an illustration; the supplied demo still contains the small samples.csv.\n\nPlain ls shows the visible names. With -a, we also see names that begin with a dot. That includes the single dot for the current folder and the two dots for its parent. Later, we\u2019ll use -a in our project folder to see .venv, the hidden folder that holds our Python environment.\n\nThe -l option gives us a longer listing. Reading across, we get permissions, a link count, the owner and group, the size, the modification time, and the name. For our purposes, the filename and size are usually the first things to check. The users and dates here are just examples.\n\nHere\u2019s where -h makes a visible difference. With -l, counts.tsv shows 25165824, its size in bytes. Add -h, and that same size becomes 24M. That\u2019s 24 MiB, using 1024-based units. The file hasn\u2019t changed; only the way its size is displayed has changed. Our small samples.csv is still 58 bytes, so its number stays the same. We can combine the options as -lah to get hidden entries, details, and readable sizes together. A folder\u2019s size on this line isn\u2019t the total of everything inside it; we\u2019ll use du for that.\n\nWe can see our input file. Next, we\u2019ll look at the commands for organizing files and making an output folder.",
+    "title": "Use cd ~ for home and cd - to go back",
+    "body": "<div class=\"cols \"><div><div class=\"code-label\">Continue from demo on the previous page</div><pre class=\"terminal-transcript\"><code><span class=\"terminal-command\">$ cd ~</span>\n<span class=\"terminal-command\">$ pwd</span>\n/u/YOUR_NETID\n<span class=\"terminal-command\">$ cd -</span>\n/projects/YOUR_GROUP/demo\n<span class=\"terminal-command\">$ pwd</span>\n/projects/YOUR_GROUP/demo</code></pre></div><div><div class=\"rows\"><div class=\"row\"><strong><code>cd ~</code></strong><span>Go to your home folder.</span></div><div class=\"row\"><strong><code>cd -</code></strong><span>Return to the previous folder and print its path.</span></div><div class=\"row\"><strong><code>pwd</code></strong><span>Confirm where the terminal is now.</span></div></div></div></div><p class=\"callout\"><code>cd ..</code> means parent folder. <code>cd -</code> means previous folder.</p>",
+    "notes": "We\u2019re still in demo. cd ~ takes us to our home folder, shown here as /u/YOUR_NETID. The tilde is a shortcut for home. We run pwd to confirm that move.\n\nNow cd - takes us back to the folder we were in before, so here we return to demo. It also prints the destination itself. That\u2019s why the same path appears again when we run pwd.\n\nIt helps to keep these two ideas separate. cd .. goes to a parent folder in the directory tree. cd - goes to the previous location, even if it\u2019s somewhere else in that tree.\n\nWe\u2019re back in demo now. Let\u2019s list what\u2019s inside data without moving into it.",
     "sources": [
-      "shell",
-      "cli",
-      "ls"
+      "shell"
     ],
     "section": "Shell essentials",
-    "cls": "compact listing-examples",
+    "cls": "readable-slide readable-navigation",
     "index": 14,
     "h": 3,
     "v": 3,
@@ -242,15 +240,16 @@
     "position": "3.4"
   },
   {
-    "title": "Creating, copying, moving, and deleting",
-    "body": "<table class=\"\"><thead><tr><th>Command</th><th>Result</th></tr></thead><tbody><tr><td><code>mkdir results</code></td><td>Create one new folder</td></tr><tr><td><code>mkdir -p results/qc</code></td><td>Create missing folders along the path; accept existing folders</td></tr><tr><td><code>cp -i notes.txt notes_backup.txt</code></td><td>Copy a file; ask before overwriting</td></tr><tr><td><code>cp -r data data_backup</code></td><td>Copy the folder and all its subfolders to a new location</td></tr><tr><td><code>mv -i notes_backup.txt notes_old.txt</code></td><td>Rename or move; ask before overwriting</td></tr><tr><td><code>rm -i notes_old.txt</code></td><td>Ask before deleting this file</td></tr></tbody></table><p class=\"small\"><code>cp</code> and <code>mv</code>: source first, destination second. Shell deletion normally has no Trash recovery.</p>",
-    "notes": "These are the basic file operations you\u2019ll use in a project. You can also do most of them through VS Code\u2019s Explorer, but it\u2019s useful to recognize the commands when you see them in instructions.\n\nmkdir results makes a new folder called results. If it\u2019s already there, plain mkdir reports an error. With mkdir -p results/qc, the -p creates any missing folders along the path and accepts ones that already exist.\n\nFor both cp and mv, read the source first and the destination second. cp makes a copy. mv moves the original, or renames it when the destination is a new name in the same folder. The -i asks before replacing a file that\u2019s already at the destination. With cp -r, we copy a folder and its subfolders. Here, data_backup is a new destination. For a large dataset, that extra copy also takes extra storage.\n\nrm -i asks before deleting notes_old.txt. Check the name before confirming, because shell deletion normally has no Trash recovery. These commands often finish without printing anything. We can use ls to check what changed, then open a file to see what\u2019s inside.",
+    "title": "List visible and hidden names with ls",
+    "body": "<div class=\"code-label\">Illustrative data folder; commands run from demo</div><pre class=\"terminal-transcript\"><code><span class=\"terminal-command\">$ ls data</span>\ncounts.tsv  samples.csv\n<span class=\"terminal-command\">$ ls -a data</span>\n.  ..  counts.tsv  samples.csv</code></pre><div class=\"rows\"><div class=\"row\"><strong><code>ls data</code></strong><span>List visible file and folder names inside data.</span></div><div class=\"row\"><strong><code>ls -a data</code></strong><span>Include hidden names beginning with a dot.</span></div></div><p class=\"small\"><code>.</code> is this folder; <code>..</code> is its parent. Later, <code>ls -a</code> in demo will also show <code>.venv</code>.</p><p class=\"small\"><code>counts.tsv</code> is a larger illustrative file. The supplied demo uses <code>samples.csv</code>.</p>",
+    "notes": "We\u2019ve found the folder. To see what\u2019s inside, we use ls. Both commands here list data, and our terminal stays in demo throughout. For this illustration, imagine there\u2019s also a larger file called counts.tsv. The supplied demo still uses the small samples.csv.\n\nPlain ls shows the visible names. Add -a, and it also shows names beginning with a dot. That includes the single dot for this folder and the two dots for its parent. Later, we\u2019ll run ls -a in demo to see .venv, the hidden folder holding our Python environment.\n\nThese commands show us which names exist. On the next page, we\u2019ll add file details and make the sizes easier to read.",
     "sources": [
       "shell",
-      "script"
+      "cli",
+      "ls"
     ],
     "section": "Shell essentials",
-    "cls": "compact",
+    "cls": "readable-slide",
     "index": 15,
     "h": 3,
     "v": 4,
@@ -258,20 +257,69 @@
     "position": "3.5"
   },
   {
+    "title": "Show file details and readable sizes with ls",
+    "body": "<p class=\"small\"><code>-l</code>: details \u00b7 <code>-h</code>: readable sizes \u00b7 <code>-a</code>: include hidden names</p><div class=\"code-label\">Illustrative listing; total lines omitted</div><pre class=\"terminal-transcript\"><code><span class=\"terminal-command\">$ ls -l data</span>\n-rw-r--r-- 1 user group 25165824 Oct 27 10:00 counts.tsv\n-rw-r--r-- 1 user group       58 Oct 27 10:00 samples.csv\n<span class=\"terminal-command\">$ ls -lh data</span>\n-rw-r--r-- 1 user group  24M Oct 27 10:00 counts.tsv\n-rw-r--r-- 1 user group   58 Oct 27 10:00 samples.csv\n<span class=\"terminal-command\">$ ls -lah data</span>\ndrwxr-xr-x 2 user group 4.0K Oct 27 10:00 .\ndrwxr-xr-x 3 user group 4.0K Oct 27 10:00 ..\n-rw-r--r-- 1 user group  24M Oct 27 10:00 counts.tsv\n-rw-r--r-- 1 user group   58 Oct 27 10:00 samples.csv</code></pre><p class=\"small\">Same file: <strong>25165824 bytes \u2192 24M</strong> (24 MiB). Folder size here is not the total of its contents.</p>",
+    "notes": "Now we\u2019re asking ls to show more detail. With -l, each line gives permissions, a link count, the owner and group, the size, the modification time, and the name. The filename and size are usually the first things I check. The users and dates here are examples.\n\nThe larger file makes -h easier to see. With -l, counts.tsv shows 25165824 bytes. Add -h and that becomes 24M, meaning 24 MiB in these 1024-based units. Nothing happened to the file; we\u2019ve just changed how the size is displayed. The small samples.csv is still 58 bytes, so its number stays the same.\n\nWe can combine the letters as -lah to get details, readable sizes, and hidden entries together. A folder\u2019s size on this line isn\u2019t the total of everything inside it. We\u2019ll use du for that.\n\nNow that we can inspect what\u2019s there, let\u2019s look at making folders and copying files.",
+    "sources": [
+      "shell",
+      "cli",
+      "ls"
+    ],
+    "section": "Shell essentials",
+    "cls": "readable-slide readable-list-details",
+    "index": 16,
+    "h": 3,
+    "v": 5,
+    "anchor": "3/5",
+    "position": "3.6"
+  },
+  {
+    "title": "Create folders with mkdir and copy files with cp",
+    "body": "<table class=\"\"><thead><tr><th>Command</th><th>Result</th></tr></thead><tbody><tr><td><code>mkdir results</code></td><td>Create one new folder.</td></tr><tr><td><code>mkdir -p results/qc</code></td><td>Create missing folders along the path; accept existing folders.</td></tr><tr><td><code>cp -i notes.txt notes_backup.txt</code></td><td>Copy a file; ask before overwriting.</td></tr><tr><td><code>cp -r data data_backup</code></td><td>Copy the folder and its subfolders to a new destination.</td></tr></tbody></table><p class=\"callout\"><code>cp</code>: source first, destination second. The source stays in place.</p><p class=\"small\">Check the result with <code>ls</code>. Copying a large dataset also uses extra storage.</p>",
+    "notes": "These are common operations for organizing a project. We can do most of them in VS Code\u2019s Explorer too, but it\u2019s useful to recognize the commands in instructions. These are examples to choose from, rather than a required setup sequence.\n\nmkdir results makes a new folder. If it\u2019s already there, plain mkdir reports an error. In mkdir -p results/qc, -p creates missing folders along the path and accepts folders that already exist.\n\nFor cp, the source comes first and the destination second. cp -i notes.txt notes_backup.txt makes a copy and asks before replacing an existing destination file. The original stays in place. With cp -r, we copy the folder and its subfolders. Here, data_backup is a new destination. A large dataset will also take more storage when we copy it.\n\nThese commands often finish quietly. Use ls to check what changed. Next, we\u2019ll look at moving a file and deleting an unwanted copy.",
+    "sources": [
+      "shell",
+      "script"
+    ],
+    "section": "Shell essentials",
+    "cls": "readable-slide readable-file-ops",
+    "index": 17,
+    "h": 3,
+    "v": 6,
+    "anchor": "3/6",
+    "position": "3.7"
+  },
+  {
+    "title": "Move or rename with mv; remove a file with rm",
+    "body": "<div class=\"code-label\">Move or rename: source first, destination second</div><pre class=\"\"><code>mv -i notes_backup.txt notes_old.txt</code></pre><p class=\"small\">Rename the backup; <code>-i</code> asks before replacing an existing destination file.</p><div class=\"code-label\">Remove the unwanted copy</div><pre class=\"\"><code>rm -i notes_old.txt</code></pre><p class=\"small\"><code>-i</code> asks before deleting. Check the filename before confirming.</p><p class=\"callout\">Shell deletion normally has no Trash recovery. Check the result with <code>ls</code>.</p>",
+    "notes": "Suppose we made notes_backup.txt and want to give it a different name. mv -i notes_backup.txt notes_old.txt renames it. The source comes first and the destination second, just as with cp. If the destination were a different folder, mv would move the file there. The -i asks before replacing an existing destination.\n\nIf we no longer need that copy, rm -i notes_old.txt asks before deleting it. Check the filename before confirming, because shell deletion normally has no Trash recovery.\n\nAfter either operation, ls lets us check the result. We\u2019ve covered organizing files; next, we\u2019ll read a small input file without changing it.",
+    "sources": [
+      "shell",
+      "script"
+    ],
+    "section": "Shell essentials",
+    "cls": "readable-slide",
+    "index": 18,
+    "h": 3,
+    "v": 7,
+    "anchor": "3/7",
+    "position": "3.8"
+  },
+  {
     "title": "Inspecting a small text file",
-    "body": "<div class=\"cols \"><div><table class=\"\"><thead><tr><th>Command</th><th>Use</th></tr></thead><tbody><tr><td><code>cat notes.txt</code></td><td>Print the entire small file</td></tr><tr><td><code>head -n 5 data/samples.csv</code></td><td>Print up to 5 lines from the start</td></tr><tr><td><code>less notes.txt</code></td><td>Browse text; press q to leave</td></tr></tbody></table></div><div><div class=\"code-label\">Output of head for the included sample table</div><pre class=\"\"><code>sample_id,reads\nsample_A,1000\nsample_B,1500\nsample_C,1200</code></pre></div></div><p class=\"callout\">Preview a few rows before running the analysis. Avoid printing a huge file with <code>cat</code>.</p>",
+    "body": "<div class=\"cols wide-left\"><div><table class=\"\"><thead><tr><th>Command</th><th>Use</th></tr></thead><tbody><tr><td><code>cat notes.txt</code></td><td>Print the entire small file</td></tr><tr><td><code>head -n 5 data/samples.csv</code></td><td>Print up to 5 lines from the start</td></tr><tr><td><code>less notes.txt</code></td><td>Browse text; press q to leave</td></tr></tbody></table></div><div><div class=\"code-label\">Output of head for the included sample table</div><pre class=\"\"><code>sample_id,reads\nsample_A,1000\nsample_B,1500\nsample_C,1200</code></pre></div></div><p class=\"callout\">Preview a few rows before running the analysis. Avoid printing a huge file with <code>cat</code>.</p>",
     "notes": "Sometimes we just need a quick look at a file. cat prints the whole text file in the terminal, which works well for a short note or a small configuration file. For something large, I\u2019d start with head so the terminal doesn\u2019t fill up with thousands of lines.\n\nWe\u2019ve already seen how to read head -n 5. Here is its output for samples.csv: the file has only four lines, so it shows all four. The first gives us the column names, and the other three contain our sample names and example values. The commas separate the fields.\n\nFor a longer text file, less gives us a viewer we can scroll through. Press q when we\u2019re done, and we\u2019re back at the shell prompt. These tools read ordinary text. Images, saved R objects, and other binary files need a suitable viewer. We can also open small text files directly in VS Code.\n\nOnce we can read a file, the next useful step is finding a particular file or a line inside it.",
     "sources": [
       "shell",
       "cli"
     ],
     "section": "Shell essentials",
-    "cls": "compact",
-    "index": 16,
+    "cls": "compact readable-text-preview",
+    "index": 19,
     "h": 3,
-    "v": 5,
-    "anchor": "3/5",
-    "position": "3.6"
+    "v": 8,
+    "anchor": "3/8",
+    "position": "3.9"
   },
   {
     "title": "Find a file, then find text inside it",
@@ -283,11 +331,11 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 17,
+    "index": 20,
     "h": 3,
-    "v": 6,
-    "anchor": "3/6",
-    "position": "3.7"
+    "v": 9,
+    "anchor": "3/9",
+    "position": "3.10"
   },
   {
     "title": "Count lines and check disk usage",
@@ -298,12 +346,12 @@
       "storage"
     ],
     "section": "Shell essentials",
-    "cls": "compact",
-    "index": 18,
+    "cls": "compact readable-count",
+    "index": 21,
     "h": 3,
-    "v": 7,
-    "anchor": "3/7",
-    "position": "3.8"
+    "v": 10,
+    "anchor": "3/10",
+    "position": "3.11"
   },
   {
     "title": "Help and everyday terminal shortcuts",
@@ -315,11 +363,11 @@
     ],
     "section": "Shell essentials",
     "cls": "compact",
-    "index": 19,
+    "index": 22,
     "h": 3,
-    "v": 8,
-    "anchor": "3/8",
-    "position": "3.9"
+    "v": 11,
+    "anchor": "3/11",
+    "position": "3.12"
   },
   {
     "title": "Slurm runs work on allocated resources",
@@ -332,7 +380,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "concept-slide",
-    "index": 20,
+    "index": 23,
     "h": 4,
     "v": 0,
     "anchor": "4/0",
@@ -347,7 +395,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "beginner-script",
-    "index": 21,
+    "index": 24,
     "h": 4,
     "v": 1,
     "anchor": "4/1",
@@ -362,7 +410,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "concept-slide resource-slide",
-    "index": 22,
+    "index": 25,
     "h": 4,
     "v": 2,
     "anchor": "4/2",
@@ -377,7 +425,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "readable-slide",
-    "index": 23,
+    "index": 26,
     "h": 4,
     "v": 3,
     "anchor": "4/3",
@@ -393,7 +441,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "readable-slide readable-queue",
-    "index": 24,
+    "index": 27,
     "h": 4,
     "v": 4,
     "anchor": "4/4",
@@ -408,7 +456,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 25,
+    "index": 28,
     "h": 4,
     "v": 5,
     "anchor": "4/5",
@@ -424,7 +472,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 26,
+    "index": 29,
     "h": 4,
     "v": 6,
     "anchor": "4/6",
@@ -440,7 +488,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 27,
+    "index": 30,
     "h": 4,
     "v": 7,
     "anchor": "4/7",
@@ -456,7 +504,7 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 28,
+    "index": 31,
     "h": 4,
     "v": 8,
     "anchor": "4/8",
@@ -471,7 +519,7 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 29,
+    "index": 32,
     "h": 5,
     "v": 0,
     "anchor": "5/0",
@@ -488,7 +536,7 @@
     ],
     "section": "Software and packages",
     "cls": "readable-slide",
-    "index": 30,
+    "index": 33,
     "h": 5,
     "v": 1,
     "anchor": "5/1",
@@ -505,7 +553,7 @@
     ],
     "section": "Software and packages",
     "cls": "readable-slide",
-    "index": 31,
+    "index": 34,
     "h": 5,
     "v": 2,
     "anchor": "5/2",
@@ -521,7 +569,7 @@
     ],
     "section": "Software and packages",
     "cls": "concept-slide",
-    "index": 32,
+    "index": 35,
     "h": 5,
     "v": 3,
     "anchor": "5/3",
@@ -529,15 +577,15 @@
   },
   {
     "title": "Create a Conda environment from a supplied file",
-    "body": "<div class=\"code-label\">Alternative route when the project supplies environment.yml</div><pre class=\"\"><code>module avail miniconda3\nmodule load YOUR_CONDA_MODULE\nconda env create -f environment.yml\nconda run -n analysis python -c &quot;import pandas; print(pandas.__version__)&quot;</code></pre><div class=\"rows\"><div class=\"row\"><strong>environment.yml</strong><span>Records the environment name and requested packages</span></div><div class=\"row\"><strong>-f environment.yml</strong><span>Read the environment specification from this file.</span></div><div class=\"row\"><strong>-n analysis</strong><span>Use the environment named analysis (from name: analysis in the file).</span></div></div><p class=\"small\">Choose this instead of .venv. In a new compute shell, expect a pandas version with no error.</p>",
+    "body": "<div class=\"code-label\">Alternative to .venv; \\ continues the command on the next line</div><pre class=\"\"><code>module avail miniconda3\nmodule load YOUR_CONDA_MODULE\nconda env create -f environment.yml\nconda run -n analysis \\\n  python -c &quot;import pandas; print(pandas.__version__)&quot;</code></pre><div class=\"rows\"><div class=\"row\"><strong>environment.yml</strong><span>Records the environment name and requested packages</span></div><div class=\"row\"><strong>-f environment.yml</strong><span>Read the environment specification from this file.</span></div><div class=\"row\"><strong>-n analysis</strong><span>Use the environment named analysis (from name: analysis in the file).</span></div></div><p class=\"small\">Choose this instead of .venv. In a new compute shell, expect a pandas version with no error.</p>",
     "notes": "You may download a project and find an environment.yml file with it. That file gives Conda the environment name and the packages to install. You'd use this route instead of creating .venv. We don't need to do both for our example.\n\nOur supplied file is in examples, so it needs to be copied into the remote project first. We'd open a new compute shell for this setup. Conda may use space in home, so run quota to check your usage before starting. If home is nearly full, ask your group's technical contact where the environment should go.\n\nmodule avail miniconda3 shows the available Conda modules. Replace YOUR_CONDA_MODULE with the one you're going to load. Then conda env create builds the environment, and -f tells it which file to read. Our file names the environment analysis.\n\nIn the last command, conda run -n analysis means \u201crun this command in the environment named analysis.\u201d The Python part checks that pandas imports and prints its version. We want that to finish without an error before moving on.\n\nAfter the check, exit leaves the setup shell. For the next slide, we're returning to the .venv we already prepared and putting its setup into a batch job.",
     "sources": [
       "conda",
       "software"
     ],
     "section": "Software and packages",
-    "cls": "",
-    "index": 33,
+    "cls": "readable-slide readable-conda",
+    "index": 36,
     "h": 5,
     "v": 4,
     "anchor": "5/4",
@@ -554,7 +602,7 @@
     ],
     "section": "Run and check",
     "cls": "readable-slide readable-batch",
-    "index": 34,
+    "index": 37,
     "h": 6,
     "v": 0,
     "anchor": "6/0",
@@ -570,28 +618,45 @@
     ],
     "section": "Run and check",
     "cls": "readable-slide",
-    "index": 35,
+    "index": 38,
     "h": 6,
     "v": 1,
     "anchor": "6/1",
     "position": "6.2"
   },
   {
-    "title": "Watch job output and search the error log",
-    "body": "<div class=\"cols wide-left\"><div><div class=\"code-label\">After the job starts and the log exists</div><pre class=\"\"><code>tail -n 20 analysis-123457.out\ntail -f analysis-123457.out</code></pre><p class=\"small\"><code>-n 20</code>: last 20 lines \u00b7 <code>-f</code>: follow new output</p><div class=\"code-label\">After Ctrl+C stops the viewer</div><pre class=\"\"><code>grep -in &quot;error&quot; analysis-123457.err</code></pre><p class=\"small\"><code>-i</code>: ignore case \u00b7 <code>-n</code>: show line numbers</p></div><div>\n<div class=\"workflow-figure workflow-log\" role=\"img\" aria-label=\"Illustration of a batch job and its separate log viewer. Job 123457 writes analysis-123457.out. A terminal running tail -f reads that log. Control C stops the tail viewer while the batch job continues running.\">\n  <div class=\"workflow-caption\">Illustration: a job and its log viewer</div>\n  <div class=\"workflow-log-top\">\n    <div class=\"workflow-batch-job\">\n      <strong>Batch job</strong>\n      <code>123457</code>\n      <span class=\"workflow-running-badge\">Continues running</span>\n    </div>\n    <div class=\"workflow-write-link\"><span>writes</span><b class=\"workflow-arrow\" aria-hidden=\"true\">\u2192</b></div>\n    <div class=\"workflow-log-file\"><span>Log file</span><code>analysis-123457.out</code></div>\n  </div>\n  <div class=\"workflow-log-read\"><span><code>tail -f</code> reads this file</span><b aria-hidden=\"true\">\u2193</b></div>\n  <div class=\"workflow-terminal-viewer\">\n    <span class=\"workflow-viewer-label\">Terminal log viewer</span>\n    <code>tail -f analysis-123457.out</code>\n    <div class=\"workflow-viewer-stop\"><strong>Ctrl+C</strong><span>Stops this viewer</span></div>\n  </div>\n  <div class=\"workflow-footnote\">The job and log viewer are separate processes.</div>\n</div></div></div><p class=\"callout\">To cancel the analysis job itself: <code>scancel 123457</code>.</p>",
-    "notes": "Once the log exists, tail lets us check its latest output while the analysis runs. Use the current job's ID in the filename.\n\ntail -n 20 shows the last twenty lines and gives us the prompt back. tail -f stays open and shows new lines as the program writes them. That's useful when we want to follow its progress.\n\nWhile tail -f is running, that terminal is busy watching the file. Ctrl+C stops the viewer, so we can type another command. The submitted job keeps running. If we actually want to cancel the job, we'd use scancel with its job ID.\n\nAfter leaving tail, we can search the error log with grep. Here, -in combines two options: -i ignores letter case and -n adds line numbers. So this finds lines containing \u201cerror\u201d and tells us where they are. We still need to read what the message says. No match doesn't prove success, and a nonempty .err file doesn't always mean failure; some programs put ordinary status messages there.\n\nLet's also open the result and check what the analysis produced.",
+    "title": "Follow job output with tail",
+    "body": "<div class=\"code-label\">After the job starts and its log exists; use your actual job ID</div><pre class=\"\"><code>tail -n 20 analysis-123457.out\ntail -f analysis-123457.out</code></pre><p class=\"small\"><code>-n 20</code>: show the last 20 lines \u00b7 <code>-f</code>: keep following new output</p>\n<div class=\"workflow-figure workflow-log\" role=\"img\" aria-label=\"Illustration of a batch job and its separate log viewer. Job 123457 writes analysis-123457.out. A terminal running tail -f reads that log. Control C stops the tail viewer while the batch job continues running.\">\n  <div class=\"workflow-log-grid\">\n    <div class=\"workflow-batch-job\">\n      <strong>Batch job</strong>\n      <code>123457</code>\n      <span class=\"workflow-running-badge\">Keeps running</span>\n    </div>\n    <div class=\"workflow-write-link\"><span>writes</span><b class=\"workflow-arrow\" aria-hidden=\"true\">\u2192</b></div>\n    <div class=\"workflow-log-file\"><span>Log file</span><code>analysis-123457.out</code></div>\n    <div class=\"workflow-read-link\"><span>read by</span><b class=\"workflow-arrow\" aria-hidden=\"true\">\u2192</b></div>\n    <div class=\"workflow-terminal-viewer\">\n      <span class=\"workflow-viewer-label\">Terminal log viewer</span>\n      <code>tail -f</code>\n      <div class=\"workflow-viewer-stop\"><strong>Ctrl+C</strong><span>Stops viewing</span></div>\n    </div>\n  </div>\n  <div class=\"workflow-footnote\">The job and log viewer are separate processes.</div>\n</div><p class=\"callout\">To cancel the analysis job itself: <code>scancel 123457</code>.</p>",
+    "notes": "Once the log exists, tail lets us check its latest output. Use the current job\u2019s ID in the filename. tail -n 20 shows the last twenty lines and gives us the prompt back. tail -f stays open and shows new lines as the program writes them.\n\nThe diagram shows why watching a job and running a job are separate. The batch job writes the file; tail reads that file from our terminal. While tail -f is running, this terminal is busy watching it. Ctrl+C stops that viewer so we can type another command. It doesn\u2019t cancel the submitted job.\n\nIf we actually want to stop the batch job, we use scancel followed by its ID. We\u2019ll let the analysis continue here. After leaving the viewer, let\u2019s check its error log.",
     "sources": [
       "shell",
       "cli",
       "jobs"
     ],
     "section": "Run and check",
-    "cls": "compact",
-    "index": 36,
+    "cls": "readable-slide readable-log",
+    "index": 39,
     "h": 6,
     "v": 2,
     "anchor": "6/2",
     "position": "6.3"
+  },
+  {
+    "title": "Search the error log with grep",
+    "body": "<div class=\"code-label\">After Ctrl+C stops the tail viewer; use your actual job ID</div><pre class=\"\"><code>grep -in &quot;error&quot; analysis-123457.err</code></pre><div class=\"rows\"><div class=\"row\"><strong><code>-i</code></strong><span>Ignore letter case: error also matches Error.</span></div><div class=\"row\"><strong><code>-n</code></strong><span>Show the matching line number.</span></div></div><div class=\"code-label\">Illustrative error: the matching message is on line 8</div><pre class=\"\"><code>8:FileNotFoundError: data/samples.csv</code></pre><p class=\"callout\">Read the surrounding log. No match does not prove success; .err can also contain progress messages.</p>",
+    "notes": "We\u2019re back at the shell prompt. grep searches inside the error log. Here, -in combines two options: -i ignores letter case, and -n shows the line number. We\u2019re looking for text containing error.\n\nThe example output is an illustration of a failed run, not the expected output of our successful demo. The 8 before the colon means line eight. FileNotFoundError points us toward the path data/samples.csv. We\u2019d open the log and read the surrounding lines before changing anything.\n\nA search is only a way to find relevant text. No match doesn\u2019t prove success, and a nonempty .err file doesn\u2019t always mean failure; some programs put normal progress messages there.\n\nOnce the job finishes, we also need to check the actual result. Let\u2019s open that in VS Code next.",
+    "sources": [
+      "shell",
+      "cli",
+      "jobs"
+    ],
+    "section": "Run and check",
+    "cls": "readable-slide",
+    "index": 40,
+    "h": 6,
+    "v": 3,
+    "anchor": "6/3",
+    "position": "6.4"
   },
   {
     "title": "Open the result in VS Code",
@@ -606,11 +671,11 @@
     ],
     "section": "Run and check",
     "cls": "vscode-visual",
-    "index": 37,
+    "index": 41,
     "h": 6,
-    "v": 3,
-    "anchor": "6/3",
-    "position": "6.4"
+    "v": 4,
+    "anchor": "6/4",
+    "position": "6.5"
   },
   {
     "title": "Run an R script as a Slurm batch job",
@@ -622,11 +687,11 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 38,
+    "index": 42,
     "h": 6,
-    "v": 4,
-    "anchor": "6/4",
-    "position": "6.5"
+    "v": 5,
+    "anchor": "6/5",
+    "position": "6.6"
   },
   {
     "title": "Common errors and the first useful check",
@@ -639,11 +704,11 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 39,
+    "index": 43,
     "h": 6,
-    "v": 5,
-    "anchor": "6/5",
-    "position": "6.6"
+    "v": 6,
+    "anchor": "6/6",
+    "position": "6.7"
   },
   {
     "title": "Documentation and help",
@@ -652,10 +717,10 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 40,
+    "index": 44,
     "h": 6,
-    "v": 6,
-    "anchor": "6/6",
-    "position": "6.7"
+    "v": 7,
+    "anchor": "6/7",
+    "position": "6.8"
   }
 ]

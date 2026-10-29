@@ -36,24 +36,21 @@
 .workflow-email>span{font-size:18px;color:var(--muted);white-space:nowrap}
 .workflow-email>code{font-size:22px}
 
-/* A compact diagram for a roughly 500px-wide column beside log commands. */
-.workflow-log-top{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1.4fr);gap:8px;align-items:stretch}
-.workflow-batch-job{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:13px 8px;background:#edf6f4;border:2px solid var(--teal);border-radius:4px;text-align:center}
-.workflow-batch-job>strong{font-size:23px;line-height:1.2}
-.workflow-batch-job>code{font-size:22px}
-.workflow-running-badge{font-size:17px;line-height:1.2;font-weight:650;color:var(--teal)}
-.workflow-write-link{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
-.workflow-write-link>span{font-size:15px;color:var(--muted)}
-.workflow-log-file{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:9px;min-width:0;padding:13px 9px;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:3px;background:#fff}
-.workflow-log-file>span{font-size:19px;color:var(--muted)}
-.workflow-log-file>code{font-size:20px;color:var(--navy)}
-.workflow-log-read{display:flex;align-items:center;justify-content:flex-end;gap:12px;min-height:42px;padding-right:18px;color:var(--muted)}
-.workflow-log-read>span{font-size:17px}
-.workflow-log-read code{font-size:17px}
-.workflow-log-read>b{font-size:29px;font-weight:500;line-height:1}
-.workflow-terminal-viewer{display:flex;flex-direction:column;gap:9px;padding:15px 18px;background:var(--code);color:#f2f6f8;border-radius:4px}
-.workflow-viewer-label{font-size:17px;color:#b9cddd}
-.workflow-terminal-viewer>code{font-size:20px;color:#fff}
-.workflow-viewer-stop{display:flex;align-items:center;gap:12px;padding-top:8px;border-top:1px solid #4e657b;font-size:19px}
-.workflow-viewer-stop>strong{padding:3px 8px;background:#7e2635;border-radius:3px;color:#fff;font-size:19px}
-.workflow-log>.workflow-footnote{text-align:center;font-size:18px}
+/* Full-width log flow: large labels and one horizontal reading direction. */
+.workflow-log-grid{display:grid;grid-template-columns:minmax(0,1fr) 75px minmax(0,1.4fr) 90px minmax(0,1.5fr);gap:12px;align-items:stretch;min-height:175px}
+.workflow-batch-job{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px 12px;background:#edf6f4;border:2px solid var(--teal);border-radius:4px;text-align:center}
+.workflow-batch-job>strong{font-size:28px;line-height:1.2}
+.workflow-batch-job>code{font-size:28px}
+.workflow-running-badge{font-size:24px;line-height:1.2;font-weight:650;color:var(--teal)}
+.workflow-write-link,.workflow-read-link{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px}
+.workflow-write-link>span,.workflow-read-link>span{font-size:24px;color:var(--muted);white-space:nowrap}
+.workflow-log .workflow-arrow{font-size:38px}
+.workflow-log-file{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;min-width:0;padding:16px 12px;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:3px;background:#fff}
+.workflow-log-file>span{font-size:26px;color:var(--muted)}
+.workflow-log-file>code{font-size:26px;color:var(--navy)}
+.workflow-terminal-viewer{display:flex;flex-direction:column;justify-content:center;gap:12px;min-width:0;padding:16px 18px;background:var(--code);color:#f2f6f8;border-radius:4px}
+.workflow-viewer-label{font-size:26px;color:#b9cddd}
+.workflow-terminal-viewer>code{font-size:28px;color:#fff}
+.workflow-viewer-stop{display:flex;align-items:center;gap:12px;padding-top:12px;border-top:1px solid #4e657b;font-size:24px;white-space:nowrap}
+.workflow-viewer-stop>strong{padding:3px 8px;background:#7e2635;border-radius:3px;color:#fff;font-size:24px}
+.workflow-log>.workflow-footnote{text-align:center;font-size:24px;margin-top:12px}

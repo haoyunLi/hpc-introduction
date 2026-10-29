@@ -49,21 +49,20 @@ def workflow_diagram(name):
 </div>''',
         'log-viewer': '''
 <div class="workflow-figure workflow-log" role="img" aria-label="Illustration of a batch job and its separate log viewer. Job 123457 writes analysis-123457.out. A terminal running tail -f reads that log. Control C stops the tail viewer while the batch job continues running.">
-  <div class="workflow-caption">Illustration: a job and its log viewer</div>
-  <div class="workflow-log-top">
+  <div class="workflow-log-grid">
     <div class="workflow-batch-job">
       <strong>Batch job</strong>
       <code>123457</code>
-      <span class="workflow-running-badge">Continues running</span>
+      <span class="workflow-running-badge">Keeps running</span>
     </div>
     <div class="workflow-write-link"><span>writes</span><b class="workflow-arrow" aria-hidden="true">→</b></div>
     <div class="workflow-log-file"><span>Log file</span><code>analysis-123457.out</code></div>
-  </div>
-  <div class="workflow-log-read"><span><code>tail -f</code> reads this file</span><b aria-hidden="true">↓</b></div>
-  <div class="workflow-terminal-viewer">
-    <span class="workflow-viewer-label">Terminal log viewer</span>
-    <code>tail -f analysis-123457.out</code>
-    <div class="workflow-viewer-stop"><strong>Ctrl+C</strong><span>Stops this viewer</span></div>
+    <div class="workflow-read-link"><span>read by</span><b class="workflow-arrow" aria-hidden="true">→</b></div>
+    <div class="workflow-terminal-viewer">
+      <span class="workflow-viewer-label">Terminal log viewer</span>
+      <code>tail -f</code>
+      <div class="workflow-viewer-stop"><strong>Ctrl+C</strong><span>Stops viewing</span></div>
+    </div>
   </div>
   <div class="workflow-footnote">The job and log viewer are separate processes.</div>
 </div>''',
