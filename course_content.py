@@ -16,7 +16,7 @@ BATCH=[
 
 S('Getting started on the<br>Illinois Campus Cluster',
   '<div class="cover-copy"><p class="cover-sub">A practical workflow for data analysis</p></div>'+img('cluster-photo.png','University of Illinois computing hardware','','cover-photo'),
-  'Today we will go from getting access to the Illinois Campus Cluster to opening the output of a submitted job. The basic routine is to connect, prepare the files, choose the software, request computing resources, and check what the job produced. That routine is useful across many kinds of data analysis.\n\nWe will use small, supplied files so the commands and filenames are easy to follow. They illustrate how to use the cluster; they are not a research pipeline or research results. VS Code will provide the graphical interface for browsing and editing files. The terminal will handle a few commands, and Slurm will arrange where the analysis runs. First, we need to distinguish the laptop, the login node, and the compute nodes.',['computes'],A,'cover')
+  'Today I’ll give a brief introduction to the Illinois Campus Cluster. We’ll cover the basic skills needed to run computationally intensive analyses on HPC.',['computes'],A,'cover')
 
 S('Prepare files on login nodes; run jobs on compute nodes',
   img('icc-overview.png','Official NCSA Campus Cluster usage overview','HPC = high-performance computing. A node is one computer. Login: prepare files. Compute: run scheduled analysis.','overview-image'),

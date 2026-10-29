@@ -2,7 +2,7 @@
   {
     "title": "Getting started on the<br>Illinois Campus Cluster",
     "body": "<div class=\"cover-copy\"><p class=\"cover-sub\">A practical workflow for data analysis</p></div><figure class=\"cover-photo\"><img src=\"assets/cluster-photo.png\" alt=\"University of Illinois computing hardware\"></figure>",
-    "notes": "Today we will go from getting access to the Illinois Campus Cluster to opening the output of a submitted job. The basic routine is to connect, prepare the files, choose the software, request computing resources, and check what the job produced. That routine is useful across many kinds of data analysis.\n\nWe will use small, supplied files so the commands and filenames are easy to follow. They illustrate how to use the cluster; they are not a research pipeline or research results. VS Code will provide the graphical interface for browsing and editing files. The terminal will handle a few commands, and Slurm will arrange where the analysis runs. First, we need to distinguish the laptop, the login node, and the compute nodes.",
+    "notes": "Today I\u2019ll give a brief introduction to the Illinois Campus Cluster. We\u2019ll cover the basic skills needed to run computationally intensive analyses on HPC.",
     "sources": [
       "computes"
     ],
