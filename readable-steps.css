@@ -1,0 +1,20 @@
+/* Give each projected workflow step its own page and full-size command text. */
+.readable-slide .slide-body{gap:20px}
+.readable-slide pre{font-size:28px;line-height:1.45;padding:20px 24px}
+.readable-slide p.small{font-size:24px;line-height:1.4}
+.readable-slide .code-label{font-size:20px;line-height:1.35}
+.readable-slide .row strong,.readable-slide .row span{font-size:28px}
+.readable-slide .row{padding:15px 0}
+.readable-slide .callout{font-size:27px}
+.readable-queue .slide-body{gap:16px}
+.readable-queue pre{padding:17px 24px}
+.readable-queue .workflow-state{min-height:155px;padding:15px 20px;gap:8px}
+.readable-queue .workflow-state strong{font-size:28px}
+.readable-queue .workflow-state>span:not(.workflow-status-label){font-size:24px}
+.readable-queue .workflow-figure code{font-size:25px}
+.readable-queue .workflow-status-label{font-size:23px}
+.readable-queue .workflow-caution{font-size:24px}
+.readable-batch .cols{gap:32px;align-items:start}
+.readable-batch .cols>div{gap:16px}
+.readable-batch .code-label{font-size:20px}
+.readable-batch pre{font-size:28px;line-height:1.45;padding:18px 20px}

@@ -369,21 +369,35 @@
     "position": "4.3"
   },
   {
-    "title": "Submit a job, then check its status",
-    "body": "<div class=\"merge-two\"><div><h2 class=\"merge-heading\">1 \u00b7 Submit the saved hello.sbatch</h2><pre><code>pwd\nls hello.sbatch\nsbatch hello.sbatch</code></pre><p class=\"merge-hint\">Example response: <code>Submitted batch job 123456</code></p></div><div><h2 class=\"merge-heading\">2 \u00b7 Check the queue</h2><pre><code>squeue -u YOUR_NETID</code></pre><p><code>-u</code> selects your user.<br>Run it again for a fresh status snapshot.</p><p class=\"merge-hint\">Use the job ID returned by your submission.</p></div></div>\n<div class=\"workflow-figure workflow-queue\" role=\"img\" aria-label=\"Illustrative progress of job 123456. PD means pending while waiting for resources. R means the job is running. After it leaves the queue, read slurm-123456.out and check the result. Leaving the queue does not prove success.\">\n  <div class=\"workflow-caption\">Illustration: job 123456</div>\n  <div class=\"workflow-queue-grid\">\n    <div class=\"workflow-state workflow-pending\">\n      <code class=\"workflow-state-code\">PD</code>\n      <strong>Pending</strong>\n      <span>Queued; check the reason</span>\n    </div>\n    <b class=\"workflow-arrow\" aria-hidden=\"true\">\u2192</b>\n    <div class=\"workflow-state workflow-running\">\n      <code class=\"workflow-state-code\">R</code>\n      <strong>Running</strong>\n      <span>Using allocated resources</span>\n    </div>\n    <b class=\"workflow-arrow\" aria-hidden=\"true\">\u2192</b>\n    <div class=\"workflow-state workflow-check-output\">\n      <span class=\"workflow-status-label\">No longer listed</span>\n      <strong>Read the output</strong>\n      <code>slurm-123456.out</code>\n    </div>\n  </div>\n  <div class=\"workflow-caution\">Leaving the queue does not prove success.</div>\n</div><div class=\"merge-two merge-hello-end\"><div><h2 class=\"merge-heading\">3 \u00b7 Read the output after the job ends</h2><pre><code>cat slurm-123456.out</code></pre><p class=\"merge-hint\">Expected message: <strong>My first HPC job</strong></p></div><div><h2 class=\"merge-heading\">Optional \u00b7 Cancel an unwanted job</h2><pre><code>scancel 123456</code></pre><p class=\"merge-hint\">Let hello finish here; cancellation stops that job.</p></div></div>",
-    "notes": "We\u2019ve checked the resource settings and saved hello.sbatch. Now we can submit it and follow what happens, all on this page. In the remote demo folder, pwd confirms our location, and ls hello.sbatch checks that the saved file is there. sbatch hello.sbatch sends it to Slurm.\n\nSlurm returns a job ID, shown here as 123456. Use the number you actually receive. Accepted doesn\u2019t mean started or finished: the job may be waiting. squeue -u YOUR_NETID lists your jobs, and -u selects the user. Each run gives a fresh snapshot.\n\nRead the diagram from left to right. PD means pending; check the listed reason. R means running on allocated resources. This tiny job may finish before we check. Once it leaves the queue, read slurm-123456.out with cat. We expect My first HPC job. Leaving the queue alone doesn\u2019t prove success, so investigate missing or unexpected output.\n\nscancel followed by the job ID is for a job we want to stop. We\u2019ll let hello finish here. Ctrl+C in a separate log viewer doesn\u2019t cancel a submitted batch job. This first job just prints a message; it doesn\u2019t run analysis.py yet. Next, we\u2019ll give the analysis job clearer log filenames and optional email notifications.",
+    "title": "Submit the first job: hello.sbatch",
+    "body": "<div class=\"code-label\">In the remote demo folder, after saving the file</div><pre class=\"\"><code>pwd\nls hello.sbatch\nsbatch hello.sbatch</code></pre><div class=\"code-label\">Example response; record the ID returned by your submission</div><pre class=\"\"><code>Submitted batch job 123456</code></pre><p class=\"callout\">This first job prints a message. It does not run analysis.py yet.</p>",
+    "notes": "We\u2019ve checked the resource settings, so now save hello.sbatch in VS Code. In the remote demo folder, pwd confirms our location, and ls hello.sbatch checks that the saved file is there. Then sbatch hello.sbatch sends it to Slurm.\n\nSlurm returns a job ID, shown here as 123456. Keep the number you actually receive. Accepted doesn\u2019t mean started or finished: the job may still be waiting. This first job just prints a message; it doesn\u2019t run analysis.py yet.\n\nThe submission happens in the terminal after saving the file. Pressing Run in the editor doesn\u2019t submit a Slurm job. Next, we\u2019ll use that returned job ID to check the queue and find the output.",
     "sources": [
-      "sbatch",
-      "jobs",
-      "states"
+      "sbatch"
     ],
     "section": "Slurm jobs",
-    "cls": "merge-slide merge-hello",
+    "cls": "readable-slide",
     "index": 23,
     "h": 4,
     "v": 3,
     "anchor": "4/3",
     "position": "4.4"
+  },
+  {
+    "title": "Checking the queue and stopping a job",
+    "body": "<div class=\"code-label\">-u selects your user; run squeue again to refresh</div><pre class=\"\"><code>squeue -u YOUR_NETID</code></pre>\n<div class=\"workflow-figure workflow-queue\" role=\"img\" aria-label=\"Illustrative progress of job 123456. PD means pending while waiting for resources. R means the job is running. After it leaves the queue, read slurm-123456.out and check the result. Leaving the queue does not prove success.\">\n  <div class=\"workflow-caption\">Illustration: job 123456</div>\n  <div class=\"workflow-queue-grid\">\n    <div class=\"workflow-state workflow-pending\">\n      <code class=\"workflow-state-code\">PD</code>\n      <strong>Pending</strong>\n      <span>Queued; check the reason</span>\n    </div>\n    <b class=\"workflow-arrow\" aria-hidden=\"true\">\u2192</b>\n    <div class=\"workflow-state workflow-running\">\n      <code class=\"workflow-state-code\">R</code>\n      <strong>Running</strong>\n      <span>Using allocated resources</span>\n    </div>\n    <b class=\"workflow-arrow\" aria-hidden=\"true\">\u2192</b>\n    <div class=\"workflow-state workflow-check-output\">\n      <span class=\"workflow-status-label\">No longer listed</span>\n      <strong>Read the output</strong>\n      <code>slurm-123456.out</code>\n    </div>\n  </div>\n  <div class=\"workflow-caution\">Leaving the queue does not prove success.</div>\n</div><div class=\"code-label\">Optional: cancel an unwanted job. Let hello finish here.</div><pre class=\"\"><code>scancel 123456</code></pre><p class=\"small\">After hello leaves the queue: <code>cat slurm-123456.out</code> \u2192 <strong>My first HPC job</strong>. Use your job ID.</p>",
+    "notes": "We have a job ID. Now squeue -u YOUR_NETID lists your jobs, and -u selects the user. Each run gives a fresh snapshot.\n\nRead the diagram from left to right. PD means pending; check the listed reason. R means running on allocated resources. This tiny job may finish before we check. Once it leaves the queue, read slurm-123456.out with cat, using your own job ID. We expect My first HPC job. Leaving the queue alone doesn\u2019t prove success, so investigate missing or unexpected output.\n\nscancel followed by the job ID is for a job we want to stop. We\u2019ll let hello finish here. Ctrl+C in a separate log viewer doesn\u2019t cancel a submitted batch job.\n\nWe\u2019ve now submitted and checked a small job. For the analysis job, we\u2019ll use clearer log filenames and optional email notifications.",
+    "sources": [
+      "jobs",
+      "states"
+    ],
+    "section": "Slurm jobs",
+    "cls": "readable-slide readable-queue",
+    "index": 24,
+    "h": 4,
+    "v": 4,
+    "anchor": "4/4",
+    "position": "4.5"
   },
   {
     "title": "Output files and email notifications",
@@ -394,11 +408,11 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 24,
+    "index": 25,
     "h": 4,
-    "v": 4,
-    "anchor": "4/4",
-    "position": "4.5"
+    "v": 5,
+    "anchor": "4/5",
+    "position": "4.6"
   },
   {
     "title": "When the analysis needs a GPU",
@@ -410,11 +424,11 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 25,
+    "index": 26,
     "h": 4,
-    "v": 5,
-    "anchor": "4/5",
-    "position": "4.6"
+    "v": 6,
+    "anchor": "4/6",
+    "position": "4.7"
   },
   {
     "title": "When a particular node is required",
@@ -426,11 +440,11 @@
     ],
     "section": "Slurm jobs",
     "cls": "",
-    "index": 26,
+    "index": 27,
     "h": 4,
-    "v": 6,
-    "anchor": "4/6",
-    "position": "4.7"
+    "v": 7,
+    "anchor": "4/7",
+    "position": "4.8"
   },
   {
     "title": "Open an interactive compute shell with srun",
@@ -442,11 +456,11 @@
     ],
     "section": "Slurm jobs",
     "cls": "compact",
-    "index": 27,
+    "index": 28,
     "h": 4,
-    "v": 7,
-    "anchor": "4/7",
-    "position": "4.8"
+    "v": 8,
+    "anchor": "4/8",
+    "position": "4.9"
   },
   {
     "title": "Make Python available in the compute shell",
@@ -457,28 +471,45 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 28,
+    "index": 29,
     "h": 5,
     "v": 0,
     "anchor": "5/0",
     "position": "5.1"
   },
   {
-    "title": "Create the environment, install pandas, and verify it",
-    "body": "<p class=\"small\">Continue in the same compute shell and remote demo folder.</p><div class=\"merge-two merge-env-columns\"><div><h2 class=\"merge-heading\">1 \u00b7 Create, activate, and install</h2><pre><code>python -m venv .venv\nsource .venv/bin/activate\npython -m pip install pandas\nls -a</code></pre><dl class=\"merge-definitions\"><dt>-m venv</dt><dd>Run Python\u2019s venv tool to create .venv.</dd><dt>source</dt><dd>Select .venv/bin/python in this shell.</dd><dt>-m pip</dt><dd>Run this Python\u2019s package installer.</dd><dt>ls -a</dt><dd>Show hidden names, including .venv.</dd></dl></div><div><h2 class=\"merge-heading\">2 \u00b7 Verify pandas, then record versions</h2><pre><code>python -c \\\n  &quot;import pandas; print(pandas.__version__)&quot;</code></pre><p><code>-c</code> runs the quoted code. Expect a version number with no import error.</p><pre><code>python -m pip freeze &gt; requirements.txt</code></pre><p><code>freeze</code> lists installed package versions.<br><code>&gt;</code> writes them to the file, replacing existing contents.</p></div></div><p class=\"callout\">Wait for pip to finish before checking the import. Keep this compute shell open.</p>",
-    "notes": "We\u2019re still in the same compute shell and remote demo folder, with our Python module loaded. We\u2019ll work down the left column, then move to the right. python -m venv .venv runs Python\u2019s venv tool and creates the project environment. The -m means run this Python module as a program; it\u2019s different from the cluster\u2019s module command.\n\nsource .venv/bin/activate makes this shell use .venv/bin/python. Then python -m pip install pandas runs the installer through that selected Python. Wait for it to finish and for the prompt to return. ls -a shows hidden names, so we can see .venv too. We create this environment on the cluster; we don\u2019t copy a laptop environment over.\n\nNow check that it works. The -c option executes the quoted Python code. The backslash continues this one command onto the next line. import pandas loads the package, the semicolon separates the instructions, and print(pandas.__version__) prints its version. We want a version number with no import error. If it fails, check the loaded Python module, activation, and any installation error before continuing.\n\nFinally, pip freeze lists installed package versions. The greater-than sign writes that list into requirements.txt, replacing the file if it already exists. This records the installation; it doesn\u2019t install anything again.\n\nKeep this compute shell open for a moment. The next diagram shows which files remain after it closes, and why a new shell or job needs activation again.",
+    "title": "Create a Python environment and install pandas",
+    "body": "<div class=\"code-label\">Continue in the same compute shell and remote demo folder</div><pre class=\"\"><code>python -m venv .venv\nsource .venv/bin/activate\npython -m pip install pandas\nls -a</code></pre><div class=\"rows\"><div class=\"row\"><strong>Create .venv</strong><span>-m runs Python\u2019s venv utility; .venv is the new folder.</span></div><div class=\"row\"><strong>Activate</strong><span>source makes this shell use .venv/bin/python.</span></div><div class=\"row\"><strong>Install pandas</strong><span>-m pip runs the package installer for the selected Python.</span></div></div><p class=\"small\"><code>ls -a</code> shows the hidden .venv folder. After pip finishes, check the import on the next slide.</p>",
+    "notes": "We\u2019re still in the same compute shell and remote demo folder, with our Python module loaded. python -m venv .venv runs Python\u2019s venv tool and creates the project environment. The -m means run this Python module as a program; it\u2019s different from the cluster\u2019s module command.\n\nsource .venv/bin/activate makes this shell use .venv/bin/python. Then python -m pip install pandas runs the installer through that selected Python. Wait for it to finish and for the prompt to return.\n\nls -a shows hidden names, so we can see .venv too. We create this environment on the cluster; we don\u2019t copy a laptop environment over. Activation selects it for this shell, but doesn\u2019t activate every other shell or job.\n\nOnce installation finishes, let\u2019s check that this Python can actually load pandas.",
     "sources": [
       "python",
       "python_cli",
       "software"
     ],
     "section": "Software and packages",
-    "cls": "merge-slide merge-environment",
-    "index": 29,
+    "cls": "readable-slide",
+    "index": 30,
     "h": 5,
     "v": 1,
     "anchor": "5/1",
     "position": "5.2"
+  },
+  {
+    "title": "Check that pandas imports and save package versions",
+    "body": "<div class=\"code-label\">-c executes the quoted Python code immediately</div><pre class=\"\"><code>python -c &quot;import pandas; print(pandas.__version__)&quot;</code></pre><div class=\"rows\"><div class=\"row\"><strong>import pandas</strong><span>Check that this Python can load the package.</span></div><div class=\"row\"><strong>Print version</strong><span>print(pandas.__version__) displays the installed version; expect a version number.</span></div></div><div class=\"code-label\">freeze lists versions; &gt; writes the file, replacing existing contents</div><pre class=\"\"><code>python -m pip freeze &gt; requirements.txt</code></pre><p class=\"callout\">Continue when a version prints without an error. Keep this compute shell open.</p>",
+    "notes": "We\u2019re in the same compute shell, with .venv still active. The -c option executes the quoted Python code. import pandas loads the package, the semicolon separates the instructions, and print(pandas.__version__) prints its version.\n\nWe want a version number with no import error. If it fails, check the loaded Python module, activation, and any installation error before continuing. Finishing a download doesn\u2019t by itself prove the package can be used.\n\nThen pip freeze lists installed package versions. The greater-than sign writes that list into requirements.txt, replacing the file if it already exists. This records the installation; it doesn\u2019t install anything again.\n\nKeep this compute shell open for a moment. The next diagram shows which files remain after it closes, and why a new shell or job needs activation again.",
+    "sources": [
+      "python",
+      "python_cli",
+      "software"
+    ],
+    "section": "Software and packages",
+    "cls": "readable-slide",
+    "index": 31,
+    "h": 5,
+    "v": 2,
+    "anchor": "5/2",
+    "position": "5.3"
   },
   {
     "title": "The environment stays; activation is per shell",
@@ -490,11 +521,11 @@
     ],
     "section": "Software and packages",
     "cls": "concept-slide",
-    "index": 30,
+    "index": 32,
     "h": 5,
-    "v": 2,
-    "anchor": "5/2",
-    "position": "5.3"
+    "v": 3,
+    "anchor": "5/3",
+    "position": "5.4"
   },
   {
     "title": "Create a Conda environment from a supplied file",
@@ -506,29 +537,44 @@
     ],
     "section": "Software and packages",
     "cls": "",
-    "index": 31,
+    "index": 33,
     "h": 5,
-    "v": 3,
-    "anchor": "5/3",
-    "position": "5.4"
+    "v": 4,
+    "anchor": "5/4",
+    "position": "5.5"
   },
   {
-    "title": "Prepare and submit the Python analysis job",
-    "body": "<h2 class=\"merge-heading\">1 \u00b7 Edit analysis.sbatch, then save it \u2014 read left column, then right</h2><div class=\"merge-script-columns\"><div><pre><code>#!/bin/bash\n#SBATCH --job-name=analysis\n#SBATCH --account=YOUR_ACCOUNT\n#SBATCH --partition=YOUR_PARTITION\n#SBATCH --nodes=1\n#SBATCH --ntasks=1\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=1G\n#SBATCH --time=00:05:00</code></pre></div><div><pre><code>#SBATCH --output=analysis-%j.out\n#SBATCH --error=analysis-%j.err\n\nset -e\nmodule load python/3.11.11\nsource .venv/bin/activate\npython analysis.py</code></pre><p class=\"merge-hint\"><code>set -e</code> stops on setup failure.<br>Use your account, partition, and available Python module.</p></div></div><div class=\"merge-analysis-submit\"><div><h2 class=\"merge-heading\">2 \u00b7 Submit from the login shell in demo</h2><pre><code>pwd\nls data/samples.csv analysis.py analysis.sbatch\nsbatch analysis.sbatch</code></pre></div><div><h2 class=\"merge-heading\">3 \u00b7 Record the new job ID and check</h2><p class=\"merge-hint\">Example response: <code>Submitted batch job 123457</code></p><pre><code>squeue -u YOUR_NETID</code></pre><p class=\"merge-hint\">Use that ID in <code>analysis-JOBID.out</code><br>and <code>analysis-JOBID.err</code>.</p></div></div>",
-    "notes": "Our software is ready, so we can put it into a batch job. The two upper columns are one complete analysis.sbatch file: read down the left, then down the right. All #SBATCH settings go before the executable commands. Set your approved account and partition, and use the same available Python version as during setup.\n\nThe small example asks for one node, one task, one CPU, one GiB of memory, and five minutes. Slurm fills %j with the new job ID in the output and error filenames. The supplied template also has email settings; use your own address or remove both email lines.\n\nset -e stops the script if a setup command fails. The job loads Python, activates our existing .venv, and runs analysis.py. It reuses the packages we installed; it doesn\u2019t need to install them again. Save analysis.sbatch before submitting.\n\nWe\u2019re back in the login shell in demo. pwd checks the location, and ls checks the input, Python script, and batch file. Then sbatch analysis.sbatch submits the saved request. The example response is Submitted batch job 123457. Keep the number you actually receive: this is a new job, separate from hello.\n\nsqueue -u YOUR_NETID checks your jobs, just as before. Use the new ID in analysis-JOBID.out and analysis-JOBID.err. Those logs may not appear until the job starts. Once a log exists, we can follow its output on the next page.",
+    "title": "Prepare a Python batch job with its environment",
+    "body": "<div class=\"cols \"><div><div class=\"code-label\">1 \u00b7 Beginning of analysis.sbatch</div><pre class=\"\"><code>#!/bin/bash\n#SBATCH --job-name=analysis\n#SBATCH --account=YOUR_ACCOUNT\n#SBATCH --partition=YOUR_PARTITION\n#SBATCH --nodes=1\n#SBATCH --ntasks=1\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=1G\n#SBATCH --time=00:05:00</code></pre></div><div><div class=\"code-label\">2 \u00b7 Continue in the same file, after the left column</div><pre class=\"\"><code>#SBATCH --output=analysis-%j.out\n#SBATCH --error=analysis-%j.err\n\nset -e\nmodule load python/3.11.11\nsource .venv/bin/activate\npython analysis.py</code></pre></div></div><p class=\"callout\">set -e stops on setup failure. Set your account and partition, then save analysis.sbatch.</p>",
+    "notes": "Our software is ready, so we can put it into a batch job. These two columns are one complete analysis.sbatch file: read down the left, then down the right. All #SBATCH settings go before the executable commands.\n\nSet your approved account and partition, and use the same available Python version as during setup. This small example asks for one node, one task, one CPU, one GiB of memory, and five minutes. Slurm fills %j with the new job ID in the output and error filenames. The supplied template also has email settings; use your own address or remove both email lines.\n\nset -e stops the script if a setup command fails. The job loads Python, activates our existing .venv, and runs analysis.py. It reuses the packages we installed; it doesn\u2019t need to install them again.\n\nSave analysis.sbatch in VS Code. Then we\u2019ll switch to the login terminal and submit that saved file.",
     "sources": [
       "software",
       "sbatch",
-      "python",
-      "jobs"
+      "python"
     ],
     "section": "Run and check",
-    "cls": "merge-slide merge-analysis",
-    "index": 32,
+    "cls": "readable-slide readable-batch",
+    "index": 34,
     "h": 6,
     "v": 0,
     "anchor": "6/0",
     "position": "6.1"
+  },
+  {
+    "title": "Submit the analysis job",
+    "body": "<div class=\"code-label\">In the login shell, from the demo folder</div><pre class=\"\"><code>pwd\nls data/samples.csv analysis.py analysis.sbatch\nsbatch analysis.sbatch</code></pre><div class=\"code-label\">Illustrative analysis job ID; hello used 123456</div><pre class=\"\"><code>Submitted batch job 123457</code></pre><div class=\"code-label\">Check whether this new job is pending or running</div><pre class=\"\"><code>squeue -u YOUR_NETID</code></pre><p class=\"callout\">Use the returned ID in analysis-JOBID.out and analysis-JOBID.err.</p>",
+    "notes": "We\u2019re back in the login shell in demo, and analysis.sbatch is saved. pwd checks our location. The ls command checks that the input, Python script, and batch file are there. Then sbatch analysis.sbatch submits the saved request.\n\nThe example response is Submitted batch job 123457. Keep the number you actually receive: this is a new job, separate from hello.\n\nsqueue -u YOUR_NETID checks your jobs, just as before. Use the new ID in analysis-JOBID.out and analysis-JOBID.err. Those logs may not appear until the job starts.\n\nOnce a log exists, we can follow its output on the next page.",
+    "sources": [
+      "sbatch",
+      "jobs"
+    ],
+    "section": "Run and check",
+    "cls": "readable-slide",
+    "index": 35,
+    "h": 6,
+    "v": 1,
+    "anchor": "6/1",
+    "position": "6.2"
   },
   {
     "title": "Watch job output and search the error log",
@@ -541,11 +587,11 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 33,
+    "index": 36,
     "h": 6,
-    "v": 1,
-    "anchor": "6/1",
-    "position": "6.2"
+    "v": 2,
+    "anchor": "6/2",
+    "position": "6.3"
   },
   {
     "title": "Open the result in VS Code",
@@ -560,11 +606,11 @@
     ],
     "section": "Run and check",
     "cls": "vscode-visual",
-    "index": 34,
+    "index": 37,
     "h": 6,
-    "v": 2,
-    "anchor": "6/2",
-    "position": "6.3"
+    "v": 3,
+    "anchor": "6/3",
+    "position": "6.4"
   },
   {
     "title": "Run an R script as a Slurm batch job",
@@ -576,11 +622,11 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 35,
+    "index": 38,
     "h": 6,
-    "v": 3,
-    "anchor": "6/3",
-    "position": "6.4"
+    "v": 4,
+    "anchor": "6/4",
+    "position": "6.5"
   },
   {
     "title": "Common errors and the first useful check",
@@ -593,11 +639,11 @@
     ],
     "section": "Run and check",
     "cls": "compact",
-    "index": 36,
+    "index": 39,
     "h": 6,
-    "v": 4,
-    "anchor": "6/4",
-    "position": "6.5"
+    "v": 5,
+    "anchor": "6/5",
+    "position": "6.6"
   },
   {
     "title": "Documentation and help",
@@ -606,10 +652,10 @@
     "sources": [],
     "section": "Run and check",
     "cls": "",
-    "index": 37,
+    "index": 40,
     "h": 6,
-    "v": 5,
-    "anchor": "6/5",
-    "position": "6.6"
+    "v": 6,
+    "anchor": "6/6",
+    "position": "6.7"
   }
 ]
