@@ -2,7 +2,7 @@
   {
     "title": "Getting started on the<br>Illinois Campus Cluster",
     "body": "<div class=\"cover-copy\"><p class=\"cover-sub\">A practical workflow for data analysis</p></div><figure class=\"cover-photo\"><img src=\"assets/cluster-photo.png\" alt=\"University of Illinois computing hardware\"></figure>",
-    "notes": "Today I\u2019ll give a brief introduction to the Illinois Campus Cluster. We\u2019ll cover the basic skills needed to run computationally intensive analyses on HPC.",
+    "notes": "Hi everyone, I\u2019m from Kun Wang\u2019s lab. We mainly do computational work, so for us, HPC is a bit like the lab bench in a wet lab\u2014it\u2019s where we run our analyses. Today, I\u2019ll give you a brief introduction to the Illinois Campus Cluster and walk through the basic skills you need to run computationally intensive analyses on it.",
     "sources": [
       "computes"
     ],
