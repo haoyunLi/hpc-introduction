@@ -20,6 +20,7 @@ Open `index.html` in a desktop browser. The presentation, official diagrams and 
 - Space: follow all slides in reading order
 - C / Contents: choose any topic or slide
 - N / Notes: show the current English lecturer notes
+- S: open the separate presenter window with the current slide, upcoming slide, and notes
 - F / Full screen: full screen
 - L / Laser: toggle a red laser pointer that follows the mouse, including in full screen
 - Esc: view the topic stacks
@@ -30,7 +31,9 @@ The six topics are Access, Files in VS Code, Shell essentials, Slurm jobs, Softw
 
 Use `lecturer-notes.html` for the full English speaking script. Each slide has connected spoken paragraphs, plain-language definitions, and a transition to the next step. `SOURCE_REVIEW.md` records coverage of the two supplied websites and identifies topics that need more teaching time. `SOURCES.md` contains references and image credits.
 
-The separate Reveal.js presenter window works best through a local server. From this folder:
+For two displays, open the online presentation and press **S** to open the presenter window (allow popups if prompted). Put the main presentation on the audience display and use **F** there for full screen. Keep the presenter window on your own display. Click **Laser (L)** in the presenter window or press **L**, then move the mouse over its **current slide** preview: the audience sees the red dot at the matching position. Leaving that preview, turning Laser off, or changing slides clears the dot. The upcoming preview does not control the laser. **N / Notes** shows notes in the main window; use **S** when the audience should not see your notes.
+
+Presenter laser synchronization works between these two connected windows in the same browser. For offline use, serve the folder locally instead of opening it with `file://`:
 
 ```bash
 python3 -m http.server 8765 --bind 127.0.0.1
