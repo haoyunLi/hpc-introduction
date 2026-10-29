@@ -131,6 +131,14 @@ The follow-up audit checked the complete rendered deck for crowded content and s
 
 The six workflow pages from the initial pass retain their 28 px command text. The full-width log diagram now uses 24–28 px labels and separates stopping the viewer from stopping the submitted job. Text previews received more width, line-count commands were enlarged, the interactive batch-script text and resource/output labels were enlarged, and the long Conda verification command was wrapped using the already explained line continuation. These pages did not need further splits. The storage and troubleshooting tables, concept diagrams, early VS Code screenshots, Extensions icon close-up, and reference page remain together where their existing grouping is useful and readable.
 
+## Speaking-script alignment with 45 slides — 29 October 2026
+
+The English narration was reviewed page by page after the readability splits, using the research-talk-slides principles of one purpose per page, plain explanations, and connected transitions. The accepted cover introduction stays unchanged. Every subsequent page has its own spoken paragraphs tied to the content actually visible there, with no presenter stage directions or audience exercises.
+
+The separated shell pages now move from project navigation to file names, details, creating/copying, moving/removing, and inspection. The later pages distinguish preparing the batch script, submitting it, following output, searching an error log, and opening the result. The software sequence explicitly follows the compute shell through installation, verification, activation, and exit; Conda remains an alternative setup in its own allocation before returning to the existing .venv workflow. GPU, named-node, and R examples are introduced as optional routes rather than extra required steps.
+
+All 45 note entries are matched to their slide titles and positions in the generated deck, Notes panel, separate presenter window, and lecturer guide. Command options, placeholders, illustrative outputs, and success checks are retained. Slide titles, visible bodies, diagrams, page order, and the slide-only PDF are unchanged by this narration review.
+
 ## Navigation implementation
 
 The deck follows [Reveal.js vertical slides](https://revealjs.com/vertical-slides/): seven top-level `<section>` stacks: a single-slide Introduction followed by six numbered topics. The title page is separate from Access, which starts at 01 and contains slides 2–4. `navigationMode: "default"` preserves left/right topic changes, up/down within-topic movement, and Space through the full sequence. The Course map slide has been removed; the Contents control still provides direct navigation. The PDF flattens that same reading order. No course duration, cumulative timing, or timing table appears in the presentation.
