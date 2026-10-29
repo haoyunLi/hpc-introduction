@@ -5,7 +5,7 @@ An English beginner lecture covering account access, remote file management, eve
 ## Presentation and downloads
 
 - **[Open the online presentation](https://haoyunli.github.io/hpc-introduction/)**
-- [Read the lecturer guide](https://haoyunli.github.io/hpc-introduction/lecturer-notes.html)
+- [Read the English speaking script](https://haoyunli.github.io/hpc-introduction/lecturer-notes.html)
 - [Download the PDF](https://github.com/haoyunLi/hpc-introduction/releases/latest/download/HPC_Introduction.pdf)
 - [Download the complete offline package](https://github.com/haoyunLi/hpc-introduction/releases/latest/download/HPC_Introduction_Offline.zip)
 
@@ -28,7 +28,7 @@ Open `index.html` in a desktop browser. The presentation, official diagrams and 
 
 The six topics are Access, Files in VS Code, Shell essentials, Slurm jobs, Software and packages, and Run and check. Use Contents to navigate directly; there is no course-map slide. The PDF follows the same order, flattening each vertical topic into consecutive pages. The ten line explanations for `hello.sbatch` are printed in the PDF as well as available interactively in the browser.
 
-Use `lecturer-notes.html` for the complete guide. `SOURCE_REVIEW.md` records coverage of the two supplied websites and identifies topics that need more teaching time. `SOURCES.md` contains references and image credits.
+Use `lecturer-notes.html` for the full English speaking script. Each slide has connected spoken paragraphs, plain-language definitions, and a transition to the next step. `SOURCE_REVIEW.md` records coverage of the two supplied websites and identifies topics that need more teaching time. `SOURCES.md` contains references and image credits.
 
 The separate Reveal.js presenter window works best through a local server. From this folder:
 
@@ -48,7 +48,7 @@ The shell material includes navigation, hidden files and listing options, folder
 
 Use `demo/` for the continuous Python walkthrough. It starts with the input and saved scripts, without an environment or generated result. `examples/` contains the fuller set of templates, including R, Conda, and GPU alternatives. The Conda alternative follows the completed Python setup and uses its own allocated setup session. The R job example appears after opening outputs in VS Code and uses base R without additional package installation. Copy the relevant alternative files into their intended remote project; neither route is an extra step for the Python walkthrough.
 
-The beginner review makes local versus remote actions, command prompts, placeholders, option meanings, and expected results explicit. It also distinguishes commands to run in sequence from optional reference commands such as cancellation or leaving a shell.
+The language review rewrites all 42 notes as spoken English and makes actions and success checks explicit: which host or folder to use, what to replace, what command output to expect, and what to do after an error. The storage table states limits and actions; the disk-usage slide distinguishes `du` from `quota`. The beginner review makes local versus remote actions, command prompts, placeholders, option meanings, and expected results explicit. It also distinguishes commands to run in sequence from optional reference commands such as cancellation or leaving a shell.
 
 Four simple diagrams explain local versus remote work (slide 7), login versus compute nodes with shared project storage (slide 22), nodes, tasks, and CPUs per task (slide 24), and installation versus activation (slide 34). They use the same `demo/` project and retain all official diagrams and screenshots. The installation diagram shows persistent package files separately from the environment selected by each shell or job.
 

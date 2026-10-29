@@ -81,6 +81,12 @@ The review preserves all original figures, the basic-command coverage, six horiz
 
 The 42-slide version includes four simple teaching diagrams. Slide 7 separates the local VS Code window from remote project files and terminal processes. Slide 22 shows submission on the login node, Slurm allocation, execution on a compute node, and one shared demo folder. Slide 24 uses one node containing two tasks with two CPUs each to explain the resource hierarchy and the total of four requested CPUs; it explicitly keeps hello.sbatch at its original 1/1/1 settings. Slide 34 separates installation into persistent .venv files from activation in the current shell or a later batch job. The official ICC overview and Microsoft architecture figure remain in the deck; the simpler diagrams focus on these distinctions without replacing their source material.
 
+## Speaker-script and wording review — 28 October 2026
+
+Applied the research-talk-slides principles of one purpose per page, plain wording, and explicit transitions to this instructional course. All 42 notes are now spoken English paragraphs rather than directions to a presenter. Titles, order, diagrams, examples, and existing commands are preserved.
+
+The review checks each instruction for a location, action, and observable outcome. Changes include naming the connected host in VS Code, using the job ID returned by the actual submission, stating that Slurm substitutes `%j`, identifying an error-free package-version output as the import check, and giving concrete first actions for common errors. The verified `quota` command now appears beside `du` so storage usage is not confused with the storage allowance. Conda remains an optional alternative; no extra exercises or advanced workflow pages were added.
+
 ## Topics that need more teaching time
 
 These estimates are for the presenter, not labels on the slides.
