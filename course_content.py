@@ -18,14 +18,14 @@ S('Getting started on the<br>Illinois Campus Cluster',
   '<div class="cover-copy"><p class="cover-sub">A practical workflow for data analysis</p></div>'+img('cluster-photo.png','University of Illinois computing hardware','','cover-photo'),
   '''We will follow a project from requesting access to reading a completed job’s output. The same HPC routine supports bulk, single-cell, and spatial analysis: prepare files, make the software available, request resources, run the script, and check its results. This lecture explains that routine from the beginning. The small files and job outputs shown here are teaching examples, not research results.''',['computes'],A,'cover')
 
-S('Your laptop, the login node, and the compute node',
+S('Prepare files on login nodes; run jobs on compute nodes',
   img('icc-overview.png','Official NCSA Campus Cluster usage overview','HPC = high-performance computing. A node is one computer. Login: prepare files. Compute: run scheduled analysis.','overview-image'),
   'HPC means high-performance computing. Follow the official figure from the researcher’s laptop to the head node, also called a login node. The job arrow leads to the compute nodes. Shared storage lets both stages reach the project files. A node is one computer.\n\nWalkthrough: point to the laptop, login/head node, job arrow, compute nodes, and storage in that order. The detailed labels are references; focus the explanation on connect, submit, and read the result. Opening VS Code does not itself allocate a compute node. Use the login connection for file work and short lightweight checks, and scheduled resources for substantial analysis.',
   ['start','jobs'],
   A,
   'image-slide')
 
-S('Account access and the details you need',
+S('Request access and confirm your allocation details',
   cols(rows([('Existing lab access','Ask the PI or technical contact which investor group to join.'),('A new computing need','Start an Illinois Computes request.')]),table(['Keep this detail','Used for'],[['NetID','Your login identity'],['Slurm account','The group’s compute allocation'],['Partition','A queue you may submit to'],['Project path','An approved writable folder']]))+'<div class="link-row"><a href="https://campuscluster.illinois.edu/new_forms/user_form.php" target="_blank">Research access request ↗</a><a href="https://computes.illinois.edu/submitrequest/" target="_blank">Illinois Computes request ↗</a></div>'+p('Wait for approval and confirm these details and Duo access before connecting.','small'),
   '''Begin with the group’s PI or technical contact. A member of an existing investor group follows that access route. A new need can start with Illinois Computes. A form begins the request; login requires completed approval and provisioning. Prepare a brief description of the software and data size.
 
@@ -39,13 +39,13 @@ The first connection may ask whether the host is authentic. Verify the host fing
 
 The welcome message and a prompt on cc-login indicate a remote shell. Commands typed there now execute on the cluster. The screenshot’s quota values and dates are historical examples. The next step uses VS Code, which opens its own SSH session; it does not require keeping this initial terminal test open. At the remote prompt, exit closes this test connection without deleting files.''',['access'],A,'compact')
 
-S('The local editor and the remote project',
+S('Use local VS Code to edit files on the cluster',
   img('vscode-architecture.png','Microsoft Remote - SSH architecture showing the local editor and remote files','Original Microsoft figure. Focus on the local editor, SSH connection, and remote project.','wide-image')+rows([('On your laptop','The VS Code window and its controls'),('On the cluster','The project files and remote terminal processes')])+note('Remote editing gives you a familiar interface to the files on the cluster.'),
   """Use Microsoft’s diagram to explain where things live. The editor window is local. The SSH connection reaches the remote environment and project files. The diagram includes extension and debugging details, but they are not needed for the first workflow.
 
 Walkthrough: point to the local VS Code box, the connection, and the source-code box on the right. Explain that a save writes to the remote file. Resource allocation is a separate step handled by Slurm; the diagram does not mean every program started from the editor already has a compute allocation.""",['vscode'],F)
 
-S('Local and remote: where things happen',
+S('Files stay on the cluster; terminal commands run there',
   concept_diagram('local-remote')+note('In the SSH window, you work with files and a terminal on the cluster.'),
   '''Read the diagram from left to right. The VS Code application and the visible window are on the laptop. Remote - SSH connects that window to a remote project and remote terminal. The file named analysis.py is shown in the editor, but saving writes to demo/analysis.py on the cluster. This figure shows the state after the small project has been uploaded; the next slides explain how to connect and upload it.
 
@@ -53,7 +53,7 @@ Point to the remote terminal on the right. Although its text appears in the lapt
 
 This distinction explains the practical benefit: edit and save the remote file directly, then use the remote terminal when a command is needed. Next install the local editor and its connection extension.''',['vscode','prog'],F,'concept-slide'),
 
-S('Prepare VS Code on your laptop',
+S('Install VS Code and the Remote - SSH extension',
   rows([('Install VS Code','Download the desktop application for your operating system.'),('Open Extensions','Click the Extensions icon in VS Code’s left sidebar.'),('Search','Enter Remote - SSH; choose the extension published by Microsoft.'),('Install','Click Install and wait until it finishes.')])+'<div class="link-row"><a href="https://code.visualstudio.com/docs/setup/setup-overview" target="_blank">Official VS Code setup ↗</a></div>'+note('This installs the editor and connection tool on your laptop.'),
   '''VS Code is the local graphical application used throughout the lecture. Install and launch it before trying to connect. In Extensions, identify Microsoft as the publisher of Remote - SSH and click Install. These are local setup actions, performed once. Installing this extension does not install Python or analysis packages on the cluster.
 
@@ -68,7 +68,7 @@ Walkthrough: show the extension name and publisher, the Command Palette, the hos
   F,
   'compact')
 
-S('Choose where the project will live',
+S('Choose home, project, or scratch storage',
   table(['Location','Use it for','Remember'],[['/u/YOUR_NETID','Settings and small personal files','Home has a quota.'],['/projects/YOUR_GROUP','Group data, software, and retained outputs','Use your assigned writable location.'],['/scratch/YOUR_NETID','Temporary working data','Files can be purged.']])+note('For this example: <code>/projects/YOUR_GROUP/demo</code>'),
   '''Before uploading, identify the authorized writable location supplied by the group. Throughout the worked example, /projects/YOUR_GROUP/demo stands for that project folder. It is a placeholder, not a directory that every user can access. Replace the group path with the actual approved path.
 
@@ -92,7 +92,7 @@ S('Open a terminal in the same project',
 
 The prompt often shows the user, machine, and folder; its exact form varies. When a transcript includes a dollar sign before a command, do not type that sign. The shell is on a login node at this stage. Small file inspections are appropriate here; the analysis itself will be submitted to compute resources. Next learn how to read a command before adding options.''',['shell'],C)
 
-S('Reading a command instead of memorizing it',
+S('Read the program, options, and path in a command',
   '<div class="hero-code"><span class="accent">head</span> <span class="teal">-n 5</span> <span class="gold">data/samples.csv</span></div>'+rows([('Program','head displays the beginning of a text file.'),('Option + value','-n 5 asks for the first five lines.'),('File path','data/samples.csv names the input.')])+note('Quotes keep a path together: <code>head -n 5 "data/samples.csv"</code>. They are required for paths containing spaces.'),
   '''Read the line left to right: run head, request five lines, and use this file. A shorter file produces fewer than five lines. The first word names the program; subsequent words are arguments. Options alter the program’s behavior. Not every option takes a separate value, and the same letter can mean something different in another program.
 
@@ -152,13 +152,13 @@ Point to the two vertical connections and the single shared demo folder. Both no
 
 Submitting a batch job leaves the current terminal on the login node. The batch job can continue after the laptop disconnects. An interactive job, introduced later with srun, instead starts a shell on an allocated compute node. It does not automatically move all VS Code execution features to that node. Both routes need allocated resources. Next inspect the tiny hello.sbatch file before submitting it.''',['jobs','sbatch','srun'],J,'concept-slide'),
 
-S('A small batch script: hello.sbatch',
+S('Read a Slurm batch script line by line',
   annotated(BATCH)+p('Edit these lines inside hello.sbatch in VS Code, then save. Submit it from the terminal after reviewing the resource settings.','small'),
   '''Open hello.sbatch in the remote editor. Lines beginning with #SBATCH are requests to Slurm. They must appear before the executable commands. The echo command prints one message. The first line, #!/bin/bash, selects Bash to interpret the file. Bash is the shell program. #SBATCH is a special marker read by Slurm, while ordinary lines beginning with # are comments to Bash. The .sbatch name is a useful convention; this is still a plain text file. Do not paste the file contents into a live terminal. Click each line to see its meaning.
 
 Use this tiny job to establish the mechanism before adding analysis software. Slurm reads the directives only when submitted through sbatch. Running bash hello.sbatch would execute echo on the current machine and ignore the resource requests as comments. The five-minute setting is the job’s maximum runtime, not a lecture timing label.''',['sbatch'],J,'beginner-script')
 
-S('Nodes, tasks, CPUs, memory, and time',
+S('Set nodes, tasks, CPUs, memory, and time for a job',
   p('Example resource request: count the node, the tasks, then the CPUs.','small')+concept_diagram('resource-hierarchy')+p('Reserving resources does not launch the tasks or make the program parallel.','small')+'<div class="resource-demo"><strong>Keep hello.sbatch at: 1 node · 1 task · 1 CPU/task</strong><div><code>--mem=1G</code><span>1 GiB of RAM per node</span><code>--time=00:05:00</code><span>Runtime limit: hours:minutes:seconds</span></div></div>',
   '''Use the diagram as a counting example, not a replacement for the preceding hello.sbatch file. First trace the outer border: one node is one computer, so --nodes=1. Then count the two task boxes: --ntasks=2 requests resources for two tasks across the whole job. A task is a program process in this example, not a sample, a file, or a line in the script. Finally count the two CPU blocks inside each task: --cpus-per-task=2 reserves two CPUs for each process.
 
@@ -194,7 +194,7 @@ S('When a particular node is required',
 
 A specific machine can be useful for a particular hardware requirement or a controlled comparison. It also reduces scheduling flexibility and can increase waiting. A GPU type or sufficient memory is often the underlying requirement, so ask whether that resource request is enough before pinning a node.''',['sbatch','jobs'],J)
 
-S('Get a compute shell for software setup',
+S('Open an interactive compute shell with srun',
   code('srun --account=YOUR_ACCOUNT --partition=YOUR_PARTITION \\\n  --nodes=1 --ntasks=1 --cpus-per-task=2 \\\n  --mem=4G --time=00:15:00 --pty bash','From the login shell in demo: paste this whole block as one command')+rows([('srun','Start a program on allocated compute resources.'),('--pty bash','Open an interactive terminal running the Bash shell.'),('After it starts','Run hostname and pwd. Keep this shell open for Python setup.')])+p('A trailing <code>\\</code> continues a command onto the next line; nothing follows it on that line.','small'),
   '''Use the valid account and partition saved during access setup. The resource options have the same meanings as those in the batch file. This setup request uses two CPUs, four GiB, and fifteen minutes as a small example. It is separate from the later one-CPU batch job. Adjust the request for the real installation’s needs.
 
@@ -208,13 +208,13 @@ S('Make Python available in the compute shell',
 
 Open analysis.py in VS Code and point to import pandas: that is the package this project needs. Loading Python alone does not install it. Next create an environment inside the remote demo folder. This cluster module command is different from Python’s -m option on the next slide.''',['software'],P)
 
-S('Create .venv and install pandas',
+S('Create a Python environment and install pandas',
   code('python -m venv .venv\nsource .venv/bin/activate\npython -m pip install pandas\nls -a','Continue in the same compute shell and remote demo folder')+rows([('Create .venv','-m runs Python’s venv utility; .venv is the new folder.'),('Activate','source applies the activation script to this current shell.'),('Install pandas','-m pip runs pip with this Python; install names the action.')])+p('Wait for pip to finish and the prompt to return. Then check the import on the next slide.','small'),
   '''Run these commands in order. Python’s -m runs a Python module as a command; it is unrelated to the cluster module command. venv creates a project environment, and the final .venv argument names its destination directory. source applies the activation script in the current shell so subsequent python commands use that environment. pip is Python’s package installer; install is its action, and pandas is the package to install.
 
 The prompt may acquire a (.venv) prefix, but the import check is more useful than relying on the prompt’s appearance. Wait for the installer to finish before proceeding; a download in progress is not completion. ls -a now reveals .venv. The files live in the remote shared project folder. Activation affects only this shell, so a new terminal or job must activate again. Do not upload a laptop virtual environment. Next verify the installed package before leaving this allocation.''',['python','python_cli','software'],P,'compact')
 
-S('Verify pandas and record its version',
+S('Check that pandas imports and save package versions',
   code('python -c "import pandas; print(pandas.__version__)"','-c executes the quoted Python code immediately')+rows([('import pandas','Check that this Python can load the package.'),('Print version','print(pandas.__version__) displays the installed version; expect a version number.')])+code('python -m pip freeze > requirements.txt','freeze lists installed package versions; > writes them into this file')+note('Continue only after the import succeeds. Keep this shell open for the next slide.'),
   '''The environment remains active from the preceding slide; do not open a new terminal between setup and this check. Python -c runs the code inside quotes. The semicolon separates two Python statements: import the package, then print its version. __version__ is the package’s version attribute. The exact version depends on the installation, so no fixed version number is promised.
 
@@ -228,13 +228,13 @@ Now trace the lower two examples. source .venv/bin/activate adjusts the current 
 
 Finally, importing is a third action inside the running program: import pandas loads installed package code so the calculation can use it. For R, library loads a package after its library location is configured. requirements.txt records Python package versions; R sessionInfo() records R session details. These records do not capture every system dependency. When setup is complete, type exit once to leave the interactive compute shell and release its allocation. Run hostname and pwd to confirm the original login host and project folder; if the allocation has already ended, check the host before typing exit. The original login shell does not inherit activation from the ended compute shell. The next slide is an optional Conda route using a separate allocated setup session, not another step for the prepared Python environment.''',['python','radmin'],P,'concept-slide'),
 
-S('Alternative: use a supplied Conda environment',
+S('Create a Conda environment from a supplied file',
   code('module avail miniconda3\nmodule load YOUR_CONDA_MODULE\nconda env create -f environment.yml\nconda run -n analysis python -c "import pandas; print(pandas.__version__)"','Alternative route when the project supplies environment.yml')+rows([('environment.yml','Records the environment name and requested packages'),('-f environment.yml','Read the environment specification from this file.'),('-n analysis','Use the environment named analysis (from name: analysis in the file).')])+p('Use a separate allocated setup session. Expect a pandas version; this replaces the .venv route.','small'),
   '''Use this route when the project already provides a Conda environment file. The teaching environment.yml is in the separate examples directory, not the minimal demo folder. Upload it to the remote project only if using this alternative. Replace the module placeholder with a name available on ICC. The -f option names the input YAML file. Its name: analysis line gives the environment name, which -n selects in conda run. The final Python command checks the import and prints the version; no version means the check has not succeeded. Exit the allocated shell when this alternative setup is complete. conda run avoids requiring an interactive activation setup in the batch shell.
 
 This is an alternative to the venv route, not an instruction to nest both. Follow the project’s supported package channels and versions. Check where Conda stores environments and caches so they fit the quota; project storage may be preferable. The included YAML is a small teaching example, not a pinned environment for a scientific pipeline.''',['conda','software'],P)
 
-S('Prepare analysis.sbatch for the same project',
+S('Prepare a Python batch job with its environment',
   cols(code('#!/bin/bash\n#SBATCH --job-name=analysis\n#SBATCH --account=YOUR_ACCOUNT\n#SBATCH --partition=YOUR_PARTITION\n#SBATCH --nodes=1\n#SBATCH --ntasks=1\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=1G\n#SBATCH --time=00:05:00','1 · Beginning of analysis.sbatch'),code('#SBATCH --output=analysis-%j.out\n#SBATCH --error=analysis-%j.err\n\nset -e\nmodule load python/3.11.11\nsource .venv/bin/activate\npython analysis.py','2 · Continue in the same file, after the left column'))+note('set -e stops this script if setup fails. Replace placeholders and save the file before submitting.'),
   '''Read the two columns as one file: the left column first, followed by the right column. All #SBATCH directives precede executable commands. This is the same one-node, one-task, one-CPU, one-GiB tiny demonstration as the supplied file. Larger research workflows need their own resource estimates. The output and error directives select the two log filenames; Slurm replaces %j with the job ID. These plain filenames put logs in the submission folder. The supplied template also contains optional email directives: --mail-type=END,FAIL requests messages when the job ends or fails, and --mail-user sets the recipient. Replace the address or remove both mail lines.
 
@@ -246,7 +246,7 @@ S('Submit the analysis job',
 
 The scheduler may report PD while waiting and R once it runs. The configured log filenames become analysis-123457.out and analysis-123457.err. They may not exist until the job begins. Wait for the job to start before trying to read them. Next follow the job log, then open the generated output in VS Code.''',['sbatch','jobs'],R)
 
-S('Follow the analysis log',
+S('Watch job output and search the error log',
   code('tail -n 20 analysis-123457.out\ntail -f analysis-123457.out','After the analysis job starts and the log exists')+code('grep -in "error" analysis-123457.err','First press Ctrl+C to stop tail; then search the error log')+rows([('Ctrl+C','Stop tail; the submitted job keeps running.'),('Need to cancel?','scancel 123457 cancels this analysis job.')])+note('tail: -n 20 = last 20 lines, -f = follow new output · grep: -i = ignore case, -n = line numbers'),
   '''Use the analysis job’s ID, not the earlier hello ID. tail -n 20 reads the last twenty lines and returns. tail -f initially reads the last ten lines and then follows new output. Ctrl+C stops this foreground viewer; it does not cancel the submitted batch job. scancel would cancel the specified job.
 
@@ -258,7 +258,7 @@ S('Open the result in VS Code',
 
 Real analyses may also produce plots, reports, tables, and notebooks. Use the appropriate viewer extension and follow VS Code’s local-versus-SSH installation prompt. A viewer does not allocate compute resources; opening a notebook is different from running cells. We have now completed the example. The remaining slides transfer the routine to other projects and cover troubleshooting.''',['vscode','csv','pdf','jupyter','transfer'],R,'compact')
 
-S('For an R project: change the job body',
+S('Run an R script as a Slurm batch job',
   code('module load R\nRscript analysis.R','R commands below the #SBATCH resource settings')+code('sbatch analysis_R.sbatch','After copying and configuring the R templates from examples/')+rows([('Same input','data/samples.csv'),('R output','results/summary_R.csv')])+note('This example uses base R; no additional package installation is needed.'),
   '''The main Python example is complete. For an R project, replace the program and software setup with the R route. The full examples directory contains analysis.R and analysis_R.sbatch; these are not extra steps required by the minimal Python demo. Copy both into the intended remote project, configure the job, and submit from that folder.
 
